@@ -430,7 +430,7 @@
   </component>
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/xStructure.iml" filepath="$PROJECT_DIR$/xStructure.iml" />
+      <module fileurl="file://D:/_syfranco/perso/dev/xstructure/xStructure.iml" filepath="D:/_syfranco/perso/dev/xstructure/xStructure.iml" />
     </modules>
   </component>
   <component name="ProjectRootConfigurable.UI">
@@ -439,7 +439,7 @@
     </option>
   </component>
   <component name="ProjectRootManager" version="2" assert-keyword="true" jdk-15="true" project-jdk-name="IDEA 7.0" project-jdk-type="IDEA JDK">
-    <output url="file://$PROJECT_DIR$/out" />
+    <output url="file://D:/_syfranco/perso/dev/xstructure/out" />
   </component>
   <component name="ResourceManagerContainer">
     <option name="myResourceBundles">
