@@ -1,0 +1,21 @@
+This page identifies all mapping definition files available for xStructure plugin. Those considered as most common are bundled in plugin, other may be downloaded from this page and put inside mapping definition directory.
+
+You may find several mapping definition files for the same XML model : some may be more verbose than others or simply define different mappings. Their priority value are used to determine which mapping should be selected by default. You'll be able to select another file from xStructure toolbar.
+
+You can contribute to this repository by sending me you definition files at *sylfradev:yahoo:fr*
+
+= Bundled definitions =
+|| *Category* || *Model* ||
+|| Maven || Maven POM 4.0 / simple ||
+|| - || Maven POM 4.0 / rich ||
+|| J2EE || Webapp 2.4 ||
+|| - || Portlet app 1.0 ||
+|| Spring || Spring Beans 2.0 ||
+|| Hibernate || Hibernate Mapping 3.0 ||
+
+... and xStructure schema mappings :-)
+
+= Other definitions =
+|| *Category* || *Model* || *Download* ||
+|| JBoss Portal || Portal Objects 2.6 || http://xstructure.googlecode.com/files/mpd_jbossportal_portal_object_2_6.xml ||
+|| - || Portlet Instances 2.6 || http://xstructure.googlecode.com/files/mpd_jbossportal_portlet_instances_2_6.xml ||
