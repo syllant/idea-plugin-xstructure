@@ -1,0 +1,42 @@
+\ depends on xpath
+  \ test without plugin
+\ tooltip
+\ getSchemaUri
+\ configuration IHM
+  \ automatic copy of bundle config
+\ i18n
+\ default skip
+\ xstructure schema
+\ toolbar
+\ action to edit config file (with autoreloading)
+- config files
+  - ant
+  \ pom
+  \ servlet
+  \ spring
+  - struts
+  - xstructure
+\ exception when parsing files
+\ format {}aaa{}
+\ synch files by default
+
+\ build : deliver plugin as zip so default mappings are exploded
+\ test from scratch
+  \ test overwrite mappings
+\ priority
+\ disable "Overwrite existing files" if "Sync..." is unchecked
+\ check directory creation
+\ settings icon ?!
+
+- add mapping description
+- logo
+- configuration 
+  - list existing mappings
+  - import/update mappings from repository
+- sort order by ? in mappings
+- icons in mappings
+- check schema version
+- report mappings def errors
+- intention to create new file
+- match files by path
+- check if implementation is supported
