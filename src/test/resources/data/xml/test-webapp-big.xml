@@ -1,0 +1,5612 @@
+<?xml version="1.0"?>
+<web-app
+  xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+  version="2.4">
+
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/spring/context-application.xml</param-value>
+  </context-param>
+
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
+  <filter>
+    <filter-name>ViewRendererFilter</filter-name>
+    <filter-class>org.springframework.web.servlet.ViewRendererFilter</filter-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+  </filter>
+
+  <servlet>
+    <description>Sample description Sample description Sample description Sample description Sample
+      description
+      Sample description Sample description Sample description
+    </description>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitInitServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.InitServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.JsI18NServlet</servlet-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>org.sylfra.idea.plugins.xstructure.schemas.i18n.JavascriptMessages</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <servlet-class>com.sample.cockpit.web.ChartServlet</servlet-class>
+  </servlet>
+
+  <!-- Should use DWRController, but can't manage to make it work with Spring MVC Portlet -->
+  <servlet>
+    <servlet-name>DWRServlet</servlet-name>
+    <servlet-class>org.directwebremoting.spring.DwrSpringServlet</servlet-class>
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>true</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <url-pattern>/WEB-INF/servlet/view</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>DWRServlet</servlet-name>
+    <url-pattern>/dwr/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitJsI18NServlet</servlet-name>
+    <url-pattern>/jsi18n</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>CockpitChartServlet</servlet-name>
+    <url-pattern>/chart</url-pattern>
+  </servlet-mapping>
+
+  <error-page>
+    <exception-type>java.lang.Exception</exception-type>
+    <location>/WEB-INF/jsp/errors/default.jsp</location>
+  </error-page>
+
+  <jsp-config>
+    <taglib>
+      <taglib-uri>http://www.sample.fr/taglib</taglib-uri>
+      <taglib-location>/WEB-INF/tags/sample.tld</taglib-location>
+    </taglib>
+    <taglib>
+      <taglib-uri>http://www.jboss.org/portal/portal-layout.tld</taglib-uri>
+      <taglib-location>/WEB-INF/tags/portal-layout.tld</taglib-location>
+    </taglib>
+    <taglib>
+      <taglib-uri>http://www.jboss.org/portal/portal-layout.tld</taglib-uri>
+      <taglib-location>/WEB-INF/tags/portal-layout.tld</taglib-location>
+    </taglib>
+
+    <!-- This taglib should not be declared as it's standard !? -->
+    <taglib>
+      <taglib-uri>http://java.sun.com/jstl/core</taglib-uri>
+      <taglib-location>/WEB-INF/tags/c.tld</taglib-location>
+    </taglib>
+  </jsp-config>
+
+</web-app>

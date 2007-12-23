@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployments>
+
+  <deployment>
+    <instance>
+      <instance-id>ActionPlanProjectionCKPI</instance-id>
+      <portlet-ref>ChartKalidgetPortlet</portlet-ref>
+      <preferences>
+        <preference>
+          <name>kalidget_ref</name>
+          <value>ActionPlan.ProjectionChart</value>
+        </preference>
+      </preferences>
+    </instance>
+  </deployment>
+
+</deployments>

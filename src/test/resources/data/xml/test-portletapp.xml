@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portlet-app
+  xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd"
+  version="1.0">
+
+  <custom-portlet-mode>
+    <description>Interactive mode, for widgets which allow interaction</description>
+    <portlet-mode>interactive</portlet-mode>
+  </custom-portlet-mode>
+
+  <custom-window-state>
+    <description>Test description</description>
+    <window-state>xState</window-state>
+  </custom-window-state>
+
+  <portlet>
+    <portlet-name>ChartwidgetPortlet</portlet-name>
+    <portlet-class>com.sample.widget.chart.ChartwidgetPortlet</portlet-class>
+    <resource-bundle>i18n/PortletMessages</resource-bundle>
+    <supports>
+      <mime-type>text/html</mime-type>
+      <portlet-mode>interactive</portlet-mode>
+      <portlet-mode>help</portlet-mode>
+    </supports>
+    <init-param>
+      <description>description1</description>
+      <name>param1</name>
+      <value>value1</value>
+    </init-param>
+    <portlet-preferences>
+      <preference>
+        <name>widget_ref</name>
+      </preference>
+      <preference>
+        <name>widget_maxRowCount_maximized</name>
+      </preference>
+      <preference>
+        <name>widget_targetURL</name>
+      </preference>
+      <preference>
+        <name>widget_customParams</name>
+      </preference>
+    </portlet-preferences>
+    <supported-locale>fr</supported-locale>
+    <portlet-info>
+      <title>Some title</title>
+      <short-title>Some short title</short-title>
+      <keywords>aa bb cc</keywords>
+    </portlet-info>
+  </portlet>
+
+  <portlet>
+    <portlet-name>TablewidgetPortlet</portlet-name>
+    <portlet-class>com.sample.widget.table.TablewidgetPortlet</portlet-class>
+    <resource-bundle>i18n/PortletMessages</resource-bundle>
+    <supports>
+      <mime-type>text/html</mime-type>
+      <portlet-mode>interactive</portlet-mode>
+      <portlet-mode>help</portlet-mode>
+    </supports>
+    <portlet-preferences>
+      <preference>
+        <name>widget_ref</name>
+      </preference>
+      <preference>
+        <name>widget_maxRowCount_normal</name>
+      </preference>
+      <preference>
+        <name>widget_maxRowCount_maximized</name>
+      </preference>
+      <preference>
+        <name>widget_sortField</name>
+      </preference>
+      <preference>
+        <name>widget_sortDir</name>
+      </preference>
+      <preference>
+        <name>widget_targetURL</name>
+      </preference>
+      <preference>
+        <name>widget_customParams</name>
+      </preference>
+    </portlet-preferences>
+    <supported-locale>fr</supported-locale>
+    <portlet-info>
+      <title/>
+      <!-- Dynamically generated -->
+    </portlet-info>
+  </portlet>
+
+</portlet-app>

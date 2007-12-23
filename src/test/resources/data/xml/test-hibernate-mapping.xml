@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.sample.unidal.pojo.mo.Analysis" table="ana_analysis">
+    <id name="id" type="int">
+      <column name="id"/>
+      <generator class="increment"/>
+    </id>
+    <many-to-one name="analysisStatus" class="com.sample.unidal.pojo.mo.AnalysisStatus"
+                 fetch="select" foreign-key="ana_analysis_FK_ref_analysis_status">
+      <column name="ref_analysis_status_id" not-null="true">
+      </column>
+    </many-to-one>
+    <many-to-one name="projectRelease" class="com.sample.unidal.pojo.mo.ProjectRelease"
+                 fetch="select" foreign-key="ana_analysis_FK_cfg_project_release">
+      <column name="cfg_project_release_id" not-null="true">
+      </column>
+    </many-to-one>
+    <property name="analysisNumber" type="int">
+      <column name="analysis_number" not-null="true">
+      </column>
+    </property>
+    <property name="tstampStart" type="timestamp">
+      <column name="tstamp_start" length="0">
+      </column>
+    </property>
+    <property name="tstampEnd" type="timestamp">
+      <column name="tstamp_end" length="0">
+      </column>
+    </property>
+    <property name="label" type="string">
+      <column name="label" length="100">
+      </column>
+    </property>
+    <property name="analysisLog" type="string">
+      <column name="analysis_log" length="16777215">
+      </column>
+    </property>
+    <set name="artefacts" inverse="true">
+      <key>
+        <column name="a"/>
+        <column name="ana_analysis_id" not-null="true">
+        </column>
+      </key>
+      <one-to-many class="com.sample.unidal.pojo.mo.Artefact"/>
+    </set>
+    <set name="duplicationResults" inverse="true">
+      <key>
+        <column name="ana_analysis_id" not-null="true">
+        </column>
+      </key>
+      <one-to-many class="com.sample.unidal.pojo.mo.DuplicationResult"/>
+    </set>
+  </class>
+</hibernate-mapping>

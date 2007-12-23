@@ -1,0 +1,46 @@
+This page identifies all supported and planned features.
+
+= Available features =
+
+   * *Structure view*
+      * Label customization
+      * Tooltip customization 
+      * Skip mode (to hide nodes)
+      * Toolbar settings
+         * Selection of one of supported mapping definition files
+         * Link to edit currently used mapping definition file
+         * Reloading all mapping definition files
+   * *General settings*
+      * Mapping definitions directory
+      * Synchronize default mappings at startup
+         * Overwrite existing files
+   * *Mapping definition file implementations*
+      * All implementations
+         * Priority management
+         * XSD matching support
+         * DTD matching support
+      * Default
+         * Evaluation of multiple expression enclosed by brackets
+      * XPath (experimental)
+   * *Mapping definition file edition*
+      * XSD schema provided for completion and error checking
+      
+
+= Planned features =
+
+   * *Structure view*
+      * Association of icons
+      * Make user selection persistent for next IDEA sessions
+   * *General settings*
+      * Mapping definition file manager to retrieve files from web site
+   * *Mapping definition file implementations*
+      * File path matching support
+      * Sorting children nodes by x
+      * Custom reporting of mapping definition errors
+      * Optimization for XPath
+   * *Mapping definition file edition*
+      * Completion and validation of expressions (match/label)
+   * *Intentions*
+      * Create xStructure definition for this model
+   * *Miscelleanous*
+      * Plugin logo

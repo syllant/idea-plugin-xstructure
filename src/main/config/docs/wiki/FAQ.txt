@@ -1,0 +1,17 @@
+= xStructure doesn't resolve my XML file ! =
+
+   * check your file is associated to a DTD or XSD
+   * check there is no error in IntellijIDEA log file, mapping definition file may be invalid (next releases will improve errors reporting) 
+   * check there's a mapping definition file supporting your model
+      * get *Mapping definition directory* value from _General Settings_
+      * look for a file whose `supported-schemas` tag contains your model URI
+      * check file name ends with `.xml`
+
+= May I associate mappings to a XML file without model declaration ? =
+
+Not in the 1.0 version. Note this feature is planned, using file path matching.
+
+= What's about XPath implementation ? =
+All default mappings are defines using _default_ implementation. XPath implementation is slower since resolution context includes the whole file, whereas the _default_ implementation is based on current node context.
+
+However, XPath works and provides more flexibility to build label or tooltip. I'll see how I can improve this implementation type.

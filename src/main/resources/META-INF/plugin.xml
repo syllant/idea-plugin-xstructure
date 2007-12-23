@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE idea-plugin PUBLIC
+        "Plugin/DTD" "http://plugins.intellij.net/plugin.dtd">
+<idea-plugin version="2" url="http://xstructure.googlecode.com/">
+  <id>org.sylfra.idea.plugins.xstructure</id>
+  <name>xStructure</name>
+  <description><![CDATA[
+<html>
+  Provides a flexible way for displaying structure of XML files to make navigation easier.
+  xStructure allows to configure node rendering to display attributes or tag values.
+  It allows also to hide some nodes to make structure tree more compact.
+</html>
+    ]]></description>
+  <category>xml</category>
+  <version>1.0</version>
+  <vendor email="sylfradev@yahoo.fr" url="http://xstructure.googlecode.com/">Sylvain FRANCOIS</vendor>
+  <change-notes><![CDATA[
+<html>
+  First public release
+</html>
+]]></change-notes>
+  <idea-version since-build="7000"/>
+  <resource-bundle>org.sylfra.idea.plugins.xstructure.resources.XSBundle</resource-bundle>
+  <depends optional="true">XPathView</depends>
+
+  <application-components>
+    <component>
+      <implementation-class>
+        org.sylfra.idea.plugins.xstructure.XStructurePlugin
+      </implementation-class>
+    </component>
+    <component>
+      <interface-class>org.sylfra.idea.plugins.xstructure.config.IXMappingFactory</interface-class>
+      <implementation-class>
+        org.sylfra.idea.plugins.xstructure.config.impl.xml.XMappingFactoryXmlImpl
+      </implementation-class>
+    </component>
+    <component>
+      <interface-class>
+        org.sylfra.idea.plugins.xstructure.resolution.IXMappingResolver
+      </interface-class>
+      <implementation-class>
+        org.sylfra.idea.plugins.xstructure.resolution.impl.xpath.XMappingResolverXPathImpl
+      </implementation-class>
+    </component>
+    <component>
+      <implementation-class>
+        org.sylfra.idea.plugins.xstructure.resolution.impl.defaultt.XMappingResolverDefaultImpl
+      </implementation-class>
+    </component>
+    <component>
+      <implementation-class>
+        org.sylfra.idea.plugins.xstructure.resolution.XMappingResolverFactory
+      </implementation-class>
+    </component>
+    <component>
+      <implementation-class>
+        org.sylfra.idea.plugins.xstructure.registry.XMappingSetRegistry
+      </implementation-class>
+    </component>
+    <component>
+      <implementation-class>
+        org.sylfra.idea.plugins.xstructure.settings.XStructureSettingsConfigurable
+      </implementation-class>
+    </component>
+  </application-components>
+
+  <extensions xmlns="com.intellij">
+    <xmlStructureViewElementProvider
+      implementation="org.sylfra.idea.plugins.xstructure.view.provider.XSViewElementProvider"/>
+    <xmlStructureViewBuilderProvider
+      implementation="org.sylfra.idea.plugins.xstructure.view.provider.XSViewBuilderProvider"/>
+
+    <applicationService
+      serviceInterface="org.sylfra.idea.plugins.xstructure.settings.XStructureSettingsComponent"
+      serviceImplementation="org.sylfra.idea.plugins.xstructure.settings.XStructureSettingsComponent"/>
+  </extensions>
+
+  <actions>
+    <action id="XStructure.Actions.ReloadAllMappingSets"
+            class="org.sylfra.idea.plugins.xstructure.actions.ReloadAllMappingSetsAction"
+            text="Reload all xStructure mappings"
+            icon="/org/sylfra/idea/plugins/xstructure/resources/icons/reload.png"/>
+    <action id="XStructure.Actions.EditMappingSet"
+            class="org.sylfra.idea.plugins.xstructure.actions.EditMappingSetAction"
+            text="Edit mapping definition file"
+            icon="/org/sylfra/idea/plugins/xstructure/resources/icons/editConfig.png"/>
+    <action id="XStructure.Actions.SelectMappingSet"
+            class="org.sylfra.idea.plugins.xstructure.actions.SelectMappingSetAction"
+            text="xStructure"
+            icon="/org/sylfra/idea/plugins/xstructure/resources/icons/xstructure.png"
+      />
+  </actions>
+
+</idea-plugin>

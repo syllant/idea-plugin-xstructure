@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<web-app
+  xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+  version="2.4">
+
+  <display-name>Sample Webapp</display-name>
+  <description>Custom description for this webapp</description>
+
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/spring/context-application.xml</param-value>
+  </context-param>
+
+  <context-param>
+    <param-name>paramX</param-name>
+    <param-value>100</param-value>
+  </context-param>
+
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>com.sample.ContextListener</listener-class>
+  </listener>
+
+  <filter>
+    <filter-name>ViewRendererFilter</filter-name>
+    <filter-class>org.springframework.web.servlet.ViewRendererFilter</filter-class>
+    <init-param>
+      <param-name>bundle</param-name>
+      <param-value>com.sample.Messages</param-value>
+    </init-param>
+  </filter>
+
+  <filter>
+    <filter-name>XFilter</filter-name>
+    <filter-class>com.sample.XFilter</filter-class>
+    <init-param>
+      <param-name>param1</param-name>
+      <param-value>value1</param-value>
+    </init-param>
+    <init-param>
+      <param-name>param2</param-name>
+      <param-value>value2</param-value>
+    </init-param>
+  </filter>
+
+  <servlet>
+    <description>Sample description Sample description Sample description Sample description Sample
+      description
+      Sample description Sample description Sample description
+    </description>
+    <servlet-name>ViewRendererServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>XServlet1</servlet-name>
+    <servlet-class>com.sample.Servlet1</servlet-class>
+    <init-param>
+      <param-name>param1</param-name>
+      <param-value>value1</param-value>
+    </init-param>
+    <init-param>
+      <param-name>param2</param-name>
+      <param-value>value2</param-value>
+    </init-param>
+    <init-param>
+      <param-name>param3</param-name>
+      <param-value>value3</param-value>
+    </init-param>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <description>
+      A sample description for this servlet
+    </description>
+    <servlet-name>XServlet2</servlet-name>
+    <servlet-class>com.sample.Servlet2</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>XServlet3</servlet-name>
+    <servlet-class>com.sample.Servlet3</servlet-class>
+    <init-param>
+      <param-name>param1</param-name>
+      <param-value>value1</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>XServlet1</servlet-name>
+    <url-pattern>/servlet1</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>XServlet2</servlet-name>
+    <url-pattern>/servlet2</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>XServlet3</servlet-name>
+    <url-pattern>/servlet3</url-pattern>
+  </servlet-mapping>
+
+  <error-page>
+    <error-code>500</error-code>
+    <location>/WEB-INF/jsp/errors/unavailable.jsp</location>
+  </error-page>
+  <error-page>
+    <exception-type>java.lang.Exception</exception-type>
+    <location>/WEB-INF/jsp/errors/default.jsp</location>
+  </error-page>
+
+  <jsp-config>
+    <taglib>
+      <taglib-uri>http://www.sample.org/sample-taglib.tld</taglib-uri>
+      <taglib-location>/WEB-INF/tags/sample-taglib.tld</taglib-location>
+    </taglib>
+    <taglib>
+      <taglib-uri>http://java.sun.com/jstl/core</taglib-uri>
+      <taglib-location>/WEB-INF/tags/c.tld</taglib-location>
+    </taglib>
+  </jsp-config>
+
+</web-app>
