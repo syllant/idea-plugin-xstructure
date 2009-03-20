@@ -43,6 +43,10 @@ public class XMappingSetRegistry extends VirtualFileAdapter implements Applicati
    * The mapping factory
    */
   private final IXMappingFactory<IXMappingSet> factory;
+  /**
+   * Listen changes of mapping definitio fil selection
+   */
+  private final List mappingSelectionChangeListeners;
 
   public XMappingSetRegistry()
   {
@@ -50,6 +54,7 @@ public class XMappingSetRegistry extends VirtualFileAdapter implements Applicati
     byOpenFileRegistry = new HashMap<XmlFile, IXMappingSet>();
     bySchemaUriRegistry = new TreeMap<String, Set<IXMappingSet>>();
     bySourceFileRegistry = new HashMap<VirtualFile, IXMappingSet>();
+    mappingSelectionChangeListeners = new LinkedList();
   }
 
   /**

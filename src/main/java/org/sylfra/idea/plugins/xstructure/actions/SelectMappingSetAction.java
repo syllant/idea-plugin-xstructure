@@ -2,6 +2,7 @@ package org.sylfra.idea.plugins.xstructure.actions;
 
 import com.intellij.ide.impl.StructureViewWrapperImpl;
 import com.intellij.ide.structureView.StructureViewFactoryEx;
+import com.intellij.ide.structureView.impl.StructureViewFactoryImpl;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.DataKeys;
@@ -138,8 +139,11 @@ public class SelectMappingSetAction extends ComboBoxAction
       {
         public void run()
         {
-          ((StructureViewWrapperImpl) StructureViewFactoryEx.getInstance(project)
-            .getStructureViewWrapper()).rebuild();
+          StructureViewFactoryImpl structureViewFactory =
+            (StructureViewFactoryImpl) StructureViewFactoryEx.getInstance(project);
+          StructureViewWrapperImpl structureViewWrapper =
+            (StructureViewWrapperImpl) structureViewFactory.getStructureViewWrapper();
+          structureViewWrapper.rebuild();
         }
       });
     }

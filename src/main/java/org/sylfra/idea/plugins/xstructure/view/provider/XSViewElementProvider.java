@@ -1,7 +1,7 @@
 package org.sylfra.idea.plugins.xstructure.view.provider;
 
 import com.intellij.ide.structureView.StructureViewTreeElement;
-import com.intellij.ide.structureView.impl.xml.XmlStructureViewElementProvider;
+import com.intellij.ide.structureView.xml.XmlStructureViewElementProvider;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.xml.XmlFile;
 import com.intellij.psi.xml.XmlTag;

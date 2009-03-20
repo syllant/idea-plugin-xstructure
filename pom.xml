@@ -6,11 +6,11 @@
   <groupId>org.sylfra.idea</groupId>
   <artifactId>xstructure</artifactId>
   <packaging>jar</packaging>
-  <version>1.0</version>
+  <version>1.1-SNAPSHOT</version>
   <name>xStructure Plugin</name>
   <description>xStructure plugin for Intellij IDEA.</description>
   <properties>
-    <idea.version>7.0</idea.version>
+    <idea.version>8.1-jdk1.5</idea.version>
   </properties>
   <scm>
     <connection>scm:svn:http://xstructure.googlecode.com/svn/trunk</connection>
@@ -26,21 +26,33 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>com.intellij.idea</groupId>
-      <artifactId>idea</artifactId>
-      <version>${idea.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
       <groupId>com.thoughtworks.xstream</groupId>
       <artifactId>xstream</artifactId>
       <version>1.2.2</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.jaxen</groupId>
+      <groupId>jaxen</groupId>
       <artifactId>jaxen</artifactId>
-      <version>1.0</version>
+      <version>1.1.1</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jdom</groupId>
+      <artifactId>jdom</artifactId>
+      <version>1.1</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.intellij.idea</groupId>
+      <artifactId>idea</artifactId>
+      <version>${idea.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.intellij</groupId>
+      <artifactId>forms-rt</artifactId>
+      <version>${idea.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -68,6 +80,12 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
+      <groupId>com.intellij.idea</groupId>
+      <artifactId>util</artifactId>
+      <version>${idea.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
       <groupId>com.intellij.idea.plugins</groupId>
       <artifactId>xpathview</artifactId>
       <version>3.0</version>
@@ -83,8 +101,8 @@
         <configuration>
           <verbose>true</verbose>
           <fork>false</fork>
-          <source>1.6</source>
-          <target>1.6</target>
+          <source>1.5</source>
+          <target>1.5</target>
         </configuration>
       </plugin>
       <plugin>
@@ -114,15 +132,6 @@
           </descriptors>
           <finalName>${pom.artifactId}-${pom.version}</finalName>
         </configuration>
-        <executions>
-          <execution>
-            <id>dist</id>
-            <phase>package</phase>
-            <goals>
-              <goal>attached</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
   </build>

@@ -69,7 +69,7 @@ public class XMappingFactoryXmlImpl
     {
       SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
       InputStream xsdStream = getClass().getClassLoader().getResourceAsStream(
-        "/org/sylfra/idea/plugins/xstructure/resources/schemas/xstructure_1_0.xsd");
+        "/org/sylfra/idea/plugins/xstructure/resources/schemas/xstructure_1_1.xsd");
       xsdValidator = factory.newSchema(new StreamSource(xsdStream)).newValidator();
       xsdErrorHandler = new CustomSchemaErrorHandler();
       xsdValidator.setErrorHandler(xsdErrorHandler);
@@ -159,6 +159,7 @@ public class XMappingFactoryXmlImpl
       xsdErrorHandler.reset();
       xsdErrorHandler.setCurrentFile(f);
 
+      // TODO : choose proper XSDvalidator according to current XSD
       xsdValidator.validate(new StreamSource(f));
       return !xsdErrorHandler.hasError();
     }

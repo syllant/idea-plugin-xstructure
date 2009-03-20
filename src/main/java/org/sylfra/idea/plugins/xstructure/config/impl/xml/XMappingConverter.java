@@ -1,16 +1,21 @@
 package org.sylfra.idea.plugins.xstructure.config.impl.xml;
 
 import com.intellij.openapi.diagnostic.Logger;
+import com.intellij.openapi.util.IconLoader;
 import com.thoughtworks.xstream.converters.ConversionException;
 import com.thoughtworks.xstream.converters.Converter;
 import com.thoughtworks.xstream.converters.MarshallingContext;
 import com.thoughtworks.xstream.converters.UnmarshallingContext;
 import com.thoughtworks.xstream.io.HierarchicalStreamReader;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.sylfra.idea.plugins.xstructure.config.IXMapping;
 import org.sylfra.idea.plugins.xstructure.config.IXMappingSet;
 import org.sylfra.idea.plugins.xstructure.resolution.IXMappingResolver;
 import org.sylfra.idea.plugins.xstructure.resolution.XMappingException;
+
+import javax.swing.*;
 
 /**
  * XStream converter for a XMapping definition
@@ -54,6 +59,14 @@ class XMappingConverter implements Converter
     xMapping.initTooltipExp(reader.getAttribute("tip"));
     xMapping.setMatchString(reader.getAttribute("match"));
 
+    // Icon
+    String iconPath = reader.getAttribute("icon");
+    if (iconPath != null)
+    {
+      xMapping.setIcon(resolveIcon(iconPath));
+    }
+
+    // Skip mode
     String skipModeValue = reader.getAttribute("skip");
     xMapping.setSkipMode(XMappingFactoryXmlImpl.readSkipMode(skipModeValue));
 
@@ -68,5 +81,18 @@ class XMappingConverter implements Converter
     }
 
     return xMapping;
+  }
+
+  @Nullable
+  private Icon resolveIcon(@NotNull String iconPath)
+  {
+    // @TODO : search icon from directory in user config
+    Icon icon = IconLoader.findIcon(iconPath);
+
+    if (icon == null)
+    {
+      LOGGER.warn("Can't find icon : " + iconPath);
+    }
+    return icon;
   }
 }

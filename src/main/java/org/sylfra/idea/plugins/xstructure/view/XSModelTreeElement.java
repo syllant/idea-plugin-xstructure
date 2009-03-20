@@ -34,8 +34,11 @@ public class XSModelTreeElement implements StructureViewTreeElement, ItemPresent
   private static final Logger LOGGER =
     Logger.getInstance(XSModelTreeElement.class.getName());
 
+  @Nullable
   private XmlTag xmlTag;
+  @Nullable
   private IXMapping xMapping;
+  @Nullable
   private IXMappingSet xMappingSet;
 
   /**
@@ -45,17 +48,14 @@ public class XSModelTreeElement implements StructureViewTreeElement, ItemPresent
    */
   public XSModelTreeElement(XmlFile xmlFile)
   {
-    this.xmlTag = (xmlFile.getDocument() == null) ? null : xmlFile.getDocument().getRootTag();
+    xmlTag = (xmlFile.getDocument() == null) ? null : xmlFile.getDocument().getRootTag();
 
     xMappingSet =
-      XStructurePlugin.getInstance().getXMappingSetRegistry().getSelectedXMappingSet(getXmlFile());
+      XStructurePlugin.getInstance().getXMappingSetRegistry().getSelectedXMappingSet(xmlFile);
 
-    if (xMappingSet != null)
+    if ((xMappingSet != null) && (xmlTag != null))
     {
-      if (xMapping == null)
-      {
-        xMapping = xMappingSet.getMappingResolver().findMatchingMapping(xMappingSet, xmlTag);
-      }
+      xMapping = xMappingSet.getMappingResolver().findMatchingMapping(xMappingSet, xmlTag);
     }
   }
 
@@ -74,23 +74,13 @@ public class XSModelTreeElement implements StructureViewTreeElement, ItemPresent
   }
 
   /**
-   * Returns the XML file associated to this node
-   *
-   * @return the XML file associated to this node
-   */
-  private XmlFile getXmlFile()
-  {
-    return (XmlFile) xmlTag.getContainingFile();
-  }
-
-  /**
    * Returns the XML tag associated to this node
    *
    * @return the XML tag associated to this node if valid, null otherwise
    */
   private XmlTag getElement()
   {
-    return xmlTag.isValid() ? xmlTag : null;
+    return ((xmlTag == null) || (!xmlTag.isValid())) ? null : xmlTag;
   }
 
   /**
@@ -129,45 +119,48 @@ public class XSModelTreeElement implements StructureViewTreeElement, ItemPresent
     IXMapping.SkipMode currentSkipMode = findSkipMode(xMapping);
 
     List<TreeElement> treeElements = new ArrayList<TreeElement>();
-    for (XmlTag subTag : xmlTag.getSubTags())
+    if (xmlTag != null)
     {
-      IXMapping childXMapping = (xMappingSet == null)
-        ? null : xMappingSet.getMappingResolver().findMatchingMapping(xMappingSet, subTag);
-
-      IXMapping.SkipMode childSkipMode = findSkipMode(childXMapping);
-      switch (childSkipMode)
+      for (XmlTag subTag : xmlTag.getSubTags())
       {
-        // No skip
-        case NONE:
-          // If current node is defined with 'children' skip mode, children which override
-          // explicitely this property will be displayed
-          boolean childrenSkipped = IXMapping.SkipMode.CHILDREN.equals(currentSkipMode)
-            || IXMapping.SkipMode.ALL.equals(currentSkipMode);
-          if ((!childrenSkipped) || ((childXMapping != null)))
-          {
+        IXMapping childXMapping = (xMappingSet == null)
+          ? null : xMappingSet.getMappingResolver().findMatchingMapping(xMappingSet, subTag);
+
+        IXMapping.SkipMode childSkipMode = findSkipMode(childXMapping);
+        switch (childSkipMode)
+        {
+          // No skip
+          case NONE:
+            // If current node is defined with 'children' skip mode, children which override
+            // explicitely this property will be displayed
+            boolean childrenSkipped = IXMapping.SkipMode.CHILDREN.equals(currentSkipMode)
+              || IXMapping.SkipMode.ALL.equals(currentSkipMode);
+            if ((!childrenSkipped) || ((childXMapping != null)))
+            {
+              treeElements.add(
+                new XSModelTreeElement(subTag, xMappingSet, childXMapping));
+            }
+            break;
+
+            // Skip only this node, but show its children
+          case THIS:
+            XSModelTreeElement subTreeElement =
+              new XSModelTreeElement(subTag, xMappingSet, childXMapping);
+            TreeElement[] subChildrenTreeElements = subTreeElement.getChildren();
+            treeElements.addAll(Arrays.<TreeElement>asList(subChildrenTreeElements));
+            break;
+
+            // Show this node but skip its children
+          case CHILDREN:
             treeElements.add(
               new XSModelTreeElement(subTag, xMappingSet, childXMapping));
-          }
-          break;
+            break;
 
-          // Skip only this node, but show its children
-        case THIS:
-          XSModelTreeElement subTreeElement =
-            new XSModelTreeElement(subTag, xMappingSet, childXMapping);
-          TreeElement[] subChildrenTreeElements = subTreeElement.getChildren();
-          treeElements.addAll(Arrays.<TreeElement>asList(subChildrenTreeElements));
-          break;
-
-          // Show this node but skip its children
-        case CHILDREN:
-          treeElements.add(
-            new XSModelTreeElement(subTag, xMappingSet, childXMapping));
-          break;
-
-          // Skip this node and its children
-        case ALL:
-          // Stop building branch
-          break;
+            // Skip this node and its children
+          case ALL:
+            // Stop building branch
+            break;
+        }
       }
     }
 
@@ -233,7 +226,7 @@ public class XSModelTreeElement implements StructureViewTreeElement, ItemPresent
    */
   public String getPresentableText()
   {
-    return xmlTag.getName();
+    return (xmlTag == null) ? null : xmlTag.getName();
   }
 
   /**
@@ -249,6 +242,11 @@ public class XSModelTreeElement implements StructureViewTreeElement, ItemPresent
    */
   public Icon getIcon(boolean open)
   {
+    if ((xMapping != null) && (xMapping.getIcon() != null))
+    {
+      return xMapping.getIcon();
+    }
+
     PsiElement psielement = getElement();
     return psielement != null ? psielement.getIcon(Iconable.ICON_FLAG_READ_STATUS) : null;
   }
@@ -268,7 +266,7 @@ public class XSModelTreeElement implements StructureViewTreeElement, ItemPresent
    */
   public String getTagName()
   {
-    return xmlTag.getName();
+    return (xmlTag == null) ? null : xmlTag.getName();
   }
 
   /**
@@ -300,7 +298,7 @@ public class XSModelTreeElement implements StructureViewTreeElement, ItemPresent
    */
   private String getTargetText(IXMappingExp mappingExp)
   {
-    if (mappingExp == null)
+    if ((xmlTag == null) || (mappingExp == null) || (xMappingSet == null))
     {
       return null;
     }
@@ -313,7 +311,7 @@ public class XSModelTreeElement implements StructureViewTreeElement, ItemPresent
     {
       LOGGER.warn("Invalid mapping, remove it", e);
       xMappingSet.removeMapping(mappingExp.getXMapping());
-      return xmlTag.getName();
+      return (xmlTag == null) ? null : xmlTag.getName();
     }
   }
 }

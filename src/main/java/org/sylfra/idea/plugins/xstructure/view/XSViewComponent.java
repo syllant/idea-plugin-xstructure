@@ -50,7 +50,11 @@ public class XSViewComponent extends StructureViewComponent
       (ReloadAllMappingSetsAction) ActionManager.getInstance()
         .getAction("XStructure.Actions.ReloadAllMappingSets");
 
-    selectMappingSetAction.setXmlFile(((XSViewTreeModel) getTreeModel()).getXmlFile());
+    XSViewTreeModel xsViewTreeModel = (XSViewTreeModel) getTreeModel();
+
+    selectMappingSetAction.setXmlFile(xsViewTreeModel.getXmlFile());
+    editMappingSetAction.getTemplatePresentation().setEnabled(
+      (xsViewTreeModel.getXMappingSet() != null));
 
     DefaultActionGroup actionGroup = (DefaultActionGroup) super.createActionGroup();
 

@@ -3,6 +3,8 @@ package org.sylfra.idea.plugins.xstructure.config;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.swing.*;
+
 /**
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
  * @version $Id$
@@ -14,6 +16,7 @@ public abstract class AbstractXMapping implements IXMapping
   private IXMappingExp labelExp;
   private IXMappingExp tooltipExp;
   private SkipMode skipMode;
+  private Icon icon;
 
   /**
    * {@inheritDoc}
@@ -101,6 +104,23 @@ public abstract class AbstractXMapping implements IXMapping
     {
       tooltipExp = createXMappingExp(this, rawExp);
     }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Nullable
+  public Icon getIcon()
+  {
+    return icon;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  public void setIcon(@Nullable Icon icon)
+  {
+    this.icon = icon;
   }
 
   /**

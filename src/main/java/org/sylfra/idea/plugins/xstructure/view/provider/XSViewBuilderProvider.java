@@ -1,7 +1,7 @@
 package org.sylfra.idea.plugins.xstructure.view.provider;
 
 import com.intellij.ide.structureView.StructureViewBuilder;
-import com.intellij.ide.structureView.impl.xml.XmlStructureViewBuilderProvider;
+import com.intellij.ide.structureView.xml.XmlStructureViewBuilderProvider;
 import com.intellij.psi.xml.XmlFile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

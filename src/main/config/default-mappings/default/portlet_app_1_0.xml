@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xstructure xmlns="http://plugins.intellij.net/xstructure"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xsi:schemaLocation="http://plugins.intellij.net/xstructure http://plugins.intellij.net/xstructure/ns/xstructure_1_0.xsd"
+            xsi:schemaLocation="http://plugins.intellij.net/xstructure http://plugins.intellij.net/xstructure/ns/xstructure_1_1.xsd"
             implType="default" name="Portlet app" version="1.0" priority="10">
   <supported-schemas>
     <schema uri="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd"/>

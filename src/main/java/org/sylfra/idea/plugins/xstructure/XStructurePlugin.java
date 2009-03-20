@@ -74,6 +74,10 @@ public class XStructurePlugin implements ApplicationComponent
       "http://plugins.intellij.net/xstructure/ns/xstructure_1_0.xsd",
       "/org/sylfra/idea/plugins/xstructure/resources/schemas/xstructure_1_0.xsd",
       XStructurePlugin.class);
+    ExternalResourceManager.getInstance().addStdResource(
+      "http://plugins.intellij.net/xstructure/ns/xstructure_1_1.xsd",
+      "/org/sylfra/idea/plugins/xstructure/resources/schemas/xstructure_1_1.xsd",
+      XStructurePlugin.class);
   }
 
   /**

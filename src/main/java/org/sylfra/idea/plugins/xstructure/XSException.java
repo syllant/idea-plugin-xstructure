@@ -13,9 +13,6 @@ public class XSException extends Exception
     super(message, cause);
   }
 
-  /**
-   * {@inheritDoc}
-   */
   public XSException(String message)
   {
     super(message);

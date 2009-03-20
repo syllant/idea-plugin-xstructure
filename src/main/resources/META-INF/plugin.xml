@@ -12,14 +12,14 @@
 </html>
     ]]></description>
   <category>xml</category>
-  <version>1.0</version>
-  <vendor email="sylfradev@yahoo.fr" url="http://xstructure.googlecode.com/">Sylvain FRANCOIS</vendor>
+  <version>1.1</version>
+  <vendor email="syllant@gmail.com" url="http://xstructure.googlecode.com/">Sylvain FRANCOIS</vendor>
   <change-notes><![CDATA[
 <html>
   First public release
 </html>
 ]]></change-notes>
-  <idea-version since-build="7000"/>
+  <idea-version since-build="8000"/>
   <resource-bundle>org.sylfra.idea.plugins.xstructure.resources.XSBundle</resource-bundle>
   <depends optional="true">XPathView</depends>
 

@@ -3,6 +3,7 @@ package org.sylfra.idea.plugins.xstructure.config;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import javax.swing.*;
 import java.io.Serializable;
 
 /**
@@ -95,4 +96,19 @@ public interface IXMapping extends Serializable
    * @param rawExp raw expression for tooltip
    */
   void initTooltipExp(@Nullable String rawExp);
+
+  /**
+   * Returns the icon
+   *
+   * @return the icon
+   */
+  @Nullable
+  Icon getIcon();
+
+  /**
+   * Sets the icon
+   *
+   * @param icon the icon
+   */
+  void setIcon(@Nullable Icon icon);
 }

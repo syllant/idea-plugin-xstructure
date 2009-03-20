@@ -1,0 +1,5 @@
+1.1
+  * New: compiled with Java 5 for MacOSX users
+  * New: new XSD : xStructure 1.1
+  * New: Mapping Definition File for Spring Beans 2.5
+  * Fix: NPE occuring sometimes when opening some JSP

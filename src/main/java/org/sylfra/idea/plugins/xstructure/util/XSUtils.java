@@ -16,6 +16,7 @@
 package org.sylfra.idea.plugins.xstructure.util;
 
 import com.intellij.psi.xml.*;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -36,7 +37,7 @@ public abstract class XSUtils
    * @return the main XSD Schema URI or the DTD URI declared in this XML file
    */
   @Nullable
-  public static String getSchemaUri(XmlFile xmlFile)
+  public static String getSchemaUri(@NotNull XmlFile xmlFile)
   {
     XmlDocument document = xmlFile.getDocument();
     if (document == null)
