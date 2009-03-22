@@ -214,6 +214,7 @@ public class XMappingFactoryXmlImpl
       xMappingSetConverter = new XMappingSetConverter();
       xstream.registerConverter(xMappingSetConverter);
       xstream.registerConverter(new XMappingConverter());
+      xstream.registerConverter(new SchemaConverter());
     }
   }
 

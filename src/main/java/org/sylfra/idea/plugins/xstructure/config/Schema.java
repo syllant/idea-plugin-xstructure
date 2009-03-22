@@ -1,5 +1,7 @@
 package org.sylfra.idea.plugins.xstructure.config;
 
+import java.util.regex.Pattern;
+
 /**
  * A XML model definition.
  *
@@ -8,25 +10,25 @@ package org.sylfra.idea.plugins.xstructure.config;
  */
 public class Schema
 {
-  private String uri;
+  private Pattern uriPattern;
 
   /**
    * Returns the schema URI
    *
    * @return the schema URI
    */
-  public String getUri()
+  public Pattern getUriPattern()
   {
-    return uri;
+    return uriPattern;
   }
 
   /**
    * Sets the schema URI
    *
-   * @param uri the schema URI
+   * @param uriPattern the schema URI
    */
-  public void setUri(String uri)
+  public void setUriPattern(Pattern uriPattern)
   {
-    this.uri = uri;
+    this.uriPattern = uriPattern;
   }
 }

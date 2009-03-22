@@ -32,10 +32,6 @@ public class XMappingSetRegistry extends VirtualFileAdapter implements Applicati
    */
   private final Map<XmlFile, IXMappingSet> byOpenFileRegistry;
   /**
-   * All mapping sets related to a schema URI
-   */
-  private final Map<String, Set<IXMappingSet>> bySchemaUriRegistry;
-  /**
    * Mapping set indexed by their source file
    */
   private final Map<VirtualFile, IXMappingSet> bySourceFileRegistry;
@@ -43,18 +39,12 @@ public class XMappingSetRegistry extends VirtualFileAdapter implements Applicati
    * The mapping factory
    */
   private final IXMappingFactory<IXMappingSet> factory;
-  /**
-   * Listen changes of mapping definitio fil selection
-   */
-  private final List mappingSelectionChangeListeners;
 
   public XMappingSetRegistry()
   {
     factory = ApplicationManager.getApplication().getComponent(IXMappingFactory.class);
     byOpenFileRegistry = new HashMap<XmlFile, IXMappingSet>();
-    bySchemaUriRegistry = new TreeMap<String, Set<IXMappingSet>>();
     bySourceFileRegistry = new HashMap<VirtualFile, IXMappingSet>();
-    mappingSelectionChangeListeners = new LinkedList();
   }
 
   /**
@@ -63,7 +53,6 @@ public class XMappingSetRegistry extends VirtualFileAdapter implements Applicati
   public void loadAll()
   {
     byOpenFileRegistry.clear();
-    bySchemaUriRegistry.clear();
     bySourceFileRegistry.clear();
 
     List<IXMappingSet> xMappingSets = factory.loadAll();
@@ -87,14 +76,6 @@ public class XMappingSetRegistry extends VirtualFileAdapter implements Applicati
     }
 
     IXMappingSet newXMappingSet = factory.reload(xMappingSet);
-
-    // Remove references to previous supported schemas
-    // (schemas may be different with new mapping set)
-    for (Schema schema : xMappingSet.getSupportedSchemas())
-    {
-      Set<IXMappingSet> xMappingSets = bySchemaUriRegistry.get(schema.getUri());
-      xMappingSets.remove(xMappingSet);
-    }
 
     // Replace references within open files registry
     for (Map.Entry<XmlFile, IXMappingSet> entry : byOpenFileRegistry.entrySet())
@@ -177,7 +158,19 @@ public class XMappingSetRegistry extends VirtualFileAdapter implements Applicati
       return null;
     }
 
-    return bySchemaUriRegistry.get(uri);
+    Set<IXMappingSet> result = new TreeSet<IXMappingSet>(new XMappingSetPriorityComparator());
+    for (IXMappingSet mappingSet : bySourceFileRegistry.values())
+    {
+      for (Schema schema : mappingSet.getSupportedSchemas())
+      {
+        if (schema.getUriPattern().matcher(uri).matches())
+        {
+          result.add(mappingSet);
+        }
+      }
+    }
+
+    return result;
   }
 
   /**
@@ -188,17 +181,6 @@ public class XMappingSetRegistry extends VirtualFileAdapter implements Applicati
   private void registerXMappingSet(IXMappingSet xMappingSet)
   {
     bySourceFileRegistry.put(xMappingSet.getFile(), xMappingSet);
-
-    for (Schema schema : xMappingSet.getSupportedSchemas())
-    {
-      Set<IXMappingSet> currentMappingSets = bySchemaUriRegistry.get(schema.getUri());
-      if (currentMappingSets == null)
-      {
-        currentMappingSets = new TreeSet<IXMappingSet>(new XMappingSetPriorityComparator());
-        bySchemaUriRegistry.put(schema.getUri(), currentMappingSets);
-      }
-      currentMappingSets.add(xMappingSet);
-    }
   }
 
   /**
