@@ -1,7 +1,6 @@
-\ bug multiple shemas
+- schema URI regexp
 - XSD validator related to current XSD
 - check when xml file schema changes
-\ disable 'edit' if no mapping found
 - synchronize button in settings
 - icons in mappings
   - Spring

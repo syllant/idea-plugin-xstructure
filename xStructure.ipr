@@ -513,6 +513,24 @@
     <option name="myReportAsWarnings" value="false" />
   </component>
   <component name="SvnBranchConfigurationManager">
+    <option name="myConfigurationMap">
+      <map>
+        <entry key="$PROJECT_DIR$">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="branchUrls">
+                <list>
+                  <option value="https://xstructure.googlecode.com/svn/branches" />
+                  <option value="https://xstructure.googlecode.com/svn/tags" />
+                  <option value="https://xstructure.googlecode.com/svn/wiki" />
+                </list>
+              </option>
+              <option name="trunkUrl" value="https://xstructure.googlecode.com/svn/trunk" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="myVersion" value="124" />
     <option name="mySupportsUserInfoFilter" value="true" />
   </component>
@@ -661,8 +679,5 @@
   <component name="uidesigner-configuration">
     <option name="COPY_FORMS_RUNTIME_TO_OUTPUT" value="false" />
   </component>
-  <UsedPathMacros>
-    <macro name="KALISTICK_TECHBOX_DIR" description="Racine du répertoire techbox, e.g. : C:\techbox" />
-  </UsedPathMacros>
 </project>
 

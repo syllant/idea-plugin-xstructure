@@ -49,6 +49,7 @@
       <xsd:attribute name="skip" type="xs:skipMode" use="optional"/>
       <xsd:attribute name="tip" type="xsd:string" use="optional"/>
       <xsd:attribute name="icon" type="xsd:string" use="optional"/>
+      <xsd:attribute name="maxlength" type="xsd:short" use="optional"/>
     </xsd:complexType>
   </xsd:element>
 

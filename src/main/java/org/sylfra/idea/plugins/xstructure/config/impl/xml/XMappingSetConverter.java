@@ -86,7 +86,7 @@ class XMappingSetConverter implements Converter
 
     IXMappingSet xMappingSet = xMappingResolver.createMappingSet();
     xMappingSet.setName(reader.getAttribute("name"));
-    xMappingSet.setFile(LocalFileSystem.getInstance().findFileByIoFile(srcFile));
+    xMappingSet.setFile(LocalFileSystem.getInstance().refreshAndFindFileByIoFile(srcFile));
     xMappingSet.setVersion(reader.getAttribute("version"));
 
     String priorityValue = reader.getAttribute("priority");

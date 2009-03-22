@@ -276,7 +276,19 @@ public class XSModelTreeElement implements StructureViewTreeElement, ItemPresent
    */
   public String getTargetLabel()
   {
-    return (xMapping == null) ? null : getTargetText(xMapping.getLabelExp());
+    if (xMapping == null)
+    {
+      return null;
+    }
+
+    String label = getTargetText(xMapping.getLabelExp());
+    int maxLength = xMapping.getMaxLength();
+    if ((maxLength > 0) && (maxLength < label.length()))
+    {
+      label = label.substring(0, maxLength) + "[...]";
+    }
+    
+    return label;
   }
 
   /**
@@ -305,7 +317,8 @@ public class XSModelTreeElement implements StructureViewTreeElement, ItemPresent
 
     try
     {
-      return xMappingSet.getMappingResolver().resolveTargetText(xmlTag, mappingExp);
+      String text = xMappingSet.getMappingResolver().resolveTargetText(xmlTag, mappingExp);
+      return text.trim();
     }
     catch (XMappingException e)
     {

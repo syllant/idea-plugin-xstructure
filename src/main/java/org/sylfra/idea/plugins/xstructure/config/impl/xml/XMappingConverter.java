@@ -59,6 +59,12 @@ class XMappingConverter implements Converter
     xMapping.initTooltipExp(reader.getAttribute("tip"));
     xMapping.setMatchString(reader.getAttribute("match"));
 
+    String maxLength = reader.getAttribute("maxlength");
+    if (maxLength != null)
+    {
+      xMapping.setMaxLength(Integer.parseInt(maxLength));
+    }
+
     // Icon
     String iconPath = reader.getAttribute("icon");
     if (iconPath != null)
@@ -89,10 +95,11 @@ class XMappingConverter implements Converter
     // @TODO : search icon from directory in user config
     Icon icon = IconLoader.findIcon(iconPath);
 
-    if (icon == null)
+    if ((LOGGER.isDebugEnabled()) && (icon == null))
     {
-      LOGGER.warn("Can't find icon : " + iconPath);
+      LOGGER.debug("Can't find icon: " + iconPath);
     }
+
     return icon;
   }
 }

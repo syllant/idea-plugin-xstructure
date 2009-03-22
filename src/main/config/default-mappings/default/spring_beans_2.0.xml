@@ -10,7 +10,7 @@
     <mapping match="/beans" tip="{description}"/>
     <mapping match="/beans/description" skip="all"/>
     <mapping match="/beans/import" label="{@resource}"/>
-    <mapping match="/beans/bean" label="{@id}" tip="{description}"/>
+    <mapping match="/beans/bean" label="{@id}" tip="{description}" icon="/springBean.png"/>
     <mapping match="/.*/property" label="{@name}"/>
     <mapping match="/.*/property/(list|props|map)" skip="this"/>
     <mapping match="/.*/property/list/value" label="{.}"/>

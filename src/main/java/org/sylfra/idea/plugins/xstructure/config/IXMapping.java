@@ -53,6 +53,20 @@ public interface IXMapping extends Serializable
   void setMatchString(@NotNull String match);
 
   /**
+   * Returns the label max length
+   *
+   * @return the label max length
+   */
+  int getMaxLength();
+
+  /**
+   * Sets the label max length
+   *
+   * @param maxLength label max length
+   */
+  void setMaxLength(int maxLength);
+
+  /**
    * Returns the label raw expression
    *
    * @return the label raw expression
