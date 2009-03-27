@@ -7,18 +7,15 @@
     <schema uri="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"/>
   </supported-schemas>
   <mappings>
-    <mapping match="/web-app" label="{display-name}" tip="{description}"/>
+    <mapping match="/web-app" label="{display-name}" tip="{description}" icon="/javaee/webModule.png"/>
     <mapping match="/web-app/(display-name|description)" skip="all"/>
-    <mapping match="/web-app/listener" label="{listener-class}" skip="children"/>
-    <mapping match="/web-app/context-param" label="{param-name}={param-value}" skip="children"/>
-    <mapping match="/web-app/filter" label="{filter-name}" skip="children"/>
-    <mapping match="/web-app/error-page" label="{error-code}{exception-type}" skip="children"/>
-    <mapping match="/web-app/(servlet|servlet-mapping)" label="{servlet-name}" skip="children"
-             tip="{description}"/>
-    <mapping match="/web-app/(filter|servlet)/init-param" label="{param-name}={param-value}"
-             skip="children"/>
-    <mapping match="/web-app/(filter|servlet)/init-param" label="{param-name}={param-value}"
-             skip="children"/>
-    <mapping match="/web-app/jsp-config/taglib" label="{taglib-uri}" skip="children"/>
+    <mapping match="/web-app/listener" label="{listener-class}" skip="children" icon="/nodes/weblistener.png"/>
+    <mapping match="/web-app/context-param" label="{param-name}={param-value}" skip="children" icon="/nodes/parameter.png"/>
+    <mapping match="/web-app/filter" label="{filter-name}" skip="children" icon="/ant/filter.png"/>
+    <mapping match="/web-app/error-page" label="{error-code}{exception-type}" skip="children" icon="/runConfigurations/testError.png"/>
+    <mapping match="/web-app/servlet" label="{servlet-name}" skip="children" tip="{description}" icon="/nodes/servlet.png"/>
+    <mapping match="/web-app/servlet-mapping" label="{servlet-name}" skip="children" tip="{description}" icon="/nodes/servletMapping.png"/>
+    <mapping match="/web-app/(filter|servlet)/init-param" label="{param-name}={param-value}" skip="children" icon="/nodes/parameter.png"/>
+    <mapping match="/web-app/jsp-config/taglib" label="{taglib-uri}" skip="children" icon="/nodes/ppJar.png"/>
   </mappings>
 </xstructure>

@@ -318,7 +318,9 @@ public class XSModelTreeElement implements StructureViewTreeElement, ItemPresent
     try
     {
       String text = xMappingSet.getMappingResolver().resolveTargetText(xmlTag, mappingExp);
-      return text.trim();
+      String tip = text.trim();
+
+      return (tip.length() == 0) ? null : tip;
     }
     catch (XMappingException e)
     {

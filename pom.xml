@@ -6,7 +6,7 @@
   <groupId>org.sylfra.idea</groupId>
   <artifactId>xstructure</artifactId>
   <packaging>jar</packaging>
-  <version>1.1-SNAPSHOT</version>
+  <version>1.1</version>
   <name>xStructure Plugin</name>
   <description>xStructure plugin for Intellij IDEA.</description>
   <properties>

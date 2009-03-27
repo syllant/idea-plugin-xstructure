@@ -16,7 +16,21 @@
   <vendor email="syllant@gmail.com" url="http://xstructure.googlecode.com/">Sylvain FRANCOIS</vendor>
   <change-notes><![CDATA[
 <html>
-  First public release
+  <ul>
+    <li>New: compiled with Java 5 for MacOSX users</li>
+    <li>New: icons may be configured for each node</li>
+    <li>New: 'maxlength' attribute to show only a substring of a long text</li>
+    <li>New: supported schema URI may be defined with regexp</li>
+    <li>New: supported schema URI support public ID for DTD</li>
+    <li>New: new XSD : xStructure 1.1</li>
+    <li>New: Mapping Definition File for Spring Beans 2.5</li>
+    <li>New: Mapping Definition File for Docbook / Website 2.5/2.6 (thanks to <a href="http://www.ansorg-it.com">Joachim Ansorg</a>)</li>
+    <li>Chg: French translation removed (until I18N is not adopted in Idea)</li>
+    <li>Fix: NPE occuring sometimes when opening some JSP</li>
+    <li>Fix: reload current structure view after reloading mappings</li>
+    <li>Fix: bug when declaring several supported schemas</li>
+    <li>Fix: bug in hot deploy of mapping definition files</li>
+ </ul>
 </html>
 ]]></change-notes>
   <idea-version since-build="8000"/>

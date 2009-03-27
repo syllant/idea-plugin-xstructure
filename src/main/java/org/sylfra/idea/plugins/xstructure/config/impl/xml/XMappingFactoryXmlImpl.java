@@ -5,6 +5,7 @@ import com.intellij.openapi.diagnostic.Logger;
 import com.thoughtworks.xstream.XStream;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.sylfra.idea.plugins.xstructure.XStructurePlugin;
 import org.sylfra.idea.plugins.xstructure.config.*;
 import org.xml.sax.ErrorHandler;
@@ -106,6 +107,7 @@ public class XMappingFactoryXmlImpl
   /**
    * {@inheritDoc}
    */
+  @Nullable
   public AbstractXMappingSet reload(AbstractXMappingSet xMappingSet)
   {
     return loadMappingSetFromXml(new File(xMappingSet.getFile().getPath()));
@@ -177,6 +179,7 @@ public class XMappingFactoryXmlImpl
    *
    * @return the mapoing set
    */
+  @Nullable
   private AbstractXMappingSet loadMappingSetFromXml(File file)
   {
     AbstractXMappingSet xMappingSet;

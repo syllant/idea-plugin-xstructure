@@ -679,5 +679,8 @@
   <component name="uidesigner-configuration">
     <option name="COPY_FORMS_RUNTIME_TO_OUTPUT" value="false" />
   </component>
+  <UsedPathMacros>
+    <macro name="KALISTICK_TECHBOX_DIR" description="Racine du répertoire techbox, e.g. : C:\techbox" />
+  </UsedPathMacros>
 </project>
 

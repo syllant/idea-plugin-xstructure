@@ -1,6 +1,7 @@
 package org.sylfra.idea.plugins.xstructure.config;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -27,6 +28,6 @@ public interface IXMappingFactory<T extends IXMappingSet>
    *
    * @return the new mapping set
    */
-  @NotNull
+  @Nullable
   T reload(@NotNull T xMappingSet);
 }

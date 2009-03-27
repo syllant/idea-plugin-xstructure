@@ -1,15 +1,11 @@
 package org.sylfra.idea.plugins.xstructure.actions;
 
-import com.intellij.ide.impl.StructureViewWrapperImpl;
-import com.intellij.ide.structureView.StructureViewFactoryEx;
-import com.intellij.ide.structureView.impl.StructureViewFactoryImpl;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.DataKeys;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import com.intellij.openapi.actionSystem.ex.CheckboxAction;
 import com.intellij.openapi.actionSystem.ex.ComboBoxAction;
-import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.xml.XmlFile;
 import org.jetbrains.annotations.NotNull;
@@ -18,6 +14,7 @@ import org.sylfra.idea.plugins.xstructure.XSMessageManager;
 import org.sylfra.idea.plugins.xstructure.XStructurePlugin;
 import org.sylfra.idea.plugins.xstructure.config.IXMappingSet;
 import org.sylfra.idea.plugins.xstructure.registry.XMappingSetRegistry;
+import org.sylfra.idea.plugins.xstructure.util.XSUtils;
 
 import javax.swing.*;
 import java.util.Set;
@@ -134,18 +131,7 @@ public class SelectMappingSetAction extends ComboBoxAction
 
       mappingSetRegistry.setSelectedXMappingSet(xmlFile, xMappingSet);
 
-      // TODO find a better way to reload structure view ;-)
-      ApplicationManager.getApplication().invokeLater(new Runnable()
-      {
-        public void run()
-        {
-          StructureViewFactoryImpl structureViewFactory =
-            (StructureViewFactoryImpl) StructureViewFactoryEx.getInstance(project);
-          StructureViewWrapperImpl structureViewWrapper =
-            (StructureViewWrapperImpl) structureViewFactory.getStructureViewWrapper();
-          structureViewWrapper.rebuild();
-        }
-      });
+      XSUtils.reloadStructureView(project);
     }
   }
 

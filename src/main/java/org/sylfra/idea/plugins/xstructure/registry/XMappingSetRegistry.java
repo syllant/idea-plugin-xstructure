@@ -76,6 +76,10 @@ public class XMappingSetRegistry extends VirtualFileAdapter implements Applicati
     }
 
     IXMappingSet newXMappingSet = factory.reload(xMappingSet);
+    if (newXMappingSet == null)
+    {
+      return;
+    }
 
     // Replace references within open files registry
     for (Map.Entry<XmlFile, IXMappingSet> entry : byOpenFileRegistry.entrySet())
@@ -152,18 +156,12 @@ public class XMappingSetRegistry extends VirtualFileAdapter implements Applicati
   @Nullable
   public Set<IXMappingSet> getAvailableXMappingSets(XmlFile xmlFile)
   {
-    String uri = XSUtils.getSchemaUri(xmlFile);
-    if (uri == null)
-    {
-      return null;
-    }
-
     Set<IXMappingSet> result = new TreeSet<IXMappingSet>(new XMappingSetPriorityComparator());
     for (IXMappingSet mappingSet : bySourceFileRegistry.values())
     {
       for (Schema schema : mappingSet.getSupportedSchemas())
       {
-        if (schema.getUriPattern().matcher(uri).matches())
+        if (XSUtils.matchUri(schema.getUriPattern(), xmlFile))
         {
           result.add(mappingSet);
         }
@@ -178,7 +176,7 @@ public class XMappingSetRegistry extends VirtualFileAdapter implements Applicati
    *
    * @param xMappingSet the mapping set to register
    */
-  private void registerXMappingSet(IXMappingSet xMappingSet)
+  private void registerXMappingSet(@NotNull IXMappingSet xMappingSet)
   {
     bySourceFileRegistry.put(xMappingSet.getFile(), xMappingSet);
   }

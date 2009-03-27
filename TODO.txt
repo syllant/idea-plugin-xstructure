@@ -1,14 +1,9 @@
-- schema URI regexp
 - XSD validator related to current XSD
 - check when xml file schema changes
 - synchronize button in settings
-- icons in mappings
-  - Spring
-  - Hibernate
-  - Servlets
-wiki
- - releases history
- 
+
+- match files by path
+- match files xml structure
 - add mapping description
 - logo
 - configuration 
@@ -18,9 +13,10 @@ wiki
 - check schema version
 - report mappings def errors
 - intention to create new file
-- match files by path
 - check if implementation is supported
 - deprecated attribute to mark MDF which should be deleted
 
 - MDF :
   - JBoss service
+  - XSD Schema
+  - Docbook
