@@ -1,9 +1,12 @@
+1.1.1
+  * New: supports 'noNamespaceSchemaLocation' URI for XSD schemas
+
 1.1
   * New: compiled with Java 5 for MacOSX users
   * New: icons may be configured for each node
   * New: 'maxlength' attribute to show only a substring of a long text
   * New: supported schema URI may be defined with regexp
-  * New: supported schema URI support public ID for DTD
+  * New: supported schema URI supports public ID for DTD
   * New: new XSD : xStructure 1.1
   * New: Mapping Definition File for Spring Beans 2.5
   * New: Mapping Definition File for Docbook / Website 2.5/2.6 (thanks to Joachim Ansorg)

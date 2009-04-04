@@ -77,9 +77,8 @@ public abstract class XSUtils
       return (doctype.getSystemId() != null) && (uriPattern.matcher(doctype.getSystemId()).matches());
     }
 
-    // Try with schema
-    XmlAttribute nsAttribute =
-      rootTag.getAttribute("schemaLocation", SCHEMA_INSTANCE_URI);
+    // Try with schema / schemaLocation
+    XmlAttribute nsAttribute = rootTag.getAttribute("schemaLocation", SCHEMA_INSTANCE_URI);
     if (nsAttribute != null)
     {
       String rootNamespace = xmlFile.getDocument().getRootTag().getNamespace();
@@ -96,7 +95,10 @@ public abstract class XSUtils
       }
     }
 
-    return false;
+    // Try with schema / noNamespaceSchemaLocation
+    nsAttribute = rootTag.getAttribute("noNamespaceSchemaLocation", SCHEMA_INSTANCE_URI);
+
+    return (nsAttribute != null) && uriPattern.matcher(nsAttribute.getValue().trim()).matches();
   }
 
   /**
