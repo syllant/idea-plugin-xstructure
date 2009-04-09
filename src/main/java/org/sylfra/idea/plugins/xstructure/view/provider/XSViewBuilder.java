@@ -7,6 +7,8 @@ import com.intellij.openapi.fileEditor.FileEditor;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.xml.XmlFile;
 import org.jetbrains.annotations.NotNull;
+import org.sylfra.idea.plugins.xstructure.XStructurePlugin;
+import org.sylfra.idea.plugins.xstructure.config.IXMappingSet;
 import org.sylfra.idea.plugins.xstructure.view.XSViewComponent;
 import org.sylfra.idea.plugins.xstructure.view.XSViewTreeModel;
 
@@ -19,10 +21,12 @@ import org.sylfra.idea.plugins.xstructure.view.XSViewTreeModel;
 public class XSViewBuilder extends TreeBasedStructureViewBuilder
 {
   private final XmlFile file;
+  private final TreeBasedStructureViewBuilder nestedViewBuilder;
 
-  public XSViewBuilder(XmlFile file)
+  public XSViewBuilder(XmlFile file, TreeBasedStructureViewBuilder nestedViewBuilder)
   {
     this.file = file;
+    this.nestedViewBuilder = nestedViewBuilder;
   }
 
   /**
@@ -31,7 +35,13 @@ public class XSViewBuilder extends TreeBasedStructureViewBuilder
   @NotNull
   public StructureViewModel createStructureViewModel()
   {
-    return new XSViewTreeModel(file);
+    IXMappingSet xMappingSet = XStructurePlugin.getInstance().getXMappingSetRegistry().getSelectedXMappingSet(file);
+    if ((xMappingSet == null) && (nestedViewBuilder != null))
+    {
+      return nestedViewBuilder.createStructureViewModel();
+    }
+    
+    return new XSViewTreeModel(file, xMappingSet);
   }
 
   /**
@@ -48,6 +58,7 @@ public class XSViewBuilder extends TreeBasedStructureViewBuilder
   @NotNull
   public StructureView createStructureView(final FileEditor fileEditor, final Project project)
   {
-    return new XSViewComponent(fileEditor, createStructureViewModel(), project);
+    return new XSViewComponent(fileEditor, createStructureViewModel(), project,
+      (nestedViewBuilder == null) ? null : nestedViewBuilder.createStructureView(fileEditor, project));
   }
 }

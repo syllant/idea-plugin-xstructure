@@ -1,5 +1,6 @@
 package org.sylfra.idea.plugins.xstructure.view;
 
+import com.intellij.ide.structureView.StructureView;
 import com.intellij.ide.structureView.StructureViewModel;
 import com.intellij.ide.structureView.newStructureView.StructureViewComponent;
 import com.intellij.ide.util.treeView.AbstractTreeNode;
@@ -9,7 +10,10 @@ import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import com.intellij.openapi.fileEditor.FileEditor;
 import com.intellij.openapi.project.Project;
+import com.intellij.psi.xml.XmlFile;
+import com.intellij.psi.xml.XmlTag;
 import com.intellij.ui.SimpleTextAttributes;
+import org.jetbrains.annotations.Nullable;
 import org.sylfra.idea.plugins.xstructure.actions.EditMappingSetAction;
 import org.sylfra.idea.plugins.xstructure.actions.ReloadAllMappingSetsAction;
 import org.sylfra.idea.plugins.xstructure.actions.SelectMappingSetAction;
@@ -25,10 +29,14 @@ import javax.swing.tree.DefaultMutableTreeNode;
  */
 public class XSViewComponent extends StructureViewComponent
 {
-  public XSViewComponent(FileEditor editor, StructureViewModel structureViewModel,
-    Project project)
+  @Nullable
+  private final StructureView nestedStructureView;
+
+  public XSViewComponent(FileEditor editor, StructureViewModel structureViewModel, Project project,
+    @Nullable StructureView nestedStructureView)
   {
     super(editor, structureViewModel, project);
+    this.nestedStructureView = nestedStructureView;
     getTree().setCellRenderer(new XStructureNodeRenderer());
     ToolTipManager.sharedInstance().registerComponent(getTree());
   }
@@ -50,11 +58,26 @@ public class XSViewComponent extends StructureViewComponent
       (ReloadAllMappingSetsAction) ActionManager.getInstance()
         .getAction("XStructure.Actions.ReloadAllMappingSets");
 
-    XSViewTreeModel xsViewTreeModel = (XSViewTreeModel) getTreeModel();
+    StructureViewModel structureViewModel = getTreeModel();
 
-    selectMappingSetAction.setXmlFile(xsViewTreeModel.getXmlFile());
-    editMappingSetAction.getTemplatePresentation().setEnabled(
-      (xsViewTreeModel.getXMappingSet() != null));
+    if (structureViewModel instanceof XSViewTreeModel)
+    {
+      XSViewTreeModel xsViewTreeModel = (XSViewTreeModel) structureViewModel;
+
+      selectMappingSetAction.setXmlFile(xsViewTreeModel.getXmlFile());
+
+      editMappingSetAction.getTemplatePresentation().setEnabled(
+        (xsViewTreeModel.getXMappingSet() != null));
+    }
+    else
+    {
+      Object currentEditorEl = structureViewModel.getCurrentEditorElement();
+      if (currentEditorEl instanceof XmlTag)
+      {
+        selectMappingSetAction.setXmlFile((XmlFile) ((XmlTag) currentEditorEl).getContainingFile());
+      }
+      editMappingSetAction.getTemplatePresentation().setEnabled(false);
+    }
 
     DefaultActionGroup actionGroup = (DefaultActionGroup) super.createActionGroup();
 
@@ -83,25 +106,30 @@ public class XSViewComponent extends StructureViewComponent
       if (node.getUserObject() instanceof AbstractTreeNode)
       {
         AbstractTreeNode userNode = (AbstractTreeNode) node.getUserObject();
-        XSModelTreeElement treeElement = (XSModelTreeElement) userNode.getValue();
+        Object userValue = userNode.getValue();
 
-        if (treeElement.hasXStructureSupport())
+        if (userValue instanceof XSModelTreeElement)
         {
-          String tagName = treeElement.getTagName();
-          String targetLabel = treeElement.getTargetLabel();
-          String targetTooltip = treeElement.getTargetTooltip();
+          XSModelTreeElement treeElement = (XSModelTreeElement) userValue;
 
-          setIcon(expanded ? userNode.getOpenIcon() : userNode.getClosedIcon());
-
-          setToolTipText(targetTooltip);
-
-          append(tagName, SimpleTextAttributes.GRAYED_ATTRIBUTES);
-          if (targetLabel != null)
+          if (treeElement.hasXStructureSupport())
           {
-            append(" : " + targetLabel, SimpleTextAttributes.REGULAR_ATTRIBUTES);
-          }
+            String tagName = treeElement.getTagName();
+            String targetLabel = treeElement.getTargetLabel();
+            String targetTooltip = treeElement.getTargetTooltip();
 
-          return;
+            setIcon(expanded ? userNode.getOpenIcon() : userNode.getClosedIcon());
+
+            setToolTipText(targetTooltip);
+
+            append(tagName, SimpleTextAttributes.GRAYED_ATTRIBUTES);
+            if (targetLabel != null)
+            {
+              append(" : " + targetLabel, SimpleTextAttributes.REGULAR_ATTRIBUTES);
+            }
+
+            return;
+          }
         }
       }
 

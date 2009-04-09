@@ -124,6 +124,7 @@ public class SelectMappingSetAction extends ComboBoxAction
       XMappingSetRegistry mappingSetRegistry =
         XStructurePlugin.getInstance().getXMappingSetRegistry();
 
+      // Compares references
       if (mappingSetRegistry.getSelectedXMappingSet(xmlFile) == xMappingSet)
       {
         return;

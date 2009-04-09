@@ -9,7 +9,6 @@ import com.intellij.openapi.Disposable;
 import com.intellij.psi.xml.XmlFile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.sylfra.idea.plugins.xstructure.XStructurePlugin;
 import org.sylfra.idea.plugins.xstructure.config.IXMappingSet;
 
 /**
@@ -24,14 +23,13 @@ public class XSViewTreeModel extends XmlStructureViewTreeModel implements Dispos
   private IXMappingSet xMappingSet;
   private XmlFile xmlFile;
 
-  public XSViewTreeModel(@NotNull XmlFile xmlFile)
+  public XSViewTreeModel(@NotNull XmlFile xmlFile, @Nullable IXMappingSet xMappingSet)
   {
     super(xmlFile);
     this.xmlFile = xmlFile;
-    root = new XSModelTreeElement((XmlFile) getPsiFile());
+    this.xMappingSet = xMappingSet;
 
-    xMappingSet =
-      XStructurePlugin.getInstance().getXMappingSetRegistry().getSelectedXMappingSet(xmlFile);
+    root = new XSModelTreeElement((XmlFile) getPsiFile());
   }
 
   /**

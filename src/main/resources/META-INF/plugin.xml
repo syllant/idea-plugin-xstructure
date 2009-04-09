@@ -12,12 +12,13 @@
 </html>
     ]]></description>
   <category>xml</category>
-  <version>1.1.1</version>
+  <version>1.2</version>
   <vendor email="syllant@gmail.com" url="http://xstructure.googlecode.com/">Sylvain FRANCOIS</vendor>
   <change-notes><![CDATA[
 <html>
   <ul>
-    <li>New: supports 'noNamespaceSchemaLocation' URI for XSD schemas
+    <li>Fix: doesn't hide anymore other custom views (such as provided by Spring or Hibernate plugins). They are now
+  available using '[Default]' view. NB: this issue was erratic since it was depending on extensions loading order.
  </ul>
 </html>
 ]]></change-notes>
@@ -71,7 +72,8 @@
     <xmlStructureViewElementProvider
       implementation="org.sylfra.idea.plugins.xstructure.view.provider.XSViewElementProvider"/>
     <xmlStructureViewBuilderProvider
-      implementation="org.sylfra.idea.plugins.xstructure.view.provider.XSViewBuilderProvider"/>
+      implementation="org.sylfra.idea.plugins.xstructure.view.provider.XSViewBuilderProvider"
+      order="first"/> <!-- Set as first to be able to wrap other available implementations --> 
 
     <applicationService
       serviceInterface="org.sylfra.idea.plugins.xstructure.settings.XStructureSettingsComponent"
