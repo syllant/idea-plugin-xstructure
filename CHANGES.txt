@@ -1,3 +1,7 @@
+1.3
+  * Upgraded for IDEA 9
+  * Fix: schema URI was not correctly mapped when several locations were specified
+
 1.2
   * Fix: doesn't hide anymore other custom views (such as provided by Spring or Hibernate plugins). They are now
   available using '[Default]' view. NB: this issue was erratic since it was depending on extensions loading order. 

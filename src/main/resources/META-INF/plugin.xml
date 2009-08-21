@@ -12,17 +12,17 @@
 </html>
     ]]></description>
   <category>xml</category>
-  <version>1.2</version>
+  <version>1.3</version>
   <vendor email="syllant@gmail.com" url="http://xstructure.googlecode.com/">Sylvain FRANCOIS</vendor>
   <change-notes><![CDATA[
 <html>
   <ul>
-    <li>Fix: doesn't hide anymore other custom views (such as provided by Spring or Hibernate plugins). They are now
-  available using '[Default]' view. NB: this issue was erratic since it was depending on extensions loading order.
+    <li>Upgraded for IDEA 9
+    <li>Fix: schema URI was not correctly mapped when several locations were specified.
  </ul>
 </html>
 ]]></change-notes>
-  <idea-version since-build="8000"/>
+  <idea-version since-build="10000" until-build="10999"/>
   <resource-bundle>org.sylfra.idea.plugins.xstructure.resources.XSBundle</resource-bundle>
   <depends optional="true">XPathView</depends>
 

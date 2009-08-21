@@ -91,7 +91,7 @@ public abstract class XSUtils
 
         String uri = (pos == -1) ? namespaceDecl : namespaceDecl.substring(0, pos);
 
-        return uriPattern.matcher(uri).matches();
+        return uriPattern.matcher(uri).find();
       }
     }
 
