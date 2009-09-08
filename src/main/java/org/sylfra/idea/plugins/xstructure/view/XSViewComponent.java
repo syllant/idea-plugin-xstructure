@@ -1,6 +1,5 @@
 package org.sylfra.idea.plugins.xstructure.view;
 
-import com.intellij.ide.structureView.StructureView;
 import com.intellij.ide.structureView.StructureViewModel;
 import com.intellij.ide.structureView.newStructureView.StructureViewComponent;
 import com.intellij.ide.util.treeView.AbstractTreeNode;
@@ -10,10 +9,7 @@ import com.intellij.openapi.actionSystem.ActionManager;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import com.intellij.openapi.fileEditor.FileEditor;
 import com.intellij.openapi.project.Project;
-import com.intellij.psi.xml.XmlFile;
-import com.intellij.psi.xml.XmlTag;
 import com.intellij.ui.SimpleTextAttributes;
-import org.jetbrains.annotations.Nullable;
 import org.sylfra.idea.plugins.xstructure.actions.EditMappingSetAction;
 import org.sylfra.idea.plugins.xstructure.actions.ReloadAllMappingSetsAction;
 import org.sylfra.idea.plugins.xstructure.actions.SelectMappingSetAction;
@@ -29,14 +25,9 @@ import javax.swing.tree.DefaultMutableTreeNode;
  */
 public class XSViewComponent extends StructureViewComponent
 {
-  @Nullable
-  private final StructureView nestedStructureView;
-
-  public XSViewComponent(FileEditor editor, StructureViewModel structureViewModel, Project project,
-    @Nullable StructureView nestedStructureView)
+  public XSViewComponent(FileEditor editor, StructureViewModel structureViewModel, Project project)
   {
     super(editor, structureViewModel, project);
-    this.nestedStructureView = nestedStructureView;
     getTree().setCellRenderer(new XStructureNodeRenderer());
     ToolTipManager.sharedInstance().registerComponent(getTree());
   }
@@ -64,18 +55,11 @@ public class XSViewComponent extends StructureViewComponent
     {
       XSViewTreeModel xsViewTreeModel = (XSViewTreeModel) structureViewModel;
 
-      selectMappingSetAction.setXmlFile(xsViewTreeModel.getXmlFile());
-
       editMappingSetAction.getTemplatePresentation().setEnabled(
         (xsViewTreeModel.getXMappingSet() != null));
     }
     else
     {
-      Object currentEditorEl = structureViewModel.getCurrentEditorElement();
-      if (currentEditorEl instanceof XmlTag)
-      {
-        selectMappingSetAction.setXmlFile((XmlFile) ((XmlTag) currentEditorEl).getContainingFile());
-      }
       editMappingSetAction.getTemplatePresentation().setEnabled(false);
     }
 

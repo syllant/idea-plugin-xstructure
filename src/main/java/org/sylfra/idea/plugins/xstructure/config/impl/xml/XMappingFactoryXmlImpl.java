@@ -122,26 +122,29 @@ public class XMappingFactoryXmlImpl
   private void parseConfigDir(File directory, List<AbstractXMappingSet> xMappingSets)
   {
     File[] childFiles = directory.listFiles(MAPPING_FILENAME_FILTER);
-    for (File childFile : childFiles)
+    if (childFiles != null)
     {
-      if (childFile.isDirectory())
+      for (File childFile : childFiles)
       {
-        parseConfigDir(childFile, xMappingSets);
-      }
-      else
-      {
-        if (validateAgainstSchema(childFile))
+        if (childFile.isDirectory())
         {
-          AbstractXMappingSet xMappingSet = loadMappingSetFromXml(childFile);
-          if (xMappingSet != null)
-          {
-            xMappingSets.add(xMappingSet);
-          }
+          parseConfigDir(childFile, xMappingSets);
         }
         else
         {
-          // TODO report errors to user
-          LOGGER.warn("Mapping definition file is invalid, it will be ignored : " + childFile);
+          if (validateAgainstSchema(childFile))
+          {
+            AbstractXMappingSet xMappingSet = loadMappingSetFromXml(childFile);
+            if (xMappingSet != null)
+            {
+              xMappingSets.add(xMappingSet);
+            }
+          }
+          else
+          {
+            // TODO report errors to user
+            LOGGER.warn("Mapping definition file is invalid, it will be ignored : " + childFile);
+          }
         }
       }
     }

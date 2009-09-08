@@ -12,13 +12,12 @@
 </html>
     ]]></description>
   <category>xml</category>
-  <version>1.3</version>
+  <version>1.3.1</version>
   <vendor email="syllant@gmail.com" url="http://xstructure.googlecode.com/">Sylvain FRANCOIS</vendor>
   <change-notes><![CDATA[
 <html>
   <ul>
-    <li>Upgraded for IDEA 9
-    <li>Fix: schema URI was not correctly mapped when several locations were specified.
+    <li>Fix: Memory leak, xStructure retained a reference to the last edited file 
  </ul>
 </html>
 ]]></change-notes>
@@ -68,7 +67,7 @@
     </component>
   </application-components>
 
-  <extensions xmlns="com.intellij">
+  <extensions defaultExtensionNs="com.intellij">
     <xmlStructureViewElementProvider
       implementation="org.sylfra.idea.plugins.xstructure.view.provider.XSViewElementProvider"/>
     <xmlStructureViewBuilderProvider

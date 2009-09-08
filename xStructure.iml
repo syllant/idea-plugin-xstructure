@@ -11,31 +11,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
-    <orderEntry type="jdk" jdkName="IDEA 9 - jdk1.5" jdkType="IDEA JDK" />
+    <orderEntry type="jdk" jdkName="IDEA 9.0" jdkType="IDEA JDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="XPath plugin" level="application" />
-    <orderEntry type="library" name="Maven: org.testng:testng:jdk15:5.1" level="project" />
-    <orderEntry type="library" name="Maven: junit:junit:3.8.1" level="project" />
-    <orderEntry type="library" name="Maven: com.thoughtworks.xstream:xstream:1.2.2" level="project" />
-    <orderEntry type="library" name="Maven: xpp3:xpp3_min:1.1.3.4.O" level="project" />
-    <orderEntry type="library" name="Maven: jaxen:jaxen:1.1.1" level="project" />
-    <orderEntry type="library" name="Maven: dom4j:dom4j:1.6.1" level="project" />
-    <orderEntry type="library" name="Maven: jdom:jdom:1.0" level="project" />
-    <orderEntry type="library" name="Maven: xml-apis:xml-apis:1.3.02" level="project" />
-    <orderEntry type="library" name="Maven: xerces:xercesImpl:2.6.2" level="project" />
-    <orderEntry type="library" name="Maven: xom:xom:1.0" level="project" />
-    <orderEntry type="library" name="Maven: xerces:xmlParserAPIs:2.6.2" level="project" />
-    <orderEntry type="library" name="Maven: xalan:xalan:2.6.0" level="project" />
-    <orderEntry type="library" name="Maven: com.ibm.icu:icu4j:2.6.1" level="project" />
-    <orderEntry type="library" name="Maven: org.jdom:jdom:1.1" level="project" />
-    <orderEntry type="library" name="Maven: com.intellij.idea:idea:9-jdk1.5" level="project" />
-    <orderEntry type="library" name="Maven: com.intellij:forms-rt:9-jdk1.5" level="project" />
-    <orderEntry type="library" name="Maven: com.intellij.idea:bootstrap:9-jdk1.5" level="project" />
-    <orderEntry type="library" name="Maven: com.intellij.idea:openapi:9-jdk1.5" level="project" />
-    <orderEntry type="library" name="Maven: com.intellij.idea:annotations:9-jdk1.5" level="project" />
-    <orderEntry type="library" name="Maven: com.intellij.idea:extensions:9-jdk1.5" level="project" />
-    <orderEntry type="library" name="Maven: com.intellij.idea:util:9-jdk1.5" level="project" />
-    <orderEntry type="library" name="Maven: com.intellij.idea.plugins:xpathview:3.0" level="project" />
   </component>
 </module>
 

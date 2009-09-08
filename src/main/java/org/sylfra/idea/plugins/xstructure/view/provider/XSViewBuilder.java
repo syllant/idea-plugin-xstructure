@@ -58,7 +58,6 @@ public class XSViewBuilder extends TreeBasedStructureViewBuilder
   @NotNull
   public StructureView createStructureView(final FileEditor fileEditor, final Project project)
   {
-    return new XSViewComponent(fileEditor, createStructureViewModel(), project,
-      (nestedViewBuilder == null) ? null : nestedViewBuilder.createStructureView(fileEditor, project));
+    return new XSViewComponent(fileEditor, createStructureViewModel(), project);
   }
 }
