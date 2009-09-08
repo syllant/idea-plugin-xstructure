@@ -64,18 +64,12 @@ public class XSViewComponent extends StructureViewComponent
     {
       XSViewTreeModel xsViewTreeModel = (XSViewTreeModel) structureViewModel;
 
-      selectMappingSetAction.setXmlFile(xsViewTreeModel.getXmlFile());
-
       editMappingSetAction.getTemplatePresentation().setEnabled(
         (xsViewTreeModel.getXMappingSet() != null));
     }
     else
     {
       Object currentEditorEl = structureViewModel.getCurrentEditorElement();
-      if (currentEditorEl instanceof XmlTag)
-      {
-        selectMappingSetAction.setXmlFile((XmlFile) ((XmlTag) currentEditorEl).getContainingFile());
-      }
       editMappingSetAction.getTemplatePresentation().setEnabled(false);
     }
 

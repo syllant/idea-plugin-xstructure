@@ -8,6 +8,8 @@ import com.intellij.openapi.actionSystem.ex.CheckboxAction;
 import com.intellij.openapi.actionSystem.ex.ComboBoxAction;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.xml.XmlFile;
+import com.intellij.psi.PsiFile;
+import com.intellij.ide.DataManager;
 import org.jetbrains.annotations.NotNull;
 import org.sylfra.idea.plugins.xstructure.XSIconManager;
 import org.sylfra.idea.plugins.xstructure.XSMessageManager;
@@ -28,33 +30,24 @@ import java.util.Set;
 public class SelectMappingSetAction extends ComboBoxAction
 {
   /**
-   * The file being edited
-   */
-  private XmlFile xmlFile;
-
-  /**
-   * Set the current edited file
-   *
-   * @param xmlFile the current edited file
-   */
-  public void setXmlFile(XmlFile xmlFile)
-  {
-    this.xmlFile = xmlFile;
-  }
-
-  /**
    * Creates the combo box items, from all eligible mapping sets for the current edited file
    */
   @NotNull
   protected DefaultActionGroup createPopupActionGroup(JComponent button)
   {
+    DefaultActionGroup actionGroup = new DefaultActionGroup();
+
     XMappingSetRegistry mappingSetRegistry =
       XStructurePlugin.getInstance().getXMappingSetRegistry();
 
+    XmlFile xmlFile = retrieveXmlFile();
+    if (xmlFile == null)
+    {
+      return actionGroup;
+    }
+
     Set<IXMappingSet> xMappingSets = mappingSetRegistry.getAvailableXMappingSets(xmlFile);
     IXMappingSet selectedXMappingSet = mappingSetRegistry.getSelectedXMappingSet(xmlFile);
-
-    DefaultActionGroup actionGroup = new DefaultActionGroup();
 
     // An item to select no mapping set
     actionGroup.add(new XMappingSetChoiceAction(xmlFile, null,
@@ -73,6 +66,17 @@ public class SelectMappingSetAction extends ComboBoxAction
       }
     }
     return actionGroup;
+  }
+
+  private XmlFile retrieveXmlFile()
+  {
+    PsiFile file = DataKeys.PSI_FILE.getData(DataManager.getInstance().getDataContext());
+    if (file instanceof XmlFile)
+    {
+      return (XmlFile) file;
+    }
+
+    return null;
   }
 
   /**

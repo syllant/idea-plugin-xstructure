@@ -193,13 +193,13 @@
   <component name="IdProvider" IDEtalkID="26A52EA3334FE29A17EEDF54873B6106" />
   <component name="InspectionProjectProfileManager">
     <option name="PROJECT_PROFILE" value="Project Default" />
-    <option name="USE_PROJECT_LEVEL_SETTINGS" value="false" />
-    <scopes />
+    <option name="USE_PROJECT_PROFILE" value="true" />
+    <version value="1.0" />
     <profiles>
       <profile version="1.0" is_locked="false">
         <option name="myName" value="Project Default" />
         <option name="myLocal" value="false" />
-        <inspection_tool class="JavaDoc" level="INFO" enabled="true">
+        <inspection_tool class="JavaDoc" enabled="true" level="INFO" enabled_by_default="true">
           <option name="TOP_LEVEL_CLASS_OPTIONS">
             <value>
               <option name="ACCESS_JAVADOC_REQUIRED_FOR" value="none" />
@@ -228,7 +228,7 @@
           <option name="IGNORE_JAVADOC_PERIOD" value="true" />
           <option name="myAdditionalJavadocTags" value="" />
         </inspection_tool>
-        <inspection_tool class="RequiredAttributes" level="WARNING" enabled="true">
+        <inspection_tool class="RequiredAttributes" enabled="true" level="WARNING" enabled_by_default="true">
           <option name="myAdditionalRequiredHtmlAttributes" value="alt" />
         </inspection_tool>
       </profile>
@@ -309,6 +309,11 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ModuleStructureConfigurable.UI">
@@ -448,6 +453,9 @@
   <component name="ProjectDetails">
     <option name="projectName" value="xStructure" />
   </component>
+  <component name="ProjectDictionaryState">
+    <dictionary name="sfrancois" />
+  </component>
   <component name="ProjectFileVersion" converted="true" />
   <component name="ProjectLibrariesConfigurable.UI">
     <option name="proportions">
@@ -464,7 +472,7 @@
       <SplitterProportionsDataImpl />
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_5" assert-keyword="true" jdk-15="true" project-jdk-name="IDEA 8 - jdk1.5" project-jdk-type="IDEA JDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_5" assert-keyword="true" jdk-15="true" project-jdk-name="IDEA 8.1 - jdk1.5" project-jdk-type="IDEA JDK">
     <output url="file://$PROJECT_DIR$/target" />
   </component>
   <component name="ResourceManagerContainer">
@@ -679,8 +687,5 @@
   <component name="uidesigner-configuration">
     <option name="INSTRUMENT_CLASSES" value="false" />
   </component>
-  <UsedPathMacros>
-    <macro name="KALISTICK_TECHBOX_DIR" description="Racine du répertoire techbox, e.g. : C:\techbox" />
-  </UsedPathMacros>
 </project>
 

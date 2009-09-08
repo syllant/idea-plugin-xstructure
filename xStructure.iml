@@ -10,7 +10,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
-    <orderEntry type="jdk" jdkName="IDEA 8 - jdk1.5" jdkType="IDEA JDK" />
+    <orderEntry type="jdk" jdkName="IDEA 10558" jdkType="IDEA JDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="XPath plugin" level="application" />
   </component>
