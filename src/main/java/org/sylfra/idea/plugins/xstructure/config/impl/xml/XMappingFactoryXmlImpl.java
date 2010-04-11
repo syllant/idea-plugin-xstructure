@@ -3,6 +3,7 @@ package org.sylfra.idea.plugins.xstructure.config.impl.xml;
 import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.openapi.diagnostic.Logger;
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -207,7 +208,7 @@ public class XMappingFactoryXmlImpl
   {
     if (xstream == null)
     {
-      xstream = new XStream();
+      xstream = new XStream(new DomDriver());
 
       xstream.setClassLoader(getClass().getClassLoader());
 

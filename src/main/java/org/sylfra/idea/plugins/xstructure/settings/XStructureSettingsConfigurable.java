@@ -44,7 +44,10 @@ public class XStructureSettingsConfigurable implements ApplicationComponent, Con
    */
   public void disposeComponent()
   {
-    settingsPane.dispose();
+    if (settingsPane != null)
+    {
+      settingsPane.dispose();
+    }
   }
 
   /**
