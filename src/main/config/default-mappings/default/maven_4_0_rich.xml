@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xstructure xmlns="http://plugins.intellij.net/xstructure"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://plugins.intellij.net/xstructure http://plugins.intellij.net/xstructure/ns/xstructure_1_1.xsd"
+            implType="default" name="Maven POM / rich" version="1.0" priority="20">
+  <supported-schemas>
+    <schema uri="http://maven.apache.org/maven-v4_0_0.xsd"/>
+  </supported-schemas>
+  <mappings>
+    <mapping match="/project" label="{name} [{groupId}:{artifactId}] - v{version}"
+             tip="{description}"/>
+    <mapping match="/project/(modelVersion|groupId|artifactId|name|description|version)"
+             skip="all"/>
+    <mapping match="/project/packaging" label="{.}"/>
+    <mapping match="/project/inceptionYear" label="{.}"/>
+    <mapping match="/project/(ciManagement|issueManagement)" label="{system}" skip="children"/>
+    <mapping match="/project/modules/module" label="{.}" icon="/nodes/ModuleClosed.png"/>
+    <mapping match="/project/licenses" label="{license/name}" skip="children"/>
+    <mapping match="/project/build/extensions/extension" label="{groupId}:{artifactId}"
+             skip="children"/>
+    <mapping match="/project/developers/developer" label="{name}" skip="children" icon="/fileTypes/custom.png"/>
+    <mapping match="/project/profiles/profile" label="{id}" skip="children" icon="/actions/properties.png"/>
+    <mapping match="/project/pluginRepositories/pluginRepository" icon="/nodes/pluginnotinstalled.png"/>
+    <mapping match="/project/(/build/plugins|pluginRepositories|repositories)" icon="/nodes/moduleGroupClosed.png"/>
+    <mapping match="/.*/plugin" label="{groupId}:{artifactId}" skip="children" icon="/nodes/plugin.png"/>
+    <mapping match="/.*/dependency" label="{groupId}:{artifactId}" skip="children" icon="/objectBrowser/showLibraryContents.png"/>
+    <mapping match="/.*/.*epository" label="{id}" skip="children"/>
+  </mappings>
+</xstructure>

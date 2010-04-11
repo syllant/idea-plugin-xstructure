@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xstructure xmlns="http://plugins.intellij.net/xstructure"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://plugins.intellij.net/xstructure http://plugins.intellij.net/xstructure/ns/xstructure_1_1.xsd"
+            implType="xpath" name="webapp" version="1.1" priority="20">
+  <supported-schemas>
+    <schema uri="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"/>
+  </supported-schemas>
+  <mappings>
+    <mapping match="/web-app" label="@version"/>
+    <mapping match="/web-app/(context-param|filter|servlet)/init-param"
+             label="./*[name()='param-name']/text()"/>
+    <mapping match="/web-app/context-parama/*" skip="all"/>
+    <mapping match="/web-app/(servlet|servlet-mapping)" label="./*[name()='servlet-name']/text()"
+             tip="aaa"/>
+    <mapping match="/web-app/(context-param|filter|servlet)/init-param/*" skip="all"/>
+    <mapping match="/web-app/(servlet|servlet-mapping)/*" skip="all"/>
+  </mappings>
+</xstructure>

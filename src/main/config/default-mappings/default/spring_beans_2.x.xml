@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xstructure xmlns="http://plugins.intellij.net/xstructure"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://plugins.intellij.net/xstructure http://plugins.intellij.net/xstructure/ns/xstructure_1_1.xsd"
+            implType="default" name="Spring Beans 2.x" version="1.0" priority="9">
+  <supported-schemas>
+    <schema uri="http://www.springframework.org/schema/beans/spring-beans-2.\d.xsd"/>
+  </supported-schemas>
+  <mappings>
+    <mapping match="/beans" tip="{description}" icon="/javaee/ejbModule.png"/>
+    <mapping match="/beans/description" skip="all"/>
+    <mapping match="/beans/import" label="{@resource}" icon="/actions/export.png"/>
+    <mapping match="/beans/bean" label="{@id}" tip="{description}" icon="/objectBrowser/bean.png"/>
+    <mapping match="/beans/bean/description" skip="all"/>
+    <mapping match="/beans/bean/constructor-arg" icon="/nodes/ejbCreateMethod.png"/>
+    <mapping match="/.*/property" label="{@name}" icon="/nodes/parameter.png"/>
+    <mapping match="/.*/property/(list|props|map)" skip="this"/>
+    <mapping match="/.*/(property/list|constructor-arg)/value" label="{.}" icon="/nodes/parameter.png"/>
+    <mapping match="/.*/property/props/prop" label="{@key}={.}" icon="/nodes/property.png"/>
+    <mapping match="/.*/property/map/entry" label="{@key}={value}" skip="children" icon="/nodes/property.png"/>
+  </mappings>
+</xstructure>

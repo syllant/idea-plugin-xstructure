@@ -1,0 +1,85 @@
+Mappings are based on expression rules which may be specified using different syntaxes. These expressions are parsed and applied to nodes context by pluggable engines bundled in xStructure plugin. Implementation type is specified in mapping definition file, through attribute `implType` on root element.
+
+Two implementations are supported :
+
+   * *default* : the default implementation, based on regular expressions
+   * *xpath* : an implementation based on XPath
+
+Following examples will be based on this file :
+
+{{{
+<?xml version="1.0" encoding="UTF-8"?>
+<users xmlns="http://xxx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://xxx http://xxx/xxx.xsd"
+       implType="default" name="Maven POM / simple" version="1.0">
+  <user id="1">
+    <login>jules.cesar</login>
+    <identity title="M">
+      <first-name>Jules</first-name>
+      <last-name>Cesar</last-name>
+    </identity>
+    <roles>
+      <role id="admin"/>
+      <role id="author"/>
+      <role id="editor"/>
+    </roles>
+  </user>
+</users>
+}}}
+   
+= Default implementation =
+This implementation uses regular expressions to match nodes. Expressions for labels and tooltips look like simplified XPath.
+
+This is the recommended implementation since it's simple to use and performant. Main drawback is that matching rules are not as rich as XPath rules.
+
+== Match rule ==
+Expression for match rule is related to the absolute path of node, e.g. : `/users/user/identity`. You have to define a regular expression (according to Java syntax) which matches this path.
+
+*Examples :* 
+Here are expressions which would match `/users/user/identity`
+   * `/users/user/identity`
+   * `/users/user/.*`
+   * `/users/.*/identity`
+   * `/users/user/(identity|membership)`
+   * `.*/user/.*`
+   
+== Label/Tooltip expressions ==
+Expressions used to display text are based on relative paths from the current node. They look like XPath expression, with simpler syntax, supporting attributes or tag values. An expression may be composed of multiple paths to resolve, and litteral text. To distinguish paths from litteral text, paths must be enclosed by brackets `{}`. Resolution engine will only resolve expressions between brackets.
+
+*Syntax rules :*
+
+   * a child node is referenced by its name
+   * descendant children are separated by */* character
+   * an attribute is referenced by its name with *@* prefix
+   * to be resolved, context paths must be enclosed by brackets
+   * any text not enclosed by brackets is displayed as is.
+   
+*Examples :* 
+Here are expresssions which could apply to `/users/user`
+   * `{login}`
+   * `{@id}`
+   * `{identity/last-name}`
+   * `{identity@title} "{identity/first-name} {identity/last-name}"`
+
+To display the matched tag value, use the `{.}` syntax.
+
+= XPath implementation =
+*XPath implementation is experimental !* : XPath should be the natural way to define expressions to match or build text, but it's quite slower than default implementation. Besides, its syntax is more complex for newbies. I'll investigate to try to improve this implementation.
+
+== Requirements ==
+XPath implementation is based on [http://www.intellij.org/twiki/bin/view/Main/XPathViewPlugin XPathView] plugin. This plugin provides a bridge to resolve XPath expressions from XML file content. You'll have to install this plugin to use XPath implementation.
+
+== Match rule ==
+Match rule follows syntax defined for _default_ implementation. Why ? Because applying an XPath expression on whole file for each node rendering takes too much time.
+Have to think about how I could resolve this...
+
+== Label/Tooltip expressions ==
+Here you can use an XPath expression :-) It should follow XPath 1.0 syntax. Context node is the matched node.
+
+*Examples :*
+Here are expresssions which could apply to `/users/user`
+   * `./*[name()='login']/text()`
+   * `@id`
+   * `./*[name()='login']/last-name/text()`
+   * `concat(./*[name()='identity']/@title, ' "', ./*[name()='identity']/*[name()='first-name']/text(), ' ', ./*[name()='identity']/*[name()='last-name']/text(), '"')`
