@@ -86,9 +86,10 @@ public abstract class XSUtils
       int pos = namespaceDecl.indexOf(rootNamespace + " ");
       if (pos > -1)
       {
-        namespaceDecl = namespaceDecl.substring(pos + rootNamespace.length() + 1);
-        pos = namespaceDecl.indexOf(' ');
+        namespaceDecl = namespaceDecl.substring(pos + rootNamespace.length() + 1).trim();
 
+        // Get only next term
+        pos = namespaceDecl.indexOf(' ');
         String uri = (pos == -1) ? namespaceDecl : namespaceDecl.substring(0, pos);
 
         return uriPattern.matcher(uri).find();
