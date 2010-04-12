@@ -12,13 +12,12 @@
 </html>
     ]]></description>
   <category>xml</category>
-  <version>1.4</version>
+  <version>${pom.version}</version>
   <vendor email="syllant@gmail.com" url="http://xstructure.googlecode.com/">Sylvain FRANCOIS</vendor>
   <change-notes><![CDATA[
 <html>
   <ul>
-    <li>Removed 'until-build' number since xStructure is still appliable to IDEA 9
-    <li>xStructure is now compliant with Community Edition 
+    <li>Fix: XSD URI was not properly parsed in some cases (additional spaces) 
  </ul>
 </html>
 ]]></change-notes>
