@@ -9,16 +9,15 @@
   <mappings defaultSkip="all">
     <mapping match="/project" label="{name} - v{version}" tip="{description}"/>
     <mapping match="/project/developers"/>
-    <mapping match="/project/developers/developer" label="{name}"/>
-    <mapping match="/project/dependencies"/>
+    <mapping match="/project/developers/developer" label="{name}" icon="/fileTypes/custom.png"/>
+    <mapping match="/project/dependencies" icon="/nodes/moduleGroupClosed.png"/>
     <mapping match="/project/build"/>
-    <mapping match="/project/build/plugins"/>
-    <mapping match="/project/(dependencies/dependency|build/plugins/plugin)"
-             label="{groupId}:{artifactId}"/>
-    <mapping match="/project/(repositories|pluginRepositories)"/>
-    <mapping match="/project/(repositories|pluginRepositories)/(repository|pluginRepository)"
-             label="{id}"/>
-    <mapping match="/project/profiles"/>
-    <mapping match="/project/profiles/profile" label="{id}"/>
+    <mapping match="/project/build/plugins" icon="/nodes/moduleGroupClosed.png"/>
+    <mapping match="/project/build/plugins/plugin" label="{groupId}:{artifactId}" icon="/nodes/plugin.png"/>
+    <mapping match="/project/dependencies/dependency" label="{groupId}:{artifactId}" icon="/objectBrowser/showLibraryContents.png"/>
+    <mapping match="/project/(repositories|pluginRepositories)" icon="/nodes/moduleGroupClosed.png"/>
+    <mapping match="/project/(repositories|pluginRepositories)/(repository|pluginRepository)" label="{id}" icon="/nodes/pluginnotinstalled.png"/>
+    <mapping match="/project/profiles" icon="/nodes/moduleGroupClosed.png"/>
+    <mapping match="/project/profiles/profile" label="{id}" icon="/actions/properties.png"/>
   </mappings>
 </xstructure>

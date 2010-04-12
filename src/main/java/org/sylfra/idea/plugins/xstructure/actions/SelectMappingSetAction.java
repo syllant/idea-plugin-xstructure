@@ -1,16 +1,14 @@
 package org.sylfra.idea.plugins.xstructure.actions;
 
-import com.intellij.ide.impl.StructureViewWrapperImpl;
-import com.intellij.ide.structureView.StructureViewFactoryEx;
-import com.intellij.ide.structureView.impl.StructureViewFactoryImpl;
+import com.intellij.ide.DataManager;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.DataKeys;
 import com.intellij.openapi.actionSystem.DefaultActionGroup;
 import com.intellij.openapi.actionSystem.ex.CheckboxAction;
 import com.intellij.openapi.actionSystem.ex.ComboBoxAction;
-import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.project.Project;
+import com.intellij.psi.PsiFile;
 import com.intellij.psi.xml.XmlFile;
 import org.jetbrains.annotations.NotNull;
 import org.sylfra.idea.plugins.xstructure.XSIconManager;
@@ -18,6 +16,7 @@ import org.sylfra.idea.plugins.xstructure.XSMessageManager;
 import org.sylfra.idea.plugins.xstructure.XStructurePlugin;
 import org.sylfra.idea.plugins.xstructure.config.IXMappingSet;
 import org.sylfra.idea.plugins.xstructure.registry.XMappingSetRegistry;
+import org.sylfra.idea.plugins.xstructure.util.XSUtils;
 
 import javax.swing.*;
 import java.util.Set;
@@ -31,33 +30,24 @@ import java.util.Set;
 public class SelectMappingSetAction extends ComboBoxAction
 {
   /**
-   * The file being edited
-   */
-  private XmlFile xmlFile;
-
-  /**
-   * Set the current edited file
-   *
-   * @param xmlFile the current edited file
-   */
-  public void setXmlFile(XmlFile xmlFile)
-  {
-    this.xmlFile = xmlFile;
-  }
-
-  /**
    * Creates the combo box items, from all eligible mapping sets for the current edited file
    */
   @NotNull
   protected DefaultActionGroup createPopupActionGroup(JComponent button)
   {
+    DefaultActionGroup actionGroup = new DefaultActionGroup();
+
     XMappingSetRegistry mappingSetRegistry =
       XStructurePlugin.getInstance().getXMappingSetRegistry();
 
+    XmlFile xmlFile = retrieveXmlFile();
+    if (xmlFile == null)
+    {
+      return actionGroup;
+    }
+
     Set<IXMappingSet> xMappingSets = mappingSetRegistry.getAvailableXMappingSets(xmlFile);
     IXMappingSet selectedXMappingSet = mappingSetRegistry.getSelectedXMappingSet(xmlFile);
-
-    DefaultActionGroup actionGroup = new DefaultActionGroup();
 
     // An item to select no mapping set
     actionGroup.add(new XMappingSetChoiceAction(xmlFile, null,
@@ -75,7 +65,19 @@ public class SelectMappingSetAction extends ComboBoxAction
           (selectedXMappingSet == xMappingSet)));
       }
     }
+
     return actionGroup;
+  }
+
+  private XmlFile retrieveXmlFile()
+  {
+    PsiFile file = DataKeys.PSI_FILE.getData(DataManager.getInstance().getDataContext());
+    if (file instanceof XmlFile)
+    {
+      return (XmlFile) file;
+    }
+
+    return null;
   }
 
   /**
@@ -127,6 +129,7 @@ public class SelectMappingSetAction extends ComboBoxAction
       XMappingSetRegistry mappingSetRegistry =
         XStructurePlugin.getInstance().getXMappingSetRegistry();
 
+      // Compares references
       if (mappingSetRegistry.getSelectedXMappingSet(xmlFile) == xMappingSet)
       {
         return;
@@ -134,18 +137,7 @@ public class SelectMappingSetAction extends ComboBoxAction
 
       mappingSetRegistry.setSelectedXMappingSet(xmlFile, xMappingSet);
 
-      // TODO find a better way to reload structure view ;-)
-      ApplicationManager.getApplication().invokeLater(new Runnable()
-      {
-        public void run()
-        {
-          StructureViewFactoryImpl structureViewFactory =
-            (StructureViewFactoryImpl) StructureViewFactoryEx.getInstance(project);
-          StructureViewWrapperImpl structureViewWrapper =
-            (StructureViewWrapperImpl) structureViewFactory.getStructureViewWrapper();
-          structureViewWrapper.rebuild();
-        }
-      });
+      XSUtils.reloadStructureView(project);
     }
   }
 

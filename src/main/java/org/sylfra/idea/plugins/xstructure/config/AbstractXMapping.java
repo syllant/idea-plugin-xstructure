@@ -13,6 +13,7 @@ public abstract class AbstractXMapping implements IXMapping
 {
   private IXMappingSet mappingSet;
   private String matchString;
+  private int maxLength;
   private IXMappingExp labelExp;
   private IXMappingExp tooltipExp;
   private SkipMode skipMode;
@@ -50,6 +51,22 @@ public abstract class AbstractXMapping implements IXMapping
   public void setMatchString(@NotNull String matchString)
   {
     this.matchString = matchString;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  public int getMaxLength()
+  {
+    return maxLength;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  public void setMaxLength(int maxLength)
+  {
+    this.maxLength = maxLength;
   }
 
   /**

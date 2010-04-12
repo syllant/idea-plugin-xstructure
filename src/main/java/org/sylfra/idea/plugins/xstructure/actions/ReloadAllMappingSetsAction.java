@@ -2,7 +2,10 @@ package org.sylfra.idea.plugins.xstructure.actions;
 
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.actionSystem.DataKeys;
+import com.intellij.openapi.project.Project;
 import org.sylfra.idea.plugins.xstructure.XStructurePlugin;
+import org.sylfra.idea.plugins.xstructure.util.XSUtils;
 
 /**
  * Reloads all mapping definition files
@@ -20,5 +23,8 @@ public class ReloadAllMappingSetsAction extends AnAction
   public void actionPerformed(AnActionEvent e)
   {
     XStructurePlugin.getInstance().getXMappingSetRegistry().loadAll();
+
+    Project project = DataKeys.PROJECT.getData(e.getDataContext());
+    XSUtils.reloadStructureView(project);
   }
 }

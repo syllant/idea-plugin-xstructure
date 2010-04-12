@@ -10,12 +10,17 @@ import com.thoughtworks.xstream.io.HierarchicalStreamReader;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.sylfra.idea.plugins.xstructure.XStructurePlugin;
 import org.sylfra.idea.plugins.xstructure.config.IXMapping;
 import org.sylfra.idea.plugins.xstructure.config.IXMappingSet;
 import org.sylfra.idea.plugins.xstructure.resolution.IXMappingResolver;
 import org.sylfra.idea.plugins.xstructure.resolution.XMappingException;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * XStream converter for a XMapping definition
@@ -26,6 +31,7 @@ import javax.swing.*;
 class XMappingConverter implements Converter
 {
   private static final Logger LOGGER = Logger.getInstance(XMappingConverter.class.getName());
+  private static final String ICON_DIRNAME = "_icons";
 
   /**
    * {@inheritDoc}
@@ -59,6 +65,12 @@ class XMappingConverter implements Converter
     xMapping.initTooltipExp(reader.getAttribute("tip"));
     xMapping.setMatchString(reader.getAttribute("match"));
 
+    String maxLength = reader.getAttribute("maxlength");
+    if (maxLength != null)
+    {
+      xMapping.setMaxLength(Integer.parseInt(maxLength));
+    }
+
     // Icon
     String iconPath = reader.getAttribute("icon");
     if (iconPath != null)
@@ -86,13 +98,36 @@ class XMappingConverter implements Converter
   @Nullable
   private Icon resolveIcon(@NotNull String iconPath)
   {
-    // @TODO : search icon from directory in user config
+    // 1 - Try with user icons (from directory)
+    File configDirectory = new File(XStructurePlugin.getInstance()
+      .getSettingsComponent().getState().getMappingsStorageDir());
+    File iconDirectory = new File(configDirectory, ICON_DIRNAME);
+
+    if (iconDirectory.isDirectory())
+    {
+      File iconFile = new File(iconDirectory, iconPath);
+      if (iconFile.isFile())
+      {
+        try
+        {
+          BufferedImage image = ImageIO.read(iconFile);
+          return new ImageIcon(image);
+        }
+        catch (IOException e)
+        {
+          LOGGER.warn("Failed to load icon:" + iconFile, e);
+        }
+      }
+    }
+
+    // 2 - Try with bundled icons (from classpath)
     Icon icon = IconLoader.findIcon(iconPath);
 
-    if (icon == null)
+    if ((LOGGER.isDebugEnabled()) && (icon == null))
     {
-      LOGGER.warn("Can't find icon : " + iconPath);
+      LOGGER.debug("Can't find icon: " + iconPath);
     }
+
     return icon;
   }
 }

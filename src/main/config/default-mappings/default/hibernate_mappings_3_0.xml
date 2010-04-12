@@ -10,11 +10,10 @@
     <mapping match="/hibernate-mapping/class" label="{@name}" icon="/javaee/persistenceEntity.png"/>
     <mapping match="/hibernate-mapping/class/id" label="{@name}" skip="children" icon="/javaee/persistenceId.png"/>
     <mapping match="/hibernate-mapping/class/.*-to-one" label="{@name}" icon="/javaee/persistenceRelationship.png"/>
-    <mapping match="/hibernate-mapping/class/.*-to-one/column" label="{@name}"/>
     <mapping match="/hibernate-mapping/class/property" label="{@name} [{@type}]" icon="/javaee/persistenceAttribute.png"/>
-    <mapping match="/hibernate-mapping/.*/column" label="{@name}"/>
     <mapping match="/hibernate-mapping/class/set" label="{@name}" icon="/javaee/persistenceAttribute.png"/>
     <mapping match="/hibernate-mapping/class/set/key" skip="this"/>
-    <mapping match="/hibernate-mapping/class/set/one-to-many" label="{@class}"/>
+    <mapping match="/hibernate-mapping/class/set/one-to-many" label="{@class}" icon="/javaee/persistenceRelationship.png"/>
+    <mapping match="/hibernate-mapping/.*/column" label="{@name}" icon="/nodes/dataColumn.png"/>
   </mappings>
 </xstructure>

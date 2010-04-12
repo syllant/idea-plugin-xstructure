@@ -15,9 +15,16 @@
  */
 package org.sylfra.idea.plugins.xstructure.util;
 
+import com.intellij.ide.impl.StructureViewWrapperImpl;
+import com.intellij.ide.structureView.StructureViewFactoryEx;
+import com.intellij.ide.structureView.impl.StructureViewFactoryImpl;
+import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.project.Project;
 import com.intellij.psi.xml.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.regex.Pattern;
 
 /**
  * Miscelleanous convenient methods
@@ -32,34 +39,46 @@ public abstract class XSUtils
   /**
    * Returns the main XSD Schema URI or the DTD URI declared in this XML file
    *
-   * @param xmlFile the request XML file
-   *
-   * @return the main XSD Schema URI or the DTD URI declared in this XML file
+   * @param uriPattern
+   *@param xmlFile the request XML file
+   *  @return the main XSD Schema URI or the DTD URI declared in this XML file
    */
   @Nullable
-  public static String getSchemaUri(@NotNull XmlFile xmlFile)
+  public static boolean matchUri(Pattern uriPattern, @NotNull XmlFile xmlFile)
   {
     XmlDocument document = xmlFile.getDocument();
     if (document == null)
     {
-      return null;
+      return false;
     }
     XmlTag rootTag = document.getRootTag();
     if (rootTag == null)
     {
-      return null;
+      return false;
     }
 
     // Try with DTD
     XmlDoctype doctype = document.getProlog().getDoctype();
     if (doctype != null)
     {
-      return doctype.getDtdUri();
+      // Try with Public ID
+      if ((doctype.getPublicId() != null) && (uriPattern.matcher(doctype.getPublicId()).matches()))
+      {
+        return true;
+      }
+
+      // Try with DTD URI
+      if ((doctype.getDtdUri() != null) && (uriPattern.matcher(doctype.getDtdUri()).matches()))
+      {
+        return true;
+      }
+
+      // Otherwise, use system ID
+      return (doctype.getSystemId() != null) && (uriPattern.matcher(doctype.getSystemId()).matches());
     }
 
-    // Try with schema
-    XmlAttribute nsAttribute =
-      rootTag.getAttribute("schemaLocation", SCHEMA_INSTANCE_URI);
+    // Try with schema / schemaLocation
+    XmlAttribute nsAttribute = rootTag.getAttribute("schemaLocation", SCHEMA_INSTANCE_URI);
     if (nsAttribute != null)
     {
       String rootNamespace = xmlFile.getDocument().getRootTag().getNamespace();
@@ -67,12 +86,40 @@ public abstract class XSUtils
       int pos = namespaceDecl.indexOf(rootNamespace + " ");
       if (pos > -1)
       {
-        namespaceDecl = namespaceDecl.substring(pos + rootNamespace.length() + 1);
+        namespaceDecl = namespaceDecl.substring(pos + rootNamespace.length() + 1).trim();
+
+        // Get only next term
         pos = namespaceDecl.indexOf(' ');
-        return (pos == -1) ? namespaceDecl : namespaceDecl.substring(0, pos);
+        String uri = (pos == -1) ? namespaceDecl : namespaceDecl.substring(0, pos);
+
+        return uriPattern.matcher(uri).find();
       }
     }
 
-    return null;
+    // Try with schema / noNamespaceSchemaLocation
+    nsAttribute = rootTag.getAttribute("noNamespaceSchemaLocation", SCHEMA_INSTANCE_URI);
+
+    return (nsAttribute != null) && uriPattern.matcher(nsAttribute.getValue().trim()).matches();
+  }
+
+  /**
+   * Reload structure view
+   *
+   * @param project current project
+   */
+  public static void reloadStructureView(final Project project)
+  {
+    // TODO find a better way to reload structure view ;-)
+    ApplicationManager.getApplication().invokeLater(new Runnable()
+    {
+      public void run()
+      {
+        StructureViewFactoryImpl structureViewFactory =
+          (StructureViewFactoryImpl) StructureViewFactoryEx.getInstance(project);
+        StructureViewWrapperImpl structureViewWrapper =
+          (StructureViewWrapperImpl) structureViewFactory.getStructureViewWrapper();
+        structureViewWrapper.rebuild();
+      }
+    });
   }
 }

@@ -14,15 +14,16 @@
     <mapping match="/project/packaging" label="{.}"/>
     <mapping match="/project/inceptionYear" label="{.}"/>
     <mapping match="/project/(ciManagement|issueManagement)" label="{system}" skip="children"/>
-    <mapping match="/project/modules/module" label="{.}"/>
+    <mapping match="/project/modules/module" label="{.}" icon="/nodes/ModuleClosed.png"/>
     <mapping match="/project/licenses" label="{license/name}" skip="children"/>
     <mapping match="/project/build/extensions/extension" label="{groupId}:{artifactId}"
              skip="children"/>
-    <mapping match="/project/build/extensions/extension" label="{groupId}:{artifactId}"
-             skip="children"/>
-    <mapping match="/project/developers/developer" label="{name}" skip="children"/>
-    <mapping match="/project/profiles/profile" label="{id}" skip="children"/>
-    <mapping match="/.*/(dependency|plugin)" label="{groupId}:{artifactId}" skip="children"/>
+    <mapping match="/project/developers/developer" label="{name}" skip="children" icon="/fileTypes/custom.png"/>
+    <mapping match="/project/profiles/profile" label="{id}" skip="children" icon="/actions/properties.png"/>
+    <mapping match="/project/pluginRepositories/pluginRepository" icon="/nodes/pluginnotinstalled.png"/>
+    <mapping match="/project/(/build/plugins|pluginRepositories|repositories)" icon="/nodes/moduleGroupClosed.png"/>
+    <mapping match="/.*/plugin" label="{groupId}:{artifactId}" skip="children" icon="/nodes/plugin.png"/>
+    <mapping match="/.*/dependency" label="{groupId}:{artifactId}" skip="children" icon="/objectBrowser/showLibraryContents.png"/>
     <mapping match="/.*/.*epository" label="{id}" skip="children"/>
   </mappings>
 </xstructure>
