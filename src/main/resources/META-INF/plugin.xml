@@ -17,8 +17,10 @@
   <change-notes><![CDATA[
 <html>
   <ul>
-    <li>Fix: XSD URI was not properly parsed in some cases (additional spaces) 
+    <li>Fix: NPE with some mappings
+    <li>New: MPD for DocBook 5.0
  </ul>
+ <em>(thanks to Stefan Zeller for contribution)
 </html>
 ]]></change-notes>
   <idea-version since-build="10000"/>

@@ -282,6 +282,11 @@ public class XSModelTreeElement implements StructureViewTreeElement, ItemPresent
     }
 
     String label = getTargetText(xMapping.getLabelExp());
+    if (label == null)
+    {
+      return null;
+    }
+    
     int maxLength = xMapping.getMaxLength();
     if ((maxLength > 0) && (maxLength < label.length()))
     {

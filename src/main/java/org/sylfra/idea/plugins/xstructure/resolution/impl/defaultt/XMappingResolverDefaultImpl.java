@@ -110,7 +110,7 @@ public class XMappingResolverDefaultImpl implements IXMappingResolver, Applicati
   public String resolveTargetText(@NotNull XmlTag xmlTag, @NotNull IXMappingExp mappingExp)
     throws XMappingException
   {
-    StringBuffer result = new StringBuffer();
+    StringBuilder result = new StringBuilder();
 
     XMappingExpDefaultImpl regexpMappingExp = (XMappingExpDefaultImpl) mappingExp;
     String rawExp = regexpMappingExp.getRawExp();
@@ -250,7 +250,7 @@ public class XMappingResolverDefaultImpl implements IXMappingResolver, Applicati
    */
   private String buildXmlTagPath(XmlTag xmlTag)
   {
-    StringBuffer result = new StringBuffer();
+    StringBuilder result = new StringBuilder();
 
     while (xmlTag != null)
     {

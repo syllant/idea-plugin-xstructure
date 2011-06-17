@@ -133,11 +133,10 @@ public class XStructureSettingsPane implements Disposable
     cbSyncMappings = new JCheckBox();
     cbSyncMappings.setSelected(true);
     this.$$$loadButtonText$$$(cbSyncMappings,
-      ResourceBundle.getBundle("org/sylfra/idea/plugins/xstructure/resources/XSBundle").getString(
-        "settings.syncMappings.text"));
-    cbSyncMappings.setToolTipText(
-      ResourceBundle.getBundle("org/sylfra/idea/plugins/xstructure/resources/XSBundle").getString(
-        "settings.syncMappings.description"));
+      ResourceBundle.getBundle("org/sylfra/idea/plugins/xstructure/resources/XSBundle")
+        .getString("settings.syncMappings.text"));
+    cbSyncMappings.setToolTipText(ResourceBundle.getBundle("org/sylfra/idea/plugins/xstructure/resources/XSBundle")
+      .getString("settings.syncMappings.description"));
     cbSyncMappings.putClientProperty("html.disable", Boolean.FALSE);
     cbSyncMappings.putClientProperty("hideActionText", Boolean.FALSE);
     contentPane.add(cbSyncMappings,
@@ -154,11 +153,10 @@ public class XStructureSettingsPane implements Disposable
       GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW,
       GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
     final JLabel label1 = new JLabel();
-    this.$$$loadLabelText$$$(label1,
-      ResourceBundle.getBundle("org/sylfra/idea/plugins/xstructure/resources/XSBundle").getString(
-        "settings.mappingDir.text"));
-    label1.setToolTipText(ResourceBundle.getBundle("org/sylfra/idea/plugins/xstructure/resources/XSBundle").getString(
-      "settings.mappingDir.description"));
+    this.$$$loadLabelText$$$(label1, ResourceBundle.getBundle("org/sylfra/idea/plugins/xstructure/resources/XSBundle")
+      .getString("settings.mappingDir.text"));
+    label1.setToolTipText(ResourceBundle.getBundle("org/sylfra/idea/plugins/xstructure/resources/XSBundle")
+      .getString("settings.mappingDir.description"));
     panel1.add(label1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_NORTHWEST, GridConstraints.FILL_NONE,
       GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(143, 13), null, 0,
       false));
@@ -168,11 +166,11 @@ public class XStructureSettingsPane implements Disposable
         false));
     cbOverwriteWhenSyncMappings = new JCheckBox();
     this.$$$loadButtonText$$$(cbOverwriteWhenSyncMappings,
-      ResourceBundle.getBundle("org/sylfra/idea/plugins/xstructure/resources/XSBundle").getString(
-        "settings.overwriteMappings.text"));
+      ResourceBundle.getBundle("org/sylfra/idea/plugins/xstructure/resources/XSBundle")
+        .getString("settings.overwriteMappings.text"));
     cbOverwriteWhenSyncMappings.setToolTipText(
-      ResourceBundle.getBundle("org/sylfra/idea/plugins/xstructure/resources/XSBundle").getString(
-        "settings.overwriteMappings.description"));
+      ResourceBundle.getBundle("org/sylfra/idea/plugins/xstructure/resources/XSBundle")
+        .getString("settings.overwriteMappings.description"));
     cbOverwriteWhenSyncMappings.putClientProperty("html.disable", Boolean.FALSE);
     cbOverwriteWhenSyncMappings.putClientProperty("hideActionText", Boolean.FALSE);
     contentPane.add(cbOverwriteWhenSyncMappings,

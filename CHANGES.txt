@@ -1,6 +1,10 @@
+1.4.2
+  * Fix: NPE with some mappings
+  * New: MPD for DocBook 5.0
+  
 1.4.1
   * Fix: XSD URI was not properly parsed in some cases (additional spaces)
-  
+
 1.4
   * Removed 'until-build' number since xStructure is still appliable to IDEA 9
   * xStructure is now compliant with Community Edition
