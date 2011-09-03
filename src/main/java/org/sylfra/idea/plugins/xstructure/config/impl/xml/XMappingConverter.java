@@ -88,6 +88,7 @@ class XMappingConverter implements Converter
     }
     catch (XMappingException e)
     {
+      // TODO show error to user
       LOGGER.warn("Invalid mapping", e);
       return null;
     }

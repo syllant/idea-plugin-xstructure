@@ -11,6 +11,8 @@ import org.sylfra.idea.plugins.xstructure.registry.XMappingSetRegistry;
 import org.sylfra.idea.plugins.xstructure.resolution.XMappingResolverFactory;
 import org.sylfra.idea.plugins.xstructure.settings.XStructureSettingsComponent;
 
+import java.io.File;
+
 /**
  * The main application component available as a singleton and providing convenient methods
  * to access services declared in plugin.xml
@@ -70,12 +72,18 @@ public class XStructurePlugin implements ApplicationComponent
 
   private void registerXStructureSchemas()
   {
+    addSchemaResource("1_0");
+    addSchemaResource("1_1");
+  }
+
+  private void addSchemaResource(String version)
+  {
+    File file = new File(
+      getClass().getResource("/org/sylfra/idea/plugins/xstructure/resources/schemas/xstructure_" + version + ".xsd")
+        .getFile());
     ExternalResourceManager.getInstance().addResource(
-      "http://plugins.intellij.net/xstructure/ns/xstructure_1_0.xsd",
-      "/org/sylfra/idea/plugins/xstructure/resources/schemas/xstructure_1_0.xsd");
-    ExternalResourceManager.getInstance().addResource(
-      "http://plugins.intellij.net/xstructure/ns/xstructure_1_1.xsd",
-      "/org/sylfra/idea/plugins/xstructure/resources/schemas/xstructure_1_1.xsd");
+      "http://plugins.intellij.net/xstructure/ns/xstructure_" + version + ".xsd",
+      file.getAbsolutePath());
   }
 
   /**

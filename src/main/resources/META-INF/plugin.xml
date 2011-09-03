@@ -17,10 +17,10 @@
   <change-notes><![CDATA[
 <html>
   <ul>
-    <li>Fix: NPE with some mappings
-    <li>New: MPD for DocBook 5.0
+    <li>New: Update of DocBook MPD (Stefan Zeller's contribution)
+    <li>Fix: NPE with invalid pattern strings
  </ul>
- <em>(thanks to Stefan Zeller for contribution)
+ <em>
 </html>
 ]]></change-notes>
   <idea-version since-build="10000"/>
