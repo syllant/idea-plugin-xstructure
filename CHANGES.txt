@@ -1,7 +1,11 @@
+1.4.3
+ * New: Update of DocBook MPD (Stefan Zeller's contribution)
+ * Fix: NPE with invalid pattern strings
+ * Fix: XSD schemas were not properly registered anymore
+
 1.4.2
   * Fix: NPE with some mappings
-  * New: MPD for DocBook 5.0
-  
+
 1.4.1
   * Fix: XSD URI was not properly parsed in some cases (additional spaces)
 

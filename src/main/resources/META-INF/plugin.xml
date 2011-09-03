@@ -12,13 +12,14 @@
 </html>
     ]]></description>
   <category>xml</category>
-  <version>${pom.version}</version>
+  <version>1.4.3</version>
   <vendor email="syllant@gmail.com" url="http://xstructure.googlecode.com/">Sylvain FRANCOIS</vendor>
   <change-notes><![CDATA[
 <html>
   <ul>
     <li>New: Update of DocBook MPD (Stefan Zeller's contribution)
     <li>Fix: NPE with invalid pattern strings
+    <li>Fix: XSD schemas were not properly registered anymore
  </ul>
  <em>
 </html>
