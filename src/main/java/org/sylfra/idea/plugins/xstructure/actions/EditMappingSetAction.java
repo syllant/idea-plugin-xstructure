@@ -16,7 +16,7 @@ import org.sylfra.idea.plugins.xstructure.config.IXMappingSet;
  * Action which loads the current mapping definition file in editor
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: EditMappingSetAction.java 31 2007-12-23 11:23:10Z syllant $
  */
 public class EditMappingSetAction extends AnAction
 {

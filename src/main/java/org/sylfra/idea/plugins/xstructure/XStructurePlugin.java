@@ -18,7 +18,7 @@ import java.io.File;
  * to access services declared in plugin.xml
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: XStructurePlugin.java 75 2011-09-03 08:42:20Z syllant $
  */
 public class XStructurePlugin implements ApplicationComponent
 {

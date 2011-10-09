@@ -16,7 +16,7 @@ import java.util.regex.PatternSyntaxException;
  * XStream converter for a Schema definition
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: SchemaConverter.java 41 2009-03-27 21:15:38Z syllant $
  */
 class SchemaConverter implements Converter
 {

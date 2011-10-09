@@ -23,7 +23,7 @@ import java.util.*;
  * mapping definition files, ...
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: XMappingSetRegistry.java 41 2009-03-27 21:15:38Z syllant $
  */
 public class XMappingSetRegistry extends VirtualFileAdapter implements ApplicationComponent
 {

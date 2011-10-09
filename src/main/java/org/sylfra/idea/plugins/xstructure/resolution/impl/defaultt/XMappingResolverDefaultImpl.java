@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
  * Implementation of resolver for 'default' implementation type
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: XMappingResolverDefaultImpl.java 75 2011-09-03 08:42:20Z syllant $
  */
 public class XMappingResolverDefaultImpl implements IXMappingResolver, ApplicationComponent
 {

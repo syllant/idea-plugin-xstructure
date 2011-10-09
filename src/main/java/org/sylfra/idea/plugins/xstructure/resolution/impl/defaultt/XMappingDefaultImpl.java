@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
  * Implementation of mapping for 'default' implementation type
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: XMappingDefaultImpl.java 31 2007-12-23 11:23:10Z syllant $
  */
 public class XMappingDefaultImpl extends AbstractXMapping
 {

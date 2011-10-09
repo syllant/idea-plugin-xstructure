@@ -27,7 +27,7 @@ import java.util.List;
  * Overrides default StructureViewTreeElement to build nodes according to xStructure features
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: XSModelTreeElement.java 72 2011-06-17 17:55:56Z syllant $
  */
 public class XSModelTreeElement implements StructureViewTreeElement, ItemPresentation
 {

@@ -4,7 +4,7 @@ package org.sylfra.idea.plugins.xstructure.settings;
  * General settings bean for plugin
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: XStructureSettings.java 31 2007-12-23 11:23:10Z syllant $
  */
 public class XStructureSettings
 {

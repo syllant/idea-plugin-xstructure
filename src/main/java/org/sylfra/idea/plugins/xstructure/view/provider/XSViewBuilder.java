@@ -16,7 +16,7 @@ import org.sylfra.idea.plugins.xstructure.view.XSViewTreeModel;
  * Extension point to inject xStructure view
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: XSViewBuilder.java 55 2009-09-08 17:56:46Z syllant $
  */
 public class XSViewBuilder extends TreeBasedStructureViewBuilder
 {

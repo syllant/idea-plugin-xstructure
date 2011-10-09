@@ -12,7 +12,7 @@ import java.io.FilenameFilter;
  * Registry for default mappings bundled in plugin
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: DefaultMappingsRegistry.java 31 2007-12-23 11:23:10Z syllant $
  */
 public abstract class DefaultMappingsRegistry
 {

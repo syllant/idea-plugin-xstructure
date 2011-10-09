@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<!DOCTYPE webpage  PUBLIC "-//Norman Walsh//DTD Website V2.5.0//EN" "docbook-dtd/website.dtd"
+[
+]>
+
+<webpage id="home">
+  <config param="desc" value="libextcpp Homepage"/>
+  <config param="rcsdate" value="$Date$"/>
+  <head>
+    <title>libextcpp</title>
+    <summary>Startpage</summary>
+    <keywords>C++, extension, libextcpp</keywords>
+    <author>
+      <firstname>Olaf</firstname>
+      <surname>Bergmann</surname>
+    </author>
+    <copyright>
+      <year>2004</year>
+      <holder>Olaf Bergmann</holder>
+    </copyright>
+  </head>
+  <section>
+    <title>libextcpp</title>
+  <para>
+    <phrase>libextcpp</phrase> is a collection of C++ header files that provide
+    extensions to the Standard Template Library of C++. All components are
+    designed for ease of use and small overhead, with no object code generated
+    for things you do not want to use. The functionality provided by libextcpp
+    is split into three groups:
+  </para>
+  <variablelist>
+    <varlistentry>
+      <term>Generic automata</term>
+      <listitem>
+	<para>
+	  The distribution's directory <literal>cb</literal> contains several
+	  modules to be used to create finite state automata. The main
+	  component is a generic automaton interface together with a callback
+	  mechanism and a generic event dispatcher class. Additional components
+	  include an implementation of the <phrase>Singleton</phrase> design
+	  pattern and other utility functions.
+	</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Event handler interface</term>
+      <listitem>
+	<para>
+	  <literal>event</literal> provides a template-based event-server
+	  interface that can be used in distributed single-threaded
+	    applications.
+	</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Other utilities</term>
+	<listitem>
+	  <para>
+	    libextcpp contains lots of useful helper functions operating on STL
+	    containers, e.g. <literal>foldl</literal> for list aggregation,
+	    <literal>getElementsOf</literal> for a special type of
+	    string split etc.
+	  </para>
+	</listitem>
+    </varlistentry>
+  </variablelist>
+  </section>
+  <section>
+    <title>Projects using libextcpp</title>
+    <para>
+      Several software projects already use libextcpp, most notably:
+    </para>
+    <itemizedlist>
+      <listitem>
+	<para>The C++ <ulink
+	    url="http://www.mbus.org/">message bus</ulink> implementation</para>
+      </listitem>
+<!--      <listitem>
+	<para>TZI's <ulink url="http://www.mbus.org/mepro">media processor</ulink></para>
+      </listitem>
+-->
+      <listitem>
+	<para>The TZI <ulink url="http://www.dmn.tzi.org/software/sip/">SIP gateway</ulink></para>
+      </listitem>
+    </itemizedlist>
+  </section>
+  <section>
+    <title>License</title>
+    <para>
+      libextcpp was put under <ulink
+	url="http://www.gnu.org/licenses/gpl.txt">GPL</ulink> to facilitate
+      software development based on this code. The copyright statement reads as
+      follows:
+    </para>
+    <para>
+      libextcpp is free software; you can redistribute it and/or modify
+      it under the terms of the GNU General Public License as published by
+      the Free Software Foundation; either version 2 of the License, or
+      (at your option) any later version.
+    </para>
+    <para>
+      libextcpp is distributed in the hope that it will be useful,
+      but WITHOUT ANY WARRANTY; without even the implied warranty of
+      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+      GNU General Public License for more details.
+    </para>
+    <para>
+      You should have received a copy of the GNU General Public License
+      along with Foobar; if not, write to the Free Software
+      Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+    </para>
+  </section>
+  <section>
+    <title>Download</title>
+    <para>
+      <?php require_once('share/php/downloads.php'); downloads("libextcpp","/home/ftp/tzi/dmn/libextcpp/release");?>
+    </para>
+  </section>
+</webpage>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: xml
+sgml-omittag:nil
+sgml-shorttag:nil
+sgml-namecase-general:nil
+sgml-general-insert-case:lower
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:2
+sgml-indent-data:t
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-ecat-files:nil
+End:
+-->

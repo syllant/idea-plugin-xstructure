@@ -13,7 +13,7 @@ import org.sylfra.idea.plugins.xstructure.view.XSModelTreeElement;
  * Extension point to inject xStructure view
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: XSViewElementProvider.java 31 2007-12-23 11:23:10Z syllant $
  */
 public class XSViewElementProvider implements XmlStructureViewElementProvider
 {

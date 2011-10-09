@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
  * UI made with IDEA UI Designer
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: XStructureSettingsPane.java 72 2011-06-17 17:55:56Z syllant $
  */
 public class XStructureSettingsPane implements Disposable
 {

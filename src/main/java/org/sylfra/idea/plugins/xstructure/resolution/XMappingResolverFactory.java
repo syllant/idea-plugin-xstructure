@@ -13,7 +13,7 @@ import java.util.Set;
  * Factory which provides mapping resolvers
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: XMappingResolverFactory.java 31 2007-12-23 11:23:10Z syllant $
  */
 public class XMappingResolverFactory implements ApplicationComponent
 {

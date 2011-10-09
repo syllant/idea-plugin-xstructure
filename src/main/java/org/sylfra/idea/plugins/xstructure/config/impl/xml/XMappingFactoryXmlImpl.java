@@ -29,7 +29,7 @@ import java.util.List;
  * XML implementation for mapping factory. Loads all XML files from a configuration directory
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: XMappingFactoryXmlImpl.java 60 2010-04-11 08:03:27Z syllant $
  */
 public class XMappingFactoryXmlImpl
   implements IXMappingFactory<AbstractXMappingSet>, ApplicationComponent

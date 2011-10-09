@@ -11,7 +11,7 @@ import org.sylfra.idea.plugins.xstructure.config.IXMappingSet;
  * In charge of resolving mappings
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: IXMappingResolver.java 31 2007-12-23 11:23:10Z syllant $
  */
 public interface IXMappingResolver
 {

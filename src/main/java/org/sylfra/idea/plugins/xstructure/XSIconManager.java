@@ -9,7 +9,7 @@ import javax.swing.*;
  * Provides an unified way to retrieve an icon defined in plugin resources
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: XSIconManager.java 31 2007-12-23 11:23:10Z syllant $
  */
 public abstract class XSIconManager
 {

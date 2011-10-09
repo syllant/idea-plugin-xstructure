@@ -1,0 +1,1814 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book xmlns="http://docbook.org/ns/docbook"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://docbook.org/ns/docbook http://www.docbook.org/xml/5.0/xsd/docbook.xsd">
+
+    <title>edoras BPM Execution - User Guide</title>
+    <subtitle>Version 2.0</subtitle>
+    <info>
+        <copyright>
+            <year>2011</year>
+            <holder>edorasware ag</holder>
+        </copyright>
+    </info>
+
+    <toc/>
+
+    <chapter id="intro">
+        <title>Introduction</title>
+
+        <para>
+            <emphasis>edoras BPM Execution</emphasis>
+            provides the runtime environment to manage tasks through its
+            <emphasis>edoras BPM Task Management</emphasis>
+            component. In the default scenario of process-based task management,
+            <emphasis>edoras BPM Execution</emphasis>
+            offers the
+            <emphasis>edoras BPM Process Engine</emphasis>
+            component to plug in to the task management. The
+            <emphasis>edoras BPM Process Engine</emphasis>
+            component provides a process engine to start and execute processes and integrates seamlessly into the
+            <emphasis>edoras BPM Task Management</emphasis>
+            component.
+        </para>
+
+        <section>
+            <title>Disclaimer</title>
+
+            <para>
+                The
+                <emphasis>edoras BPM Process Engine</emphasis>
+                is currently based on the Activiti workflow engine (version 5.1). Direct
+                API calls to the underlying Activiti workflow engine are not officially supported unless explicitly
+                stated otherwise.
+            </para>
+        </section>
+    </chapter>
+
+    <chapter id="taskManagement">
+        <title>edoras BPM Task Management</title>
+
+        <para>
+            The
+            <emphasis>edoras BPM Task Management</emphasis>
+            component exposes its task management functionality through the task service. The task service internally
+            interacts with one or more task providers to be notified about new tasks being created and existing tasks being
+            updated. In return, the task service notifies the task providers about tasks being completed. The separation
+            between task service and task providers makes it possible to hook in different kinds of system that are in
+            charge of creating and completing tasks. A workflow engine is a typical example of a system that creates and
+            completes tasks. The task service utilizes a task index to optimize UI-relevant task queries.
+        </para>
+
+        <section id="taskService">
+            <title>Task Service</title>
+
+            <para>
+                The task service provides APIs to query for non-completed user tasks and to execute workbasket actions.
+                The task service is of type
+                <emphasis>com.edorasware.bpm.execution.core.task.TaskService</emphasis>.
+            </para>
+
+            <para>
+                The task service can be injected into a Spring bean or looked up from the
+                application context either "by type" (type
+                <emphasis>com.edorasware.bpm.execution.core.task.TaskService</emphasis>
+                ) or "by name" (based on the task service id specified in the
+                <emphasis>task-service-configuration</emphasis>
+                element).
+            </para>
+
+            <section>
+                <title>Task-level Conversation</title>
+
+                <para>
+                    Each user task maintains a task-level conversation. The task-level conversation is backed by a
+                    data context which consists of a set of task variables of type
+                    <emphasis>com.edorasware.bpm.execution.core.conversation.Variable</emphasis>. The set of task
+                    variables is the aggregation of variables passed up by the task provider and the calculated indexed
+                    variables as defined in the task index configuration. Each task has access to its set of task variables.
+                    They cannot be modified programmatically.
+                </para>
+
+                <para>
+                    Task variables passed up by the task provider are typically of scope PROCESS, meaning these variables
+                    apply to all tasks of a given process. Calculated indexed task variables are always of scope TASK, meaning
+                    these variables may differ between different tasks of the same process.
+                </para>
+
+                <para>
+                    The task index enables fast access to and complex queries against the data context of the task-level
+                    conversation. The task index is made up of the calculated indexed variables associated with each task.
+                    Task queries that include task variables always go against the task index, hence only calculated indexed
+                    variables can be searched for.
+                </para>
+
+                <para>
+                    The aggregated task variables of a task can be accessed via the
+                    <emphasis>com.edorasware.bpm.execution.core.task.Task</emphasis>
+                    class:
+                </para>
+
+                <programlisting language="java">
+                    <![CDATA[
+// task instance
+Task task = ...
+
+// access all task variables of the task
+List<Variable> taskVariables = task.getVariables();
+
+// access a specific task variable
+Variable taskVariableLastName = task.getVariable("lastName");
+
+// get the value of a task variable (assuming the value is expected to be a String)
+String lastName = taskVariableLastName.getValue(String.class);]]>
+                </programlisting>
+
+                <para>
+                    The task variables always reflect a snapshot taken at the time the
+                    <emphasis>com.edorasware.bpm.execution.core.task.Task</emphasis>
+                    instance has been created and passed up by the task provider and indexed by the task index.
+                    The task variables and their values are never updated during the life-time of the task, i.e. until the
+                    task is completed.
+                </para>
+            </section>
+
+            <section>
+                <title>Task Queries</title>
+
+                <para>
+                    Non-completed user tasks can be queried from the task service by passing in a
+                    <emphasis>com.edorasware.bpm.execution.core.task.TaskQuery</emphasis>
+                    instance:
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+// find a specific task by id
+TaskId taskId = ...
+Task task = taskService.findTask(TaskQuery.byId(taskId));
+
+// retrieve its attributes
+TaskDefinitionId taskDefinitionId = task.getTaskDefinitionId();
+String name = task.getName();
+UserId assignee = task.getAssignee();
+List<GroupId> candidateGroups = task.getCandidateGroups();
+List<Variable> taskVariables = task.getVariables();
+Variable taskVariableLastName = task.getVariable("lastName");
+ProcessId processId = task.getProcessId();
+
+// find all tasks for task definition "signDocumentTask" (globally)
+TaskDefinitionId taskDefinitionId = TaskDefinitionId.get("signDocumentTask");
+List<Task> tasksByDefinitionId = taskService.findTasks(new TaskQuery().taskDefinitionId(taskDefinitionId));
+
+// find all tasks by name (globally)
+List<Task> tasksByName = taskService.findTasks(new TaskQuery().name("Create Quarterly Report"));
+
+// find all tasks assigned to user "bob" (personal workbasket)
+List<Task> assignedTasks = taskService.findTasks(new TaskQuery().assignee(UserId.get("bob")));
+
+// find all unassigned tasks for group "managers" (group workbasket)
+List<Task> unassignedTasks = taskService.findTasks(new TaskQuery().candidateGroup(GroupId.get("managers")));
+
+// find all unassigned tasks for groups "managers" and "employees" (union)
+List<GroupId> groupIds = Arrays.asList(GroupId.get("managers"), GroupId.get("employees"));
+List<Task> unassignedTasks = taskService.findTasks(new TaskQuery().candidateGroups(groupIds));
+
+// find all tasks that have a specific calculated indexed task variable set
+List<Task> tasksByVariable = taskService.findTasks(new TaskQuery().variable("lastName", "Smith"));
+
+// find all open tasks for a specific process instance
+ProcessId processId = ...
+List<Task> tasksForProcess = taskService.findTasks(new TaskQuery().processId(processId));]]>
+                </programlisting>
+
+                <para>
+                    If multiple predicates are specified on the
+                    <emphasis>com.edorasware.bpm.execution.core.task.TaskQuery</emphasis>
+                    instance, they are all combined with the logical AND operator:
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+// find all tasks for a specific process instance that are assigned to user "bob"
+ProcessId processId = ...
+UserId userId = UserId.get("bob");
+List<Task> tasks = taskService.findTasks(new TaskQuery().processId(processId).assignee(userId));]]>
+                </programlisting>
+            </section>
+
+            <section>
+                <title>Workbasket Actions</title>
+
+                <para>
+                    The task service supports the following workbasket actions:
+
+                    <itemizedlist>
+                        <listitem>
+                            <para>claim task: assign an unassigned task to a specific user</para>
+                        </listitem>
+                        <listitem>
+                            <para>revoke task: remove the assignee from an assigned task, and thus changing the task to
+                                unassigned
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>delegate task: delegate an assigned task to another assignee or delegate an assigned
+                                task to a group, and thus changing the task to unassigned
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>complete task: mark an assigned task as completed
+                            </para>
+                        </listitem>
+                    </itemizedlist>
+                </para>
+
+                <para>
+                    The following code example demonstrates the various workbasket actions supported by the task
+                    service:
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+// users and groups
+UserId bob = UserId.get("bob");
+UserId anna = UserId.get("anna");
+GroupId managers = GroupId.get("managers");
+GroupId accountants = GroupId.get("accountants");
+
+// find a specific task by id
+TaskId taskId = ...
+Task task = taskService.findTask(TaskQuery.byId(taskId));
+
+// assumption: task is unassigned, single candidate group set to "managers"
+assert task.getAssignee() == null;
+assert task.getCandidateGroups().size() == 1;
+assert task.getCandidateGroups().get(0).equals(managers);
+
+// assign task to bob
+taskService.claimTask(task.getId(), bob);
+
+// delegate task from bob to anna
+taskService.delegateTask(task.getId(), anna);
+
+// delegate task from anna to accountants group
+taskService.delegateTask(task.getId(), accountants);
+
+// complete task and (optionally) pass in process variables
+taskService.completeTask(task.getId(), Arrays.asList(new ProcessVariable("approved", true)));
+
+// or: revoke task, changing the task to unassigned
+taskService.revokeTask(task.getId());]]>
+                </programlisting>
+
+                <para>
+                    The task service does not apply any checks on which user is calling the corresponding workbasket
+                    action. However, each workbasket operation validates certain constraints (e.g. whether the task is
+                    currently assigned or not). For more details on those constraints, please see the Javadoc of the
+                    corresponding methods.
+                </para>
+            </section>
+        </section>
+
+        <section id="taskProviders">
+            <title>Task Providers</title>
+
+            <para>
+                A task provider acts as an adapter to the underlying system that is responsible to create and complete
+                tasks. In order to publish task life-cycle changes to the outside, the task provider needs to accept
+                listeners and notify them when a task is created, updated, deleted, completed, or times out. In return,
+                the task provider is notified when a task is completed. The task service knows how to interpret the task
+                notifications sent by the task provider and it informs the task provider when a task gets completed
+                through a workbasket action. The task provider is of type
+                <emphasis>com.edorasware.bpm.execution.core.task.support.TaskProvider</emphasis>.
+            </para>
+
+            <para>
+                When completing a task, the optionally specified set of variables are passed to the configured
+                task provider. The task provider implementation is responsible for handling the variables in an
+                implementation-specific way. Only the task provider that originally provided the task to the task service is notified.
+            </para>
+
+            <section id="defaultTaskProvider">
+                <title>Default Task Provider</title>
+
+                <para>
+                    <emphasis>edoras BPM Execution</emphasis>
+                    comes with a default task provider implementation that adapts to the
+                    <emphasis>edoras BPM Process Engine</emphasis>. This default task provider is exposed implicitly when an
+                    <emphasis>edoras BPM Process Engine</emphasis>
+                    is configured. When completing a task, the specified set of variables are applied to the data
+                    context of the process-level conversation and the process is continued. The variables are
+                    merged into the existing set of variables of the process-level data context. Existing variables are
+                    overwritten with the ones passed in. New variables contained in the set of passed-in
+                    variables are added to the data context. Variables that exist in the data context but that are
+                    not passed in are not modified in any way.
+                </para>
+            </section>
+        </section>
+
+        <section id="taskIndex">
+            <title>Task Index</title>
+
+            <para>
+                The task index is made up of calculated variables for each task and enables
+                fast access to and complex queries of tasks. The task index calculates these
+                variables based on the task index configuration. For each process definition,
+                the task index configuration declares the expressions that make up the indexed
+                variables. At runtime, the expressions are resolved and calculated. The indexed
+                variables are accessible on the task just like the non-indexed variables.
+            </para>
+
+            <section>
+                <title>Indexed Variables Configuration</title>
+
+                <para>
+                    Each indexed variable has a name and a value. The value is calculated based on a configurable
+                    expression. The expression can reference Spring beans and non-indexed variables.
+                </para>
+
+                <para>
+                    The task index configuration happens via XML. The sample below shows
+                    how to configure the task index with an indexed variable named
+                    <emphasis>customerName</emphasis>
+                    that will contain the first name and last name of the customer, assuming the customer
+                    object is stored in a variable by the name
+                    <emphasis>customer</emphasis>.
+                </para>
+
+                <para>
+                    The definitions of indexed variables are grouped and then associated with a process definition.
+                    Hence, different process definitions can have different indexed variables. The sample belows
+                    defines a group
+                    <emphasis>standardCustomer</emphasis>
+                    that contains the indexed variable named
+                    <emphasis>customerName</emphasis>. This group is mapped to the process definition
+                    <emphasis>singleUserTaskProcess</emphasis>.
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bpm-index:index xmlns:bpm-index="http://www.edorasware.com/schema/edoras-bpm-index"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://www.edorasware.com/schema/edoras-bpm-index
+                 http://www.edorasware.com/schema/edoras-bpm/edoras-bpm-index-2.0.xsd">
+
+    <bpm-index:indexed-process-variables id="standardCustomer">
+        <bpm-index:indexed-process-variable name="customerName" expression="#{customer.firstName} #{customer.lastName}"/>
+    </bpm-index:indexed-process-variables>
+
+    <bpm-index:process-conversation-mappings>
+        <bpm-index:conversation-mapping process-id="singleUserTaskProcess:1" indexed-process-variables="indexedProcessVariables"/>
+    </bpm-index:process-conversation-mappings>
+
+</bpm-index:index>]]>
+                </programlisting>
+            </section>
+
+            <section>
+                <title>Indexed Variables Expressions</title>
+
+                <para>
+                    The expression that defines the value of an indexed variable can access Spring beans and non-indexed
+                    variables. Spring beans have precedence in the case of a name clash between variables and Spring beans.
+                    Expressions cannot reference other indexed variables. It is enforced that all variables of a task have
+                    unique names. An indexed variable will override a non-indexed variable with the same name.
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+<!-- define an indexed variable that references the value of the firstName property of
+     a non-indexed variable named 'customer' -->
+<bpm-index:indexed-process-variable name="firstName" expression="#{customer.firstName}"/>
+
+<!-- define an indexed variable that references a Spring bean named 'formatUtils' to
+     format the id of the customer stored in a non-indexed variable named 'customer' -->
+<bpm-index:indexed-process-variable name="formattedCustomerId" expression="#{formatUtils.formatCustomerId(customer.id)} "/>
+
+<!-- make the value of a non-indexed variable available as an indexed variable, hence
+     the variable becomes searchable -->
+<bpm-index:indexed-process-variable name="id" expression="#{id}"/>]]>
+                </programlisting>
+            </section>
+
+            <section>
+                <title>Supported Indexed Variables Data Types</title>
+
+                <para>
+                    The name of an indexed variable is always of type
+                    <emphasis>java.lang.String</emphasis>. The value
+                    of an indexed variable can be one of the following data types:
+
+                    <itemizedlist>
+                        <listitem>
+                            <para>all basic Java data types (<emphasis>boolean</emphasis>,
+                                <emphasis>int</emphasis>, ...)
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                <emphasis>java.lang.String</emphasis>
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                <emphasis>java.util.Date</emphasis>
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                <emphasis>java.io.Serializable</emphasis>
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>null</para>
+                        </listitem>
+                    </itemizedlist>
+                </para>
+            </section>
+        </section>
+
+        <section id="taskManagementConfiguration">
+            <title>Configuration</title>
+
+            <para>
+                This section describes how to configure the
+                <emphasis>edoras BPM Task Management</emphasis>
+                component within an existing application.
+            </para>
+
+            <section>
+                <title>Overview</title>
+
+                <para>
+                    The
+                    <emphasis>edoras BPM Task Management</emphasis>
+                    component is configured via a custom Spring namespace. The custom Spring namespace can be used in
+                    any standard Spring configuration file. The following configuration settings are supported:
+                </para>
+
+                <table>
+                    <caption>Configuration Settings</caption>
+                    <thead>
+                        <tr>
+                            <th>Setting</th>
+                            <th>Description</th>
+                            <th>Default Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                Transaction Manager
+                            </td>
+                            <td>
+                                A reference to the Spring transaction manager bean used to manipulate task-related
+                                data. The referenced bean must be of type
+                                <emphasis>org.springframework.transaction.PlatformTransactionManager</emphasis>.
+                            </td>
+                            <td>
+                                <emphasis>transactionManager</emphasis>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Data Source
+                            </td>
+                            <td>
+                                A reference to the Spring data source bean used to persist task-related data to. The
+                                referenced bean must be of type
+                                <emphasis>javax.sql.DataSource</emphasis>.
+                            </td>
+                            <td>
+                                <emphasis>dataSource</emphasis>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Database Schema Creation Strategy
+                            </td>
+                            <td>
+                                The database schema creation strategy to apply on startup and shutdown of the
+                                application.
+                            </td>
+                            <td>
+                                <emphasis>create-or-validate</emphasis>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <title>Minimal Configuration</title>
+
+                <para>
+                    The following example shows a minimal Spring configuration of the
+                    <emphasis>edoras BPM Task Management</emphasis>
+                    component used in conjunction with the
+                    <emphasis>edoras BPM Process Engine</emphasis>:
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:bpm="http://www.edorasware.com/schema/edoras-bpm-engine"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                           http://www.edorasware.com/schema/edoras-bpm-engine
+                           http://www.edorasware.com/schema/edoras-bpm/edoras-bpm-engine-2.0.xsd">
+
+    <bpm:task-management>
+        <bpm:default-task-provider process-engine="processEngine"/>
+    </bpm:task-management>
+
+    <bpm:process-engine id="processEngine"/>
+
+</beans>]]>
+                </programlisting>
+
+                <para>
+                    The Spring convention names are used to find the transaction manager bean and the data source bean
+                    that are injected into the transaction management component (and the process engine). The task
+                    management component is not represented in the application context itself, since it only exposes
+                    services, i.e. the task service. The task service is represented in the application context as an
+                    instance of type
+                    <emphasis>com.edorasware.bpm.execution.core.task.TaskService</emphasis>
+                    and can be injected into any other Spring bean "by type".
+                </para>
+
+                <para>
+                    This minimal configuration of the task management component creates the database schema, if it does
+                    not yet exist.
+                </para>
+
+                <para>
+                    Important: the transaction management component must use the same transaction manager and data
+                    source instance as the ones configured for the process engine in order to ensure atomic data
+                    modifications across both the task management component and the process engine.
+                </para>
+            </section>
+
+            <section>
+                <title>Custom Transaction Manager Bean Name and Data Source Bean Name</title>
+
+                <para>
+                    If the bean names of the transaction manager and/or the data source do not match the Spring
+                    convention names, i.e. they are different from
+                    <emphasis>transactionManager</emphasis>
+                    and
+                    <emphasis>dataSource</emphasis>, the bean names can be configured explicitly, using the respective
+                    attributes:
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+<bean id="myDataSource" class="..."/>
+<bean id="myTransactionManager" class="..."/>
+
+<bpm:task-management data-source="myDataSource" transaction-manager="myTransactionManager">
+    <bpm:default-task-provider process-engine="processEngine"/>
+</bpm:task-management>]]>
+                </programlisting>
+            </section>
+
+            <section>
+                <title>Database Schema Creation Strategy</title>
+
+                <para>
+                    By default, the database schema for the
+                    <emphasis>edoras BPM Task Management</emphasis>
+                    component is created during application startup, if it does not yet exist, and is only validated for
+                    version compatibility if it already exists. By default, the database schema is not dropped during
+                    application shutdown. The database schema creation strategy can be set using the
+                    <emphasis>database-schema-creation-strategy</emphasis>
+                    attribute on the
+                    <emphasis>task-management</emphasis>
+                    element:
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+<bpm:task-management database-schema-creation-strategy="validate">
+    <bpm:default-task-provider process-engine="processEngine"/>
+</bpm:task-management>]]>
+                </programlisting>
+
+                <para>
+                    The following values are supported:
+                </para>
+
+                <table>
+                    <caption>Database Schema Creation Strategies</caption>
+                    <thead>
+                        <tr>
+                            <th>Value</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                validate
+                            </td>
+                            <td>
+                                Validates the database schema (version compatibility).
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                create-or-validate
+                            </td>
+                            <td>
+                                Creates the database schema, if it does not yet exist. Validates the
+                                schema, if it already exists.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                create-drop
+                            </td>
+                            <td>
+                                Always creates the database schema at startup, and drops the database schema at
+                                shutdown.
+                                Useful for testing purposes only.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <title>Task Service Configuration</title>
+
+                <para>
+                    The task service supports searching for tasks and executing workbasket actions.
+                </para>
+
+                <para>
+                    The task service is exposed in the application context and can be injected into any other Spring
+                    bean or retrieved from the application context "by type", using
+                    <emphasis>com.edorasware.bpm.execution.core.task.TaskService</emphasis>
+                    as the expected type. If access to the task service is required "by name", an id for the task
+                    service can be specified using the nested
+                    <emphasis>task-service-configuration</emphasis>
+                    element within the
+                    <emphasis>task-management</emphasis>
+                    element:
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+<bpm:task-management>
+    <bpm:task-service-configuration id="defaultTaskService"/>
+    <bpm:default-task-provider process-engine="processEngine"/>
+</bpm:task-management>]]>
+                </programlisting>
+
+                <para>
+                    Based on this configuration, the
+                    <emphasis>edoras BPM Task Management</emphasis>
+                    component uses the specified bean id to expose the task service in the application context. Thus,
+                    the task service can also be injected or retrieved from the application context "by name".
+                </para>
+            </section>
+
+            <section>
+                <title>Task Provider Configuration</title>
+
+                <para>
+                    The task providers are responsible to feed new tasks to the task service and to complete tasks passed
+                    down by the task service.
+                </para>
+
+                <para>
+                    One or more task providers must be specified. In the default case where the
+                    <emphasis>edoras BPM Task Management</emphasis>
+                    component is used in conjunction with the
+                    <emphasis>edoras BPM Process Engine</emphasis>, the task provider is configured by simply
+                    referencing the process engine.
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+<bpm:task-management>
+    <bpm:default-task-provider process-engine="processEngine"/>
+</bpm:task-management>
+
+<bpm:process-engine id="processEngine"/>]]>
+                </programlisting>
+
+                <para>
+                    In all other cases, the task provider configuration references a bean of type
+                    <emphasis>com.edorasware.bpm.execution.core.task.support.TaskProvider</emphasis>.
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+<bpm:task-management>
+    <bpm:task-provider ref="customTaskProvider"/>
+</bpm:task-management>
+
+<bean id="customTaskProvider" class="com.example.MyCustomTaskProvider"/>]]>
+                </programlisting>
+
+                <para>
+                    Multiple task providers can be configured if there is more than one system that provides tasks to the
+                    <emphasis>edoras BPM Task Management</emphasis>
+                    component.
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+<bpm:task-management>
+    <bpm:task-providers>
+        <bpm:task-provider ref="firstCustomTaskProvider"/>
+        <bpm:task-provider ref="secondCustomTaskProvider"/>
+        <bpm:default-task-provider process-engine="myProcessEngine"/>
+    </bpm:task-providers>
+</bpm:task-management>
+
+<bean id="firstCustomTaskProvider" class="com.example.MyCustomTaskProvider"/>
+<bean id="secondCustomTaskProvider" class="com.example.MyCustomTaskProvider"/>]]>
+                </programlisting>
+
+            </section>
+
+            <section>
+                <title>Task Index Configuration</title>
+
+                <para>
+                    The task index is responsible to index the tasks known to the task service. The task index configuration
+                    happens via a configurable set of XML files. Each XML file may contain multiple groups of indexed variable
+                    definitions and multiple mappings between process definitions and indexed variable groups.
+                </para>
+
+                <para>
+                    It is validated that the names of the indexed variables are unique within a given group of indexed variables,
+                    that the group names are unique across all files, and that there is not more than one mapping for a given
+                    process definition.
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+<bpm:task-management>
+    <bpm:default-task-provider process-engine="processEngine"/>
+    <bpm:task-index>
+        <bpm:task-index-definitions>
+            <bpm:resource location="classpath:/**/TaskIndexDefinition-*.index.xml"/>
+        </bpm:task-index-definitions>
+    </bpm:task-index>
+</bpm:task-management>
+]]>
+                </programlisting>
+
+                <para>
+                    A custom expression resolver factory can be specified. The created expression resolver will be given
+                    the expression and the set of variables, and needs to calculate the resulting value. The
+                    <emphasis>expression-resolver-factory</emphasis>
+                    attribute must be a reference to a bean of type
+                    <emphasis>com.edorasware.bpm.execution.core.task.support.VariablesExpressionResolverFactory</emphasis>.
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+<bpm:task-management>
+    <bpm:default-task-provider process-engine="processEngine"/>
+    <bpm:task-index expression-resolver-factory="customExpressionResolverFactory">
+        <bpm:task-index-definitions>
+            <bpm:resource location="classpath:/**/TaskIndexDefinition-*.index.xml"/>
+        </bpm:task-index-definitions>
+    </bpm:task-index>
+</bpm:task-management>
+
+<bean id="customExpressionResolverFactory" class="com.example.MyCustomExpressionResolverFactory"/>]]>
+                </programlisting>
+            </section>
+
+        </section>
+    </chapter>
+
+    <chapter id="processEngine">
+        <title>edoras BPM Process Engine</title>
+
+        <para>
+            The
+            <emphasis>edoras BPM Process Engine</emphasis>
+            exposes its process engine functionality through the process service and user service. The implementation is
+            currently based on the Activiti workflow engine.
+        </para>
+
+        <para>
+            Note: Invocation of any method on the services provided by the
+            <emphasis>edoras BPM Process Engine</emphasis>
+            must occur from within an already running transaction, as all service methods have the transaction
+            propagation set to "mandatory". Invoking a service method outside of a running transaction throws an
+            exception.
+        </para>
+
+        <section id="processService">
+            <title>Process Service</title>
+
+            <para>
+                The process service provides support to start a new process instance based on a specific process
+                definition, to search for running process instances, and to modify the variables of a running
+                process instance. The process service is of type
+                <emphasis>com.edorasware.bpm.execution.core.process.ProcessService</emphasis>.
+            </para>
+
+            <para>
+                The process service can be injected into a Spring bean or looked up from the application context either
+                "by type" (type
+                <emphasis>com.edorasware.bpm.execution.core.process.ProcessService</emphasis>
+                ) or "by name" (based on the process service id specified in the
+                <emphasis>process-service-configuration</emphasis>
+                element).
+            </para>
+
+            <section>
+                <title>Process-level Conversation</title>
+
+                <para>
+                    Each running process instance maintains a process-level conversation. This process-level
+                    conversation holds a data context which consists of a set of process variables of type<emphasis>
+                    com.edorasware.bpm.execution.core.conversation.Variable</emphasis>. All activities within a
+                    process instance have access to and may manipulate the same set of process variables. The set of
+                    process variables is not a conclusive enumeration, but is created and modified as the process
+                    instance is executed.
+                </para>
+
+                <para>
+                    The process variables of a process can be accessed via the
+                    <emphasis>com.edorasware.bpm.execution.core.process.Process</emphasis>
+                    class:
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+// process instance
+Process process = ...
+
+// access all process variables of the process instance
+List<Variable> processVariables = process.getVariables();
+
+// access a specific process variable
+Variable processVariableArticle = process.getVariable("article");
+
+// get the value of a process variable (assuming the value is expected to be a String)
+String article = processVariableArticle.getValue(String.class);]]>
+                </programlisting>
+
+                <para>
+                    The process variables always reflect a snapshot taken at the time the
+                    <emphasis>com.edorasware.bpm.execution.core.process.Process</emphasis>
+                    instance has been retrieved, e.g. via a process query. They are not updated automatically. In order
+                    to refresh the process variables, the corresponding process instance needs to be retrieved again,
+                    e.g. via a process query.
+                </para>
+            </section>
+
+            <section>
+                <title>Process Start</title>
+
+                <para>
+                    A process instance can be started by specifying the corresponding process definition to apply.
+                    Optionally, a list of variables can be provided. These variables are used to build
+                    the initial data context of the process-level conversation and are immediately available to all
+                    activities of the process instance, e.g. user tasks and service tasks.
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+// start a process instance using version 1 of the process definition "myProcess"
+ProcessId processId = processService.startProcess(ProcessDefinitionId.get("myProcess", 1));
+
+// start a process instance with initial variables
+List<Variable> variables = new ArrayList<Variable>();
+variables.add(new Variable("customer", "12345"));
+variables.add(new Variable("article", "123-45678-9"));
+ProcessId processId = processService.startProcess(ProcessDefinitionId.get("myProcess", 1), variables);]]>
+                </programlisting>
+            </section>
+
+            <section>
+                <title>Process Queries</title>
+
+                <para>
+                    Running process instances can be queried from the process service by passing in a
+                    <emphasis>com.edorasware.bpm.execution.core.process.ProcessQuery</emphasis>
+                    instance:
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+// find a specific process instance by id
+ProcessId processId = ...
+Process process = processService.findProcess(ProcessQuery.byId(processId));
+
+// retrieve its attributes
+ProcessDefinitionId processDefinitionId = process.getProcessDefinitionId();
+List<Variable> processVariables = process.getVariables();
+Variable processVariableCustomer = process.getVariable("customer");
+
+// find all running process instances for process definition "myProcess" in version 1
+ProcessDefinitionId processDefinitionId = ProcessDefinitionId.get("myProcess", 1);
+List<Process> processesByDefinitionId = processService.findProcesses(new ProcessQuery().processDefinitionId(processDefinitionId));
+
+// find all running process instances that have a specific process variable set
+List <Process> processesByVariable = processService.findProcesses(new ProcessQuery().variable("article", "123-4"));]]>
+                </programlisting>
+
+                <para>
+                    If multiple predicates are specified on the
+                    <emphasis>com.edorasware.bpm.execution.core.process.ProcessQuery</emphasis>
+                    instance, they are all combined with the logical AND operator:
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+// find all running process instances for process definition "myProcess" in version 1 that handle customer 12345
+ProcessDefinitionId processDefinitionId = ProcessDefinitionId.get("myProcess", 1);
+ProcessQuery processQuery = new ProcessQuery().processDefinitionId(processDefinitionId).variable("customer", "12345");
+List<Process> processes = processService.findProcesses(processQuery);]]>
+                </programlisting>
+            </section>
+
+            <section>
+                <title>Process Variable Modifications</title>
+
+                <para>
+                    While a process instance is running, the data context of the process-level conversation can be
+                    modified by applying a set of variables. These variables are merged into the
+                    existing set of variables of the process-level data context. Existing variables are overwritten
+                    with the ones passed in. New variables contained in the set of passed-in variables
+                    are added to the data context. Variables that exist in the data context but that are not
+                    passed in are not modified in any way.
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+// define process variables to modify
+List<ProcessVariable> variables = new ArrayList<ProcessVariable>();
+variables.add(new ProcessVariable("article", "987-65432-1"));
+variables.add(new ProcessVariable("count", 5));
+
+// put some variables into the data context of the process-level conversation
+processService.putVariables(processId, variables));]]>
+                </programlisting>
+            </section>
+
+            <section>
+                <title>Supported Variable Data Types</title>
+
+                <para>
+                    The name of a variable is always of type
+                    <emphasis>java.lang.String</emphasis>. The value
+                    of a variable can be one of the following data types:
+
+                    <itemizedlist>
+                        <listitem>
+                            <para>all basic Java data types (<emphasis>boolean</emphasis>,
+                                <emphasis>int</emphasis>, ...)
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                <emphasis>java.lang.String</emphasis>
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                <emphasis>java.util.Date</emphasis>
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                <emphasis>java.io.Serializable</emphasis>
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>null</para>
+                        </listitem>
+                    </itemizedlist>
+                </para>
+            </section>
+
+        </section>
+
+        <section>
+            <title>User Service</title>
+
+            <para>
+                The user service provides access to the workflow users and groups. The user service is of type
+                <emphasis>com.edorasware.bpm.execution.core.identity.UserService</emphasis>.
+            </para>
+
+            <para>
+                The configured user service can be injected into a Spring bean or looked up from the
+                application context either "by type" (type
+                <emphasis>com.edorasware.bpm.execution.core.identity.UserService</emphasis>
+                ) or "by name" (based on the user service id specified in the
+                <emphasis>user-service-configuration</emphasis>
+                element).
+            </para>
+
+            <para>
+                Users and groups can be queried from the user service by passing in a
+                <emphasis>com.edorasware.bpm.execution.core.identity.UserQuery</emphasis>
+                instance:
+            </para>
+
+            <programlisting>
+                <![CDATA[
+// find a specific user by id
+UserId userId = UserId.get("bob");
+User user = userService.findUser(UserQuery.byId(userId));
+
+// retrieve its attributes
+List<GroupId> groups = user.getGroups();
+
+// find all users in group "managers"
+List<User> managers = userService.findUsers(new UserQuery().group(GroupId.get("managers")));
+
+// find all known users
+List<User> allUsers = userService.findUsers(new UserQuery());]]>
+            </programlisting>
+
+            <para>
+                If multiple predicates are specified on the
+                <emphasis>com.edorasware.bpm.execution.core.identity.UserQuery</emphasis>
+                instance, they are all combined with the logical AND operator:
+            </para>
+
+            <programlisting>
+                <![CDATA[
+// find user with id "bob" and membership in group "managers"
+User user = userService.findUser(UserQuery.byId(UserId.get("bob")).group(GroupId.get("managers")));]]>
+            </programlisting>
+        </section>
+
+        <section>
+            <title>Group Service</title>
+
+            <para>
+                The group service provides access to the workflow groups. The group service is of type
+                <emphasis>com.edorasware.bpm.execution.core.identity.GroupService</emphasis>.
+            </para>
+
+            <para>
+                The configured group service can be injected into a Spring bean or looked up from the
+                application context either "by type" (type
+                <emphasis>com.edorasware.bpm.execution.core.identity.GroupService</emphasis>
+                ) or "by name" (based on the group service id specified in the
+                <emphasis>group-service-configuration</emphasis>
+                element).
+            </para>
+
+            <para>
+                Groups can be queried from the group service by passing in a
+                <emphasis>com.edorasware.bpm.execution.core.identity.GroupQuery</emphasis>
+                instance:
+            </para>
+
+            <programlisting>
+                <![CDATA[
+// find a specific group by id
+GroupId groupId = GroupId.get("managers");
+Group group = groupService.findGroup(GroupQuery.byId(groupId));
+
+// find all known groups
+List<Group> allGroups = groupService.findGroups(new GroupQuery());]]>
+            </programlisting>
+        </section>
+
+        <section id="processEngineConfiguration">
+            <title>Configuration</title>
+
+            <para>This section describes how to configure the
+                <emphasis>edoras BPM Process Engine</emphasis>
+                in an embedded scenario, i.e. integrated into an existing application.
+            </para>
+
+            <section>
+                <title>Overview</title>
+
+                <para>
+                    The
+                    <emphasis>edoras BPM Process Engine</emphasis>
+                    is configured via a custom Spring namespace. The custom Spring namespace can be used in any standard
+                    Spring configuration file. The following configuration settings are supported:
+                </para>
+
+                <table>
+                    <caption>Configuration Settings</caption>
+                    <thead>
+                        <tr>
+                            <th>Setting</th>
+                            <th>Description</th>
+                            <th>Default Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                Id
+                            </td>
+                            <td>
+                                The mandatory id of the process engine. The id can be used to inject the process engine
+                                into any other Spring bean "by name" or to get it from the application context.
+                            </td>
+                            <td>
+                                (none)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Transaction Manager
+                            </td>
+                            <td>
+                                A reference to the Spring transaction manager bean used to manipulate process-related
+                                data. The referenced bean must be of type
+                                <emphasis>org.springframework.transaction.PlatformTransactionManager</emphasis>.
+                            </td>
+                            <td>
+                                <emphasis>transactionManager</emphasis>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Data Source
+                            </td>
+                            <td>
+                                A reference to the Spring data source bean used to persist process-related data to. The
+                                referenced bean must be of type
+                                <emphasis>javax.sql.DataSource</emphasis>.
+                            </td>
+                            <td>
+                                <emphasis>dataSource</emphasis>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Database Schema Creation Strategy
+                            </td>
+                            <td>
+                                The database schema creation strategy to apply on startup and shutdown of the
+                                application.
+                            </td>
+                            <td>
+                                <emphasis>create-or-validate</emphasis>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Process Definitions
+                            </td>
+                            <td>
+                                The optional list of process definitions deployed by the process engine at startup.
+                            </td>
+                            <td>
+                                (none)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <title>Minimal Configuration</title>
+
+                <para>
+                    The following example shows a minimal Spring configuration of the
+                    <emphasis>edoras BPM Process Engine</emphasis>:
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:bpm="http://www.edorasware.com/schema/edoras-bpm-engine"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                           http://www.edorasware.com/schema/edoras-bpm-engine
+                           http://www.edorasware.com/schema/edoras-bpm/edoras-bpm-engine-2.0.xsd">
+
+    <bean id="dataSource" class="..."/>
+    <bean id="transactionManager" class="..."/>
+
+    <bpm:process-engine id="processEngine"/>
+
+</beans>]]>
+                </programlisting>
+
+                <para>
+                    The Spring convention names are used to find the transaction manager bean and the data source bean
+                    that are injected into the process engine. The process engine is represented in the application
+                    context as an instance of type
+                    <emphasis>com.edorasware.bpm.execution.core.config.ProcessEngineInfo</emphasis>
+                    and can be injected into any other Spring bean "by type". The specified process engine id is used as
+                    the bean name to get the
+                    <emphasis>com.edorasware.bpm.execution.core.config.ProcessEngineInfo</emphasis>
+                    from the application context. Hence, the process engine can also be injected into other Spring beans
+                    "by name". Programmatically, the process engine id is available through the
+                    <emphasis>com.edorasware.bpm.execution.core.config.ProcessEngineInfo#getProcessEngineId()</emphasis>
+                    API.
+                </para>
+
+                <para>This minimal configuration of
+                    the process engine creates the database schema, if it does not yet exist, but it does not deploy any
+                    process definitions at startup.
+                </para>
+
+                <para>
+                    Important: when using the
+                    <emphasis>edoras BPM Process Engine</emphasis>
+                    in an embedded scenario, the application must use the same transaction manager and data source
+                    instance in its internal services, repositories, etc. as the ones configured for the process engine
+                    in order to ensure atomic data modifications across both the application and the process engine.
+                </para>
+
+                <para>
+                    Note: currently, only one process engine is supported per application context. Declaring multiple
+                    process engines per application context results in an exception at application startup.
+                </para>
+            </section>
+
+            <section>
+                <title>Custom Transaction Manager Bean Name and Data Source Bean Name</title>
+
+                <para>
+                    If the bean names of the transaction manager and/or the data source do not match the Spring
+                    convention names, i.e. they are different from
+                    <emphasis>transactionManager</emphasis>
+                    and
+                    <emphasis>dataSource</emphasis>, the bean names can be configured explicitly, using the respective
+                    attributes:
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+<bean id="myDataSource" class="..."/>
+<bean id="myTransactionManager" class="..."/>
+
+<bpm:process-engine id="processEngine" data-source="myDataSource" transaction-manager="myTransactionManager"/>]]>
+                </programlisting>
+            </section>
+
+            <section>
+                <title>Database Schema Creation Strategy</title>
+
+                <para>
+                    By default, the database schema for the
+                    <emphasis>edoras BPM Process Engine</emphasis>
+                    is created during application startup, if it does not yet exist, and is only validated for version
+                    compatibility if it already exists. By default, the database schema is not dropped during
+                    application shutdown. The database schema creation strategy can be set using the
+                    <emphasis>database-schema-creation-strategy</emphasis>
+                    attribute on the
+                    <emphasis>process-engine</emphasis>
+                    element:
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+<bpm:process-engine id="processEngine" database-schema-creation-strategy="validate"/>]]>
+                </programlisting>
+
+                <para>
+                    The following values are supported:
+                </para>
+
+                <table>
+                    <caption>Database Schema Creation Strategies</caption>
+                    <thead>
+                        <tr>
+                            <th>Value</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                validate
+                            </td>
+                            <td>
+                                Validates the database schema (version compatibility).
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                create-or-validate
+                            </td>
+                            <td>
+                                Creates the database schema, if it does not yet exist. Validates the
+                                schema, if it already exists.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                create-drop
+                            </td>
+                            <td>
+                                Always creates the database schema at startup, and drops the database schema at
+                                shutdown.
+                                Useful for testing purposes only.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <title>Specifying Process Definitions</title>
+
+                <para>
+                    Process definitions can be deployed automatically at application startup. This is achieved by
+                    declaring a list of BPMN 2.0 XML process definition files within the
+                    <emphasis>process-engine</emphasis>
+                    configuration using the
+                    <emphasis>process-definitions</emphasis>
+                    element:
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+<bpm:process-engine id="processEngine">
+    <bpm:process-definitions>
+        <bpm:resource location="classpath:/com/domain/order/orderProcess.bpmn20.xml"/>
+        <bpm:resource location="classpath:/com/domain/expense/*.bpmn20.xml"/>
+    </bpm:process-definitions>
+</bpm:process-engine>]]>
+                </programlisting>
+
+                <para>
+                    The value specified inside the
+                    <emphasis>resource</emphasis>
+                    elements supports all Spring resource patterns and schemes (classpath, file, http, ...).
+                </para>
+
+                <para>
+                    Alternatively, process definitions can be declared in a top-level element. In that case, they can be
+                    referenced from the
+                    <emphasis>process-engine</emphasis>
+                    configuration element using the
+                    <emphasis>process-definitions</emphasis>
+                    attribute:
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+<bpm:process-definitions id="myProcessDefinitions">
+    <bpm:resource location="classpath:/com/domain/order/orderProcess.bpmn20.xml"/>
+    <bpm:resource location="classpath:/com/domain/expense/*.bpmn20.xml"/>
+</bpm:process-definitions>
+
+<bpm:process-engine id="processEngine" process-definitions="myProcessDefinitions"/>]]>
+                </programlisting>
+
+                <para>
+                    This makes it possible to override the process definitions in other Spring configuration files or in
+                    child application contexts.
+                </para>
+            </section>
+
+            <section>
+                <title>Process Service Configuration</title>
+
+                <para>
+                    The process service supports controlling process instances and searching for running process
+                    instances.
+                </para>
+
+                <para>
+                    The process service is exposed in the application context and can be injected into any other Spring
+                    bean or retrieved from the application context "by type", using
+                    <emphasis>com.edorasware.bpm.execution.core.process.ProcessService</emphasis>
+                    as the expected type. If access to the process service is required "by name", an id for the process
+                    service can be specified using the nested
+                    <emphasis>process-service-configuration</emphasis>
+                    element within the
+                    <emphasis>process-engine</emphasis>
+                    element:
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+<bpm:process-engine id="processEngine">
+    <bpm:process-service-configuration id="defaultProcessService"/>
+</bpm:process-engine>]]>
+                </programlisting>
+
+                <para>
+                    Based on this configuration, the
+                    <emphasis>edoras BPM Process Engine</emphasis>
+                    uses the specified bean id to expose the
+                    process service in the application context. Thus, the process service can also be injected or
+                    retrieved
+                    from the application context "by name".
+                </para>
+            </section>
+
+            <section>
+                <title>User Service Configuration</title>
+
+                <para>
+                    The user service provides access to user and group information that is relevant in the context of
+                    processes and tasks. The user service is typically used in combination with other services, e.g.
+                    together with the task service that supports searching for tasks assigned to a specific user or
+                    group.
+                </para>
+
+                <para>
+                    By default,
+                    <emphasis>edoras BPM Process Engine</emphasis>
+                    is configured with a user service implementation that reads
+                    the
+                    user and group information from the standard Activiti database. This default user service is created
+                    by
+                    the
+                    <emphasis>com.edorasware.bpm.execution.core.config.support.ActivitiUserServiceFactory</emphasis>
+                    class. If the default user service is used, read and write access to the user and group data via
+                    Activiti's identity service (<emphasis>org.activiti.engine.IdentityService</emphasis>) is supported.
+                    Please see
+                    <ulink url="http://www.activiti.org">http://www.activiti.org</ulink>
+                    for more information on Activiti's identity service.
+                </para>
+
+                <para>
+                    The user service is exposed in the application context and can be injected into any other Spring
+                    bean or
+                    retrieved from the application context "by type", using
+                    <emphasis>com.edorasware.bpm.execution.core.identity.UserService</emphasis>
+                    as the expected type. If access to the user service is required "by name", an id for the user
+                    service can be specified using the nested
+                    <emphasis>user-service-configuration</emphasis>
+                    element within the
+                    <emphasis>process-engine</emphasis>
+                    element:
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+<bpm:process-engine id="processEngine">
+    <bpm:user-service-configuration id="defaultUserService"/>
+</bpm:process-engine>]]>
+                </programlisting>
+
+                <para>
+                    Based on this configuration, the
+                    <emphasis>edoras BPM Process Engine</emphasis>
+                    uses the specified bean id to expose the
+                    user
+                    service in the application context. Thus, the user service can also be injected or retrieved from
+                    the
+                    application context "by name".
+                </para>
+
+                <para>
+                    In case an external user management system like LDAP or ADS needs to be integrated into the edoras
+                    BPM process engine, a custom implementation of the user service factory creating the custom user
+                    service can be configured via the
+                    <emphasis>user-service-factory</emphasis>
+                    attribute of the
+                    <emphasis>user-service-configuration</emphasis>
+                    element:
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+<bpm:process-engine id="processEngine">
+    <bpm:user-service-configuration user-service-factory="myUserServiceFactory"/>
+</bpm:process-engine>]]>
+                </programlisting>
+
+                <para>
+                    The value of the
+                    <emphasis>user-service-factory</emphasis>
+                    attribute refers to a bean of the type
+                    <emphasis>com.edorasware.bpm.execution.core.config.support.UserServiceFactory</emphasis>
+                    which in turn is responsible for creating an instance of<emphasis>
+                    com.edorasware.bpm.execution.core.identity.UserService</emphasis>. As with the default
+                    implementation, a custom id for the user service instance can be specified with the
+                    <emphasis>id</emphasis>
+                    attribute of the
+                    <emphasis>user-service-configuration</emphasis>
+                    element.
+                </para>
+            </section>
+
+            <section>
+                <title>Group Service Configuration</title>
+
+                <para>
+                    The group service provides access to group information that is relevant in the context of
+                    processes and tasks. The group service is typically used in combination with other services, e.g.
+                    together with the task service that supports searching for tasks assigned to a specific group.
+                </para>
+
+                <para>
+                    By default,
+                    <emphasis>edoras BPM Process Engine</emphasis>
+                    is configured with a group service implementation that reads
+                    the
+                    group information from the standard Activiti database. This default group service is created
+                    by
+                    the
+                    <emphasis>com.edorasware.bpm.execution.core.config.support.ActivitiGroupServiceFactory</emphasis>
+                    class. If the default group service is used, read and write access to the group data via
+                    Activiti's identity service (<emphasis>org.activiti.engine.IdentityService</emphasis>) is supported.
+                    Please see
+                    <ulink url="http://www.activiti.org">http://www.activiti.org</ulink>
+                    for more information on Activiti's identity service.
+                </para>
+
+                <para>
+                    The group service is exposed in the application context and can be injected into any other Spring
+                    bean or
+                    retrieved from the application context "by type", using
+                    <emphasis>com.edorasware.bpm.execution.core.identity.GroupService</emphasis>
+                    as the expected type. If access to the group service is required "by name", an id for the user
+                    service can be specified using the nested
+                    <emphasis>group-service-configuration</emphasis>
+                    element within the
+                    <emphasis>process-engine</emphasis>
+                    element:
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+<bpm:process-engine id="processEngine">
+    <bpm:group-service-configuration id="defaultGroupService"/>
+</bpm:process-engine>]]>
+                </programlisting>
+
+                <para>
+                    Based on this configuration, the
+                    <emphasis>edoras BPM Process Engine</emphasis>
+                    uses the specified bean id to expose the
+                    group
+                    service in the application context. Thus, the group service can also be injected or retrieved from
+                    the
+                    application context "by name".
+                </para>
+
+                <para>
+                    In case an external group management system like LDAP or ADS needs to be integrated into the edoras
+                    BPM process engine, a custom implementation of the group service factory creating the custom group
+                    service can be configured via the
+                    <emphasis>group-service-factory</emphasis>
+                    attribute of the
+                    <emphasis>group-service-configuration</emphasis>
+                    element:
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+<bpm:process-engine id="processEngine">
+    <bpm:group-service-configuration group-service-factory="myGroupServiceFactory"/>
+</bpm:process-engine>]]>
+                </programlisting>
+
+                <para>
+                    The value of the
+                    <emphasis>group-service-factory</emphasis>
+                    attribute refers to a bean of the type
+                    <emphasis>com.edorasware.bpm.execution.core.config.support.GroupServiceFactory</emphasis>
+                    which in turn is responsible for creating an instance of<emphasis>
+                    com.edorasware.bpm.execution.core.identity.GroupService</emphasis>. As with the default
+                    implementation, a custom id for the group service instance can be specified with the
+                    <emphasis>id</emphasis>
+                    attribute of the
+                    <emphasis>group-service-configuration</emphasis>
+                    element.
+                </para>
+            </section>
+
+            <section>
+                <title>Advanced Process Engine Configuration</title>
+
+                <para>
+                    In certain cases, more fine-grained control over the configuration of the underlying process engine
+                    is required. The
+                    <emphasis>edoras BPM Process Engine</emphasis>
+                    supports a generic mechanism for specifying advanced configuration settings that are delegated to
+                    the underlying process engine factory. Advanced configuration properties can be defined via the
+                    nested
+                    <emphasis>process-engine-configuration</emphasis>
+                    element:
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+<bpm:process-engine id="processEngine">
+    <bpm:process-engine-configuration>
+        <!-- deactivate job executor -->
+        <bpm:property name="jobExecutorActivate" value="false"/>
+
+        <!-- set reference to custom expression manager bean -->
+        <bpm:property name="expressionManager" ref="myExpressionManager"/>
+    </bpm:process-engine-configuration>
+</bpm:process-engine>
+
+<bean id="myExpressionManager" class="..."/>]]>
+                </programlisting>
+
+                <para>
+                    Property values can be literals or references to Spring beans. The set of property
+                    names and values supported by the advanced process engine configuration mechanism depends on the
+                    underlying process engine factory implementation. By default, all properties available on the
+                    <emphasis>com.edorasware.bpm.execution.core.config.support.ActivitiProcessEngineConfiguration
+                    </emphasis>
+                    class are supported.
+                </para>
+
+                <para>
+                    Properties configured via the advanced configuration settings overwrite configuration settings
+                    defined via
+                    <emphasis>process-engine</emphasis>
+                    attributes.
+                </para>
+
+                <para>
+                    Configuration properties are applied to the underlying process engine by the process engine factory.
+                    By default, a process engine factory that configures and creates an Activiti process engine is used.
+                    The default process engine factory supports the conversion of literal values to the required target
+                    type based on Spring's default property editor support (e.g. boolean, int, ...). In case the way a
+                    specific property value is applied needs to be controlled more explicitly, a custom implementation
+                    of the
+                    <emphasis>com.edorasware.bpm.execution.core.config.support.ProcessEngineFactory</emphasis>
+                    interface can be defined as a Spring bean and referenced via the
+                    <emphasis>process-engine-factory</emphasis>
+                    attribute of the
+                    <emphasis>process-engine-configuration</emphasis>
+                    element:
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+<bpm:process-engine id="processEngine">
+    <bpm:process-engine-configuration process-engine-factory="myProcessEngineFactory"/>
+</bpm:process-engine>
+
+<bean id="myProcessEngineFactory" class="..."/>]]>
+                </programlisting>
+
+                <para>
+                    The custom process engine factory implementation is responsible to apply the process engine
+                    configuration properties to the underlying process engine and to create the actual instance of the
+                    underlying process engine.
+                </para>
+
+                <para>
+                    The class
+                    <emphasis>com.edorasware.bpm.execution.core.config.support.ActivitiProcessEngineFactory</emphasis>
+                    acts as a good starting point to extend the Activiti process engine configuration. It provides
+                    various
+                    hooks to extend or customize the configuration of the Activiti process engine.
+                </para>
+            </section>
+
+            <section>
+                <title>Access to Activiti Process Engine</title>
+
+                <para>
+                    If the default
+                    <emphasis>com.edorasware.bpm.execution.core.config.support.ActivitiProcessEngineFactory</emphasis>
+                    (or a custom sub-class) is used to create the underlying process engine, access to the Activiti
+                    process engine (of type
+                    <emphasis>org.activiti.engine.ProcessEngine</emphasis>) is possible via the
+                    <emphasis>com.edorasware.bpm.execution.core.config.ProcessEngineInfo</emphasis>
+                    available from the application context:
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+// injected by type / by name
+ProcessEngineInfo processEngineInfo;
+
+// type org.activiti.engine.ProcessEngine
+ProcessEngine activitiProcessEngine = processEngineInfo.getNativeProcessEngine(ProcessEngine.class);]]>
+                </programlisting>
+
+                <para>
+                    In case the Activiti process engine instance has to be exposed directly (and not only via the
+                    process engine info instance) in the application context, the
+                    <emphasis>com.edorasware.bpm.execution.core.config.support.ActivitiProcessEngineFactoryBean
+                    </emphasis>
+                    can be used:
+                </para>
+
+                <programlisting>
+                    <![CDATA[
+<bean id="activitiProcessEngine"
+      class="com.edorasware.bpm.execution.core.config.support.ActivitiProcessEngineFactoryBean">
+    <property name="processEngineInfo" ref="processEngine"/>
+</bean>]]>
+                </programlisting>
+
+                <para>
+                    The factory bean exposes the Activiti process engine of type
+                    <emphasis>org.activiti.engine.ProcessEngine</emphasis>
+                    under the bean id
+                    <emphasis>activitiProcessEngine</emphasis>
+                    , which then can be injected into any other Spring bean (by name or by type).
+                </para>
+
+            </section>
+        </section>
+
+        <section id="bpmnSupport">
+            <title>BPMN 2.0 Support</title>
+
+            <para>
+                The
+                <emphasis>edoras BPM Process Engine</emphasis>
+                currently supports the following BPMN 2.0 elements:
+
+                <itemizedlist>
+                    <listitem>
+                        <para>none start event</para>
+                    </listitem>
+                    <listitem>
+                        <para>user task</para>
+                    </listitem>
+                    <listitem>
+                        <para>service task</para>
+                    </listitem>
+                    <listitem>
+                        <para>script task</para>
+                    </listitem>
+                    <listitem>
+                        <para>exclusive gateway</para>
+                    </listitem>
+                    <listitem>
+                        <para>sequence flow / conditional sequence flow</para>
+                    </listitem>
+                    <listitem>
+                        <para>none end event</para>
+                    </listitem>
+                </itemizedlist>
+
+                Usage of other BPMN 2.0 elements (e.g. call activity / sub process, receive task, ...) is experimental.
+            </para>
+        </section>
+    </chapter>
+
+    <chapter id="demoApp">
+        <title>Demo Application</title>
+
+        <para>
+            The edorasware BPM release ships with a demo application. The demo application is a JSF application that
+            demonstrates usages of the task service, the process service, and the user service. The demo application
+            also displays the configuration of the
+            <emphasis>edoras BPM Task Management</emphasis>
+            and the
+            <emphasis>edoras BPM Process Engine</emphasis>.
+        </para>
+
+        <para>
+            Some important files of the demo application are:
+
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        <emphasis>WEB-INF/web.xml</emphasis>: Servlet context configuration file that wires Spring and
+                        JSF into the web application.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <emphasis>WEB-INF/faces-config.xml</emphasis>: JSF configuration file that registers an
+                        ELResolver to resolve Spring bean names used in expressions. It also defines the navigation
+                        rules to apply.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <emphasis>WEB-INF/application-config.xml</emphasis>: Spring configuration file that declares and
+                        configures the
+                        <emphasis>edoras BPM Task Management</emphasis>
+                        , the
+                        <emphasis>edoras BPM Process Engine</emphasis>
+                        , and their dependencies.
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        <emphasis>index.xhtml</emphasis>: The entry page of the demo application.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </para>
+
+        <para>
+            Note that all files of the demo application are bundled in the
+            <emphasis>edoras-bpm-execution-demo-&lt;version&gt;.war</emphasis>.
+        </para>
+
+    </chapter>
+</book>
