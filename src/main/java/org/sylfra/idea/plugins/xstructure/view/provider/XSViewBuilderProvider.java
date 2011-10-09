@@ -12,7 +12,7 @@ import org.jetbrains.annotations.Nullable;
  * Extension point to inject xStructure view
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: XSViewBuilderProvider.java 49 2009-04-09 19:33:43Z syllant $
  */
 public class XSViewBuilderProvider implements XmlStructureViewBuilderProvider
 {

@@ -30,7 +30,7 @@ import java.util.regex.Pattern;
  * Miscelleanous convenient methods
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: XSUtils.java 67 2010-04-12 19:51:31Z syllant $
  */
 public abstract class XSUtils
 {

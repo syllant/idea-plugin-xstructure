@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
  * A XML model definition.
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: Schema.java 34 2009-03-22 19:49:45Z syllant $
  */
 public class Schema
 {

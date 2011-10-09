@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NotNull;
  * An expression defined in a mapping which has to be resolved, e.g. : label or tip
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: IXMappingExp.java 31 2007-12-23 11:23:10Z syllant $
  */
 public interface IXMappingExp
 {

@@ -22,7 +22,7 @@ import java.util.List;
  * XStream converter for a whole mapping set definition
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: XMappingSetConverter.java 33 2009-03-22 17:43:10Z syllant $
  */
 class XMappingSetConverter implements Converter
 {

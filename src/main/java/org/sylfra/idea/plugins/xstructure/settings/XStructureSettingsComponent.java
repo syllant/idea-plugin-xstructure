@@ -14,7 +14,7 @@ import java.io.IOException;
  * Manage plugin settings
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: XStructureSettingsComponent.java 31 2007-12-23 11:23:10Z syllant $
  */
 @State(
   name = "XStructureSettings",

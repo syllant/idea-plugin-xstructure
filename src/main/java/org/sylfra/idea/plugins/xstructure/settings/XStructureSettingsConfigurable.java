@@ -16,7 +16,7 @@ import javax.swing.*;
  * Used to interface settings inside Settings panel
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: XStructureSettingsConfigurable.java 60 2010-04-11 08:03:27Z syllant $
  */
 public class XStructureSettingsConfigurable implements ApplicationComponent, Configurable
 {

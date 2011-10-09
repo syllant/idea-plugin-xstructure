@@ -8,7 +8,7 @@ import org.sylfra.idea.plugins.xstructure.config.IXMappingExp;
  * Implementation of raw expression for 'xpath' implementation type
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: XMappingExpXPathImpl.java 31 2007-12-23 11:23:10Z syllant $
  */
 public class XMappingExpXPathImpl implements IXMappingExp
 {

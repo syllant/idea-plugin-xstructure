@@ -21,7 +21,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
  * Custom implementation for structure view
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: XSViewComponent.java 55 2009-09-08 17:56:46Z syllant $
  */
 public class XSViewComponent extends StructureViewComponent
 {

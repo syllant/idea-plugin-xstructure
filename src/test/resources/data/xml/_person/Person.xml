@@ -1,0 +1,5 @@
+<Person xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="Person.xsd">
+  <Name>Bob</Name>
+  <DOB>01/01/1976</DOB>
+</Person>

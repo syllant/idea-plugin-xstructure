@@ -25,7 +25,7 @@ import java.util.Set;
  * Select a mapping set from a combo box for the current edited file
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: SelectMappingSetAction.java 55 2009-09-08 17:56:46Z syllant $
  */
 public class SelectMappingSetAction extends ComboBoxAction
 {

@@ -24,7 +24,7 @@ import java.util.regex.Pattern;
  * Implementation of resolver for 'xpath' implementation type
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: XMappingResolverXPathImpl.java 31 2007-12-23 11:23:10Z syllant $
  */
 public class XMappingResolverXPathImpl implements IXMappingResolver, ApplicationComponent
 {

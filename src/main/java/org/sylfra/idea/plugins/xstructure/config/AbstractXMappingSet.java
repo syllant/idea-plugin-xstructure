@@ -11,7 +11,7 @@ import java.util.List;
  * Base implementation for a mapping set
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: AbstractXMappingSet.java 31 2007-12-23 11:23:10Z syllant $
  */
 public abstract class AbstractXMappingSet implements IXMappingSet
 {

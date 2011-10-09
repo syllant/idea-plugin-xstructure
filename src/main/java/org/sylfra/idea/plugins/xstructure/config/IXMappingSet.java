@@ -10,7 +10,7 @@ import java.util.List;
  * The implementation may be different according the implementation type (default, XPath, ...)
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: IXMappingSet.java 31 2007-12-23 11:23:10Z syllant $
  */
 public interface IXMappingSet
 {

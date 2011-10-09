@@ -15,7 +15,7 @@ import org.sylfra.idea.plugins.xstructure.config.IXMappingSet;
  * TreeModel implementation for xStructure
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: XSViewTreeModel.java 49 2009-04-09 19:33:43Z syllant $
  */
 public class XSViewTreeModel extends XmlStructureViewTreeModel implements Disposable
 {

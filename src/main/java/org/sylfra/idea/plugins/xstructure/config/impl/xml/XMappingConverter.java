@@ -26,7 +26,7 @@ import java.io.IOException;
  * XStream converter for a XMapping definition
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: XMappingConverter.java 75 2011-09-03 08:42:20Z syllant $
  */
 class XMappingConverter implements Converter
 {

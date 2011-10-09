@@ -9,7 +9,7 @@ import java.util.List;
  * Factory in charge of loading mapping sets
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: IXMappingFactory.java 41 2009-03-27 21:15:38Z syllant $
  */
 public interface IXMappingFactory<T extends IXMappingSet>
 {

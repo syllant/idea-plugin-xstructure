@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact name="xstructure">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="root">
+      <element id="archive" name="xstructure.zip">
+        <element id="directory" name="xstructure">
+          <element id="directory" name="lib">
+            <element id="archive" name="xstructure.jar">
+              <element id="module-output" name="xStructure" />
+            </element>
+          </element>
+          <element id="directory" name="default-mappings">
+            <element id="dir-copy" path="$PROJECT_DIR$/src/main/config/default-mappings/default" />
+          </element>
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

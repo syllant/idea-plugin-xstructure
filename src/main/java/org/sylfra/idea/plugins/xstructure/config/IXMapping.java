@@ -10,7 +10,7 @@ import java.io.Serializable;
  * A unit mapping belonging to a mapping set
  *
  * @author <a href="mailto:sylfradev@yahoo.fr">Sylvain FRANCOIS</a>
- * @version $Id$
+ * @version $Id: IXMapping.java 33 2009-03-22 17:43:10Z syllant $
  */
 public interface IXMapping extends Serializable
 {
