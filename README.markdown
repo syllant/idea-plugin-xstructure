@@ -14,14 +14,14 @@ Instead of this:
 
 you could see:
 
-<table>
+<table border="0">
   <tr>
     <th>this:</th>
-    <td>![xStructure sample 1](https://github.com/syllant/idea-plugin-xstructure/raw/master/src/main/doc/screenshots/wiki_xs_view_webapp2.png)</td>
+    <th>or this:</th>
   </tr>
   <tr>
-    <th>or this:</th>
-    <td>![xStructure sample 2](https://github.com/syllant/idea-plugin-xstructure/raw/master/src/main/doc/screenshots/wiki_xs_view_webapp1_v2.png)</td>
+    <td><img alt="xStructure sample 1" src="https://github.com/syllant/idea-plugin-xstructure/raw/master/src/main/doc/screenshots/wiki_xs_view_webapp2.png"/></td>
+    <td><img alt="xStructure sample 2" src="https://github.com/syllant/idea-plugin-xstructure/raw/master/src/main/doc/screenshots/wiki_xs_view_webapp1_v2.png"/></td>
   </tr>
 </table>
 
