@@ -163,7 +163,7 @@ public class XMappingResolverDefaultImpl implements IXMappingResolver, Applicati
     {
       XMappingDefaultImpl regexpXMapping = (XMappingDefaultImpl) xMapping;
 
-      // Matcher ay be null when pattern string is invalid
+      // Matcher may be null when pattern string is invalid
       Pattern pattern = regexpXMapping.getMatchPattern();
       if ((pattern != null) && (pattern.matcher(path).matches()))
       {

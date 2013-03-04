@@ -1,0 +1,22 @@
+- XSD validator related to current XSD
+- check when xml file schema changes
+- synchronize button in settings
+- shows current MDF (loaded)
+ 
+- match files by path
+- match files xml structure
+- add mapping description
+- logo
+- configuration 
+  - list existing mappings
+  - import/update mappings from repository
+- sort order by ? in mappings
+- check schema version
+- report mappings def errors
+- intention to create new file
+- check if implementation is supported
+- deprecated attribute to mark MDF which should be deleted
+
+- MDF :
+  - JBoss service
+  - XSD Schema

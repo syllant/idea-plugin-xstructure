@@ -76,14 +76,19 @@ public class XStructurePlugin implements ApplicationComponent
     addSchemaResource("1_1");
   }
 
-  private void addSchemaResource(String version)
+  private void addSchemaResource(final String version)
   {
-    File file = new File(
-      getClass().getResource("/org/sylfra/idea/plugins/xstructure/resources/schemas/xstructure_" + version + ".xsd")
-        .getFile());
-    ExternalResourceManager.getInstance().addResource(
-      "http://plugins.intellij.net/xstructure/ns/xstructure_" + version + ".xsd",
-      file.getAbsolutePath());
+    final File file = new File(getClass().getResource(
+      "/org/sylfra/idea/plugins/xstructure/resources/schemas/xstructure_" + version + ".xsd").getFile());
+    ApplicationManager.getApplication().runWriteAction(new Runnable()
+    {
+      public void run()
+      {
+        ExternalResourceManager.getInstance().addResource(
+          "http://plugins.intellij.net/xstructure/ns/xstructure_" + version + ".xsd",
+          file.getAbsolutePath());
+      }
+    });
   }
 
   /**

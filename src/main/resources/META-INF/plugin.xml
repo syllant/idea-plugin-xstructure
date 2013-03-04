@@ -12,14 +12,12 @@
 </html>
     ]]></description>
   <category>xml</category>
-  <version>1.4.3</version>
+  <version>1.4.4</version>
   <vendor email="syllant@gmail.com" url="http://xstructure.googlecode.com/">Sylvain FRANCOIS</vendor>
   <change-notes><![CDATA[
 <html>
   <ul>
-    <li>New: Update of DocBook MPD (Stefan Zeller's contribution)
-    <li>Fix: NPE with invalid pattern strings
-    <li>Fix: XSD schemas were not properly registered anymore
+    <li>Fix: Support for Idea 11
  </ul>
  <em>
 </html>
