@@ -12,12 +12,12 @@
 </html>
     ]]></description>
   <category>xml</category>
-  <version>1.4.4</version>
-  <vendor email="syllant@gmail.com" url="http://xstructure.googlecode.com/">Sylvain FRANCOIS</vendor>
+  <version>1.4.5</version>
+  <vendor email="syllant@gmail.com" url="https://github.com/syllant/idea-plugin-xstructure">Sylvain FRANCOIS</vendor>
   <change-notes><![CDATA[
 <html>
   <ul>
-    <li>Fix: Support for Idea 11
+    <li>Fix: Support for Idea 12
  </ul>
  <em>
 </html>
