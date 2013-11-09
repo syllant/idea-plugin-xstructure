@@ -2,7 +2,7 @@
 
 ## What is it?
 
-xStructure is a plugin for [IntelliJ IDEA][http://www.jetbrains.com/idea/] Java IDE.
+xStructure is a plugin for [IntelliJ IDEA](http://www.jetbrains.com/idea/) Java IDE.
 
 It provides a flexible way of displaying structure of XML files, not only based on tags names, but using attributes and tag values to make navigation easier. 
 
