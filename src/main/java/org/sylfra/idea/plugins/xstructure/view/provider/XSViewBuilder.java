@@ -3,10 +3,12 @@ package org.sylfra.idea.plugins.xstructure.view.provider;
 import com.intellij.ide.structureView.StructureView;
 import com.intellij.ide.structureView.StructureViewModel;
 import com.intellij.ide.structureView.TreeBasedStructureViewBuilder;
+import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.fileEditor.FileEditor;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.xml.XmlFile;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.sylfra.idea.plugins.xstructure.XStructurePlugin;
 import org.sylfra.idea.plugins.xstructure.config.IXMappingSet;
 import org.sylfra.idea.plugins.xstructure.view.XSViewComponent;
@@ -29,19 +31,17 @@ public class XSViewBuilder extends TreeBasedStructureViewBuilder
     this.nestedViewBuilder = nestedViewBuilder;
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @NotNull
-  public StructureViewModel createStructureViewModel()
+  @Override
+  public StructureViewModel createStructureViewModel(@Nullable Editor editor)
   {
     IXMappingSet xMappingSet = XStructurePlugin.getInstance().getXMappingSetRegistry().getSelectedXMappingSet(file);
     if ((xMappingSet == null) && (nestedViewBuilder != null))
     {
-      return nestedViewBuilder.createStructureViewModel();
+      return nestedViewBuilder.createStructureViewModel(editor);
     }
     
-    return new XSViewTreeModel(file, xMappingSet);
+    return new XSViewTreeModel(editor, file, xMappingSet);
   }
 
   /**
@@ -58,6 +58,6 @@ public class XSViewBuilder extends TreeBasedStructureViewBuilder
   @NotNull
   public StructureView createStructureView(final FileEditor fileEditor, final Project project)
   {
-    return new XSViewComponent(fileEditor, createStructureViewModel(), project);
+    return new XSViewComponent(fileEditor, createStructureViewModel(null), project);
   }
 }

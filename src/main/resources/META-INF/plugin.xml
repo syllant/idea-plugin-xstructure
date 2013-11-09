@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE idea-plugin PUBLIC
         "Plugin/DTD" "http://plugins.intellij.net/plugin.dtd">
-<idea-plugin version="2" url="https://github.com/syllant/idea-plugin-xstructure">
+<idea-plugin url="https://github.com/syllant/idea-plugin-xstructure">
   <id>org.sylfra.idea.plugins.xstructure</id>
   <name>xStructure</name>
   <description><![CDATA[
@@ -12,18 +12,18 @@
 </html>
     ]]></description>
   <category>xml</category>
-  <version>1.4.6</version>
+  <version>1.5.0</version>
   <vendor email="syllant@gmail.com" url="https://github.com/syllant">Sylvain FRANCOIS</vendor>
   <change-notes><![CDATA[
 <html>
-  <b>1.4.6</b> (06/23/2013)
+  <b>1.5.0</b> (11/09/2013)
   <ul>
-    <li>Support for all IntelliJ Platform Products
+    <li>Compatibility from branch 131 for all IntelliJ Platform Products
  </ul>
  <em>
 </html>
 ]]></change-notes>
-  <idea-version since-build="10000"/>
+  <idea-version since-build="131.0"/>
   <depends>com.intellij.modules.lang</depends>
   <resource-bundle>org.sylfra.idea.plugins.xstructure.resources.XSBundle</resource-bundle>
   <depends optional="true">XPathView</depends>

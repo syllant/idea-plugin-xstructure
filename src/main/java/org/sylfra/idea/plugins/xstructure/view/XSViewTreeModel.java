@@ -6,6 +6,7 @@ import com.intellij.ide.util.treeView.smartTree.Filter;
 import com.intellij.ide.util.treeView.smartTree.Grouper;
 import com.intellij.ide.util.treeView.smartTree.Sorter;
 import com.intellij.openapi.Disposable;
+import com.intellij.openapi.editor.Editor;
 import com.intellij.psi.xml.XmlFile;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -23,9 +24,9 @@ public class XSViewTreeModel extends XmlStructureViewTreeModel implements Dispos
   private IXMappingSet xMappingSet;
   private XmlFile xmlFile;
 
-  public XSViewTreeModel(@NotNull XmlFile xmlFile, @Nullable IXMappingSet xMappingSet)
+  public XSViewTreeModel(Editor editor, @NotNull XmlFile xmlFile, @Nullable IXMappingSet xMappingSet)
   {
-    super(xmlFile);
+    super(xmlFile, editor);
     this.xmlFile = xmlFile;
     this.xMappingSet = xMappingSet;
 
