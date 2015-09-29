@@ -12,18 +12,18 @@
 </html>
     ]]></description>
   <category>xml</category>
-  <version>1.5.0</version>
+  <version>1.5.1</version>
   <vendor email="syllant@gmail.com" url="https://github.com/syllant">Sylvain FRANCOIS</vendor>
   <change-notes><![CDATA[
 <html>
-  <b>1.5.0</b> (11/09/2013)
+  <b>1.5.1</b> (05/21/2014)
   <ul>
-    <li>Compatibility from branch 131 for all IntelliJ Platform Products
+    <li>Fix: Compatibility issue with branch 135 for all IntelliJ Platform Products
  </ul>
  <em>
 </html>
 ]]></change-notes>
-  <idea-version since-build="131.0"/>
+  <idea-version since-build="135.0"/>
   <depends>com.intellij.modules.lang</depends>
   <resource-bundle>org.sylfra.idea.plugins.xstructure.resources.XSBundle</resource-bundle>
   <depends optional="true">XPathView</depends>

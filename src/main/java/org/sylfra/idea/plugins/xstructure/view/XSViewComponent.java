@@ -27,7 +27,7 @@ public class XSViewComponent extends StructureViewComponent
 {
   public XSViewComponent(FileEditor editor, StructureViewModel structureViewModel, Project project)
   {
-    super(editor, structureViewModel, project);
+    super(editor, structureViewModel, project, false);
     super.getTree().setCellRenderer(new XStructureNodeRenderer());
     ToolTipManager.sharedInstance().registerComponent(getTree());
   }
